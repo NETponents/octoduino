@@ -1,0 +1,20 @@
+language: cpp
+git: 
+  submodules: false 
+notifications:
+  email:
+    recipients:
+      - wordman05@gmail.com
+    on_success: change
+    on_failure: always
+branches:
+  only:
+    - master
+addons:
+  apt:
+    packages:
+      - python
+install:
+  - pip install ino
+script:
+  - ino build
