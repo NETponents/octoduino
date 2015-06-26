@@ -16,6 +16,6 @@ addons:
     packages:
       - python
 install:
-  - pip install ino
+  - sudo pip install ino
 script:
   - ino build
