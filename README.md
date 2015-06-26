@@ -1,4 +1,5 @@
 # Octoduino
+[![Build Status](https://travis-ci.org/NETponents/octoduino.svg?branch=master)](https://travis-ci.org/NETponents/octoduino)
 ## What is it?
 Octoduino is a program for the Arduino that allows you to run script files from an SD card.
 
