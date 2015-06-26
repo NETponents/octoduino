@@ -35,18 +35,19 @@ Then go ahead and open the sketch using your favorite Arduino IDE. Go ahead and 
 ### 2. Creating the config files
 Now that your Arduino is ready to go, let's get the SD card ready. Insert the card into your computer. Make sure the card is COMPLETELY empty. Then format it as 'FAT32'. Once that is complete, create a new file named 'octoduino.config'. Open it using your favorite text editor. Copy the following code, replacing anything between {} with your own parameters (do not include the brackets). If you are unsure of what to put, see the language-specific options in the **~/Docs** folder.
 
-  language={ your language id }
-  output=true
-  debug={ set to true for debug messages }
-  start={ The source file to be executed }
+     language={ your language id }
+     output=true
+     debug={ set to true for debug messages }
+     start={ The source file to be executed }
 
 ### 3. Uploading your code files
 Now you can begin to upload your code files. For a simple NODE.JS program, your SD card would look like this:
-  + root
-  |-- octoduino.config
-  |-- program.js
-  |-+ inc
-    |-- library.js
+
+     + root
+     |-- octoduino.config
+     |-- program.js
+     |-+ inc
+       |-- library.js
 
 ### 4. Run your program
 Make sure you have a serial console open to your Arduino. Insert the SD card an reset your Arduino. You should begin to see your program get executed. Yay! If you hit a bug that was not caused by your code, be sure to let us know by filing a bug in our issue tracker.
