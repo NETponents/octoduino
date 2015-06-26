@@ -1,5 +1,4 @@
-language: cpp
-sudo: true
+language: python
 git: 
   submodules: false 
 notifications:
@@ -11,11 +10,7 @@ notifications:
 branches:
   only:
     - master
-addons:
-  apt:
-    packages:
-      - python
 install:
-  - sudo pip install ino
+  - pip install ino
 script:
   - ino build
