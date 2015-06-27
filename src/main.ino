@@ -5,7 +5,7 @@ void setup()
   pinMode(13, OUTPUT);
   digitalWrite(13, HIGH);
   Serial.begin(9600);
-  Serial.println("Octoduino build: " + CIBIULDNUMBER);
+  Serial.println("Octoduino build: " + CIBUILDNUMBER);
   Serial.println("Copyright 2015 - NETponents");
   Serial.println("Distributed under the GNU GPL v2.0 license");
   Serial.println("Commercial use with this build of Octoduino is prohibited");
