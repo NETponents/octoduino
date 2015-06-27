@@ -52,3 +52,29 @@ Now you can begin to upload your code files. For a simple NODE.JS program, your 
 
 ### 4. Run your program
 Make sure you have a serial console open to your Arduino. Insert the SD card an reset your Arduino. You should begin to see your program get executed. Yay! If you hit a bug that was not caused by your code, be sure to let us know by filing a bug in our issue tracker.
+
+## Contributing
+We welcome contributions of all kinds. This project follows the NETponents RING system.
+
+#### Ring 2
+If you are not in rings 1 or 0, you are in ring 2. Ring 2 is the public ring. Here's how contributtions work in Ring 2:
+- To make changes, you must fork the project to your own account.
+- Since we don't know you, permanant forking of this project is not allowed.
+- When you open a PR, you will be given lowest priority (unless it is a bug patch).
+
+#### Ring 1
+This is a ring of trusted developers. We give them the **Collaborator** badge on the issues page, and give them some perks:
+- To make changes, you still have to fork the project to your own account.
+- With a project administrators permission, you may create a permanent fork of the project (as long as you adhere to the terms in LICENSE.md).
+- When you open a PR, you will be given medium priority (unless it is a bug patch).
+- In the issues section of the project, you will be given the **Collaborator** badge.
+- You get added as a member (NOT employee) of the NETponents organization.
+
+#### Ring 0
+This ring is closed to the public. This ring contains employees of NETponents. Full admin access is given, however new progress must be done on a separate branch.
+
+### Getting promoted
+Put simply, if you show interest in the project, contribute regularly, and follow all the guidelines for contributions, you'll get promoted in no time.
+
+### Contributing guidelines
+We are very strict in terms of how everything is documented on GitHub. For full details, please view this projects *~/CONTRIBUTING.md*.
