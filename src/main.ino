@@ -38,14 +38,34 @@ void setup()
   else
   {
     // if the file didn't open, print an error:
-    sPrintLn("Error: octoduino.ini was not found.");
+    sPrintLn("ERR: 0x3");
     fatalCrash = true;
     return;
   }
   //Begin parsing the PARSEBASIC main script
   Serial.println("Launching bootloader");
   File bootloader = SD.open("bootloader.pba");
-  
+  if(bootloader)
+  {
+    sPrintLn("Booting...");
+    while (bootloader.available())
+    {
+      String cmd = "";
+      while (bootloader.peek() != ";")
+      {
+        cmd += bootloader.read();
+      }
+      bootloader.read();
+      //parse()
+    }
+    bootloader.close();
+  }
+  else
+  {
+    sPrintLn("ERR: 0x4");
+    fatalCrash = true;
+    return;
+  }
 }
 void loop()
 {
