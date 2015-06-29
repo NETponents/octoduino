@@ -32,7 +32,7 @@ void setup()
     sPrintLn("Configuration file found");
     while (configFile.available())
     {
-      sPrintLn(configFile.read());
+      Serial.println(configFile.read());
     }
       configFile.close();
   }
