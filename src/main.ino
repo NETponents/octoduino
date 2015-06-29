@@ -1,18 +1,19 @@
 int CIBUILDNUMBER = 0;
+bool ShowDebug = true;
 
 void setup()
 {
   pinMode(13, OUTPUT);
   digitalWrite(13, HIGH);
   Serial.begin(9600);
-  Serial.println("Octoduino build: " + CIBUILDNUMBER);
-  Serial.println("Copyright 2015 - NETponents");
-  Serial.println("Distributed under the GNU GPL v2.0 license");
-  Serial.println("Commercial use with this build of Octoduino is prohibited");
+  sPrintLn("Octoduino build: " + CIBUILDNUMBER);
+  sPrintLn("Copyright 2015 - NETponents");
+  sPrintLn("Distributed under the GNU GPL v2.0 license");
+  sPrintLn("Commercial use with this build of Octoduino is prohibited");
   digitalWrite(13, LOW);
-  Serial.println("");
+  sPrintLn("");
   digitalWrite(13, HIGH);
-  Serial.println("Starting up...");
+  sPrintLn("Starting up...");
   digitalWrite(13, LOW);
 }
 void loop()
@@ -22,4 +23,22 @@ void loop()
   // Do stuff
   digitalWrite(13, LOW);
   // After script
+}
+void sPrintLn(string message)
+{
+  Serial.println(message);
+}
+void sPrintLn(string message, bool isDebug)
+{
+  if(isDebug)
+  {
+    if(ShowDebug)
+    {
+      Serial.println(message);
+    }
+  }
+  else
+  {
+    Serial.println(message);
+  }
 }
