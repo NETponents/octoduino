@@ -1,4 +1,5 @@
 #include <SD.h>
+#include <SPI.h> 
 
 int CIBUILDNUMBER = 0;
 bool ShowDebug = true;
