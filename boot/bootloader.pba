@@ -1,4 +1,3 @@
-BEGIN;
 PRINT "ParseBasic Bootloader. Version 0.1.";
 NEWPRINT;
 PRINT "Copyright 2015 - NETponents.";
