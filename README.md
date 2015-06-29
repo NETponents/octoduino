@@ -4,14 +4,14 @@
 Octoduino is a program for the Arduino that allows you to run script files from an SD card.
 
 ## What languages are supported?
-None right now. We are still in the early stages of development, so we're trying to perfect the underlying framework first. Once we get that out of the way, we can get started working on individual languages.
+No "real" languages are supported right now. We only support ParseBasic. It's pretty much the BIOS of Octoduino. We're hard at work adding support for new languages. Check out the issues page on GitHub if you would like to help move things along.
 
 ### Fully supported
+- ParseBasic
 
 ### Partially supported
 
 ### On the drawing board
-- BASIC
 - NODE.JS
 - Ruby
 - Arduino (C++)
