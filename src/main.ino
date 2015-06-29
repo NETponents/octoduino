@@ -24,11 +24,11 @@ void loop()
   digitalWrite(13, LOW);
   // After script
 }
-public void sPrintLn(char message[])
+void sPrintLn(char message[])
 {
   Serial.println(message);
 }
-public void sPrintLn(char message[], bool isDebug)
+void sPrintLn(char message[], bool isDebug)
 {
   if(isDebug)
   {
