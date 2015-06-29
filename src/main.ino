@@ -48,10 +48,11 @@ void setup()
   if(bootloader)
   {
     sPrintLn("Booting...");
+    char terminator = ';';
     while (bootloader.available())
     {
       String cmd = "";
-      while (char(bootloader.peek()) != char(";"))
+      while (char(bootloader.peek()) != terminator)
       {
         cmd += bootloader.read();
       }
