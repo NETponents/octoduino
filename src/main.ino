@@ -109,11 +109,11 @@ void parseBasic(String line)
         //Do nothing
       }
     }
-    Serial.write(line);
+    Serial.print(line);
   }
   else if(line.startsWith("NEWPRINT"))
   {
-    Serial.write("\n");
+    Serial.print("\n");
   }
   else if(line.startsWith("END"))
   {
