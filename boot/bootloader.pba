@@ -1,0 +1,10 @@
+BEGIN;
+PRINT "ParseBasic Bootloader. Version 0.1.";
+NEWPRINT;
+PRINT "Copyright 2015 NETponents.";
+NEWPRINT;
+PRINT "====================================";
+NEWPRINT;
+NEWPRINT;
+PRINT "Halting...";
+STOP;
