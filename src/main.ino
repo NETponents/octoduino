@@ -88,10 +88,10 @@ void parseBasic(String line)
   {
     Serial.print("\n");
   }
-  else if(line.startWith("EXTLOAD"))
+  else if(line.startsWith("EXTLOAD"))
   {
     line.replace("EXTLOAD ", "");
-    File newFile = SD.open(line);
+    File newFile = SD.open(line.c_str());
     if(newFile)
     {
       char terminator = ';';
@@ -146,7 +146,7 @@ void parseConfigLine(char line[])
   {
     case '0':
       //Language
-      Language = (int)line[1];
+      //Language = (int)line[1];
       break;
     case '1':
       //Debug
