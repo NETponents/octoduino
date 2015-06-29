@@ -33,21 +33,15 @@ Although not officially supported or tested, any Energia-capable TI MSP430 MCU s
 
 The official size requirements:
 
-AVR Memory Usage
-
-----------------
-
-Device: atmega2560
-
-Program:   14412 bytes (5.5% Full)
-
-(.text + .data + .bootloader)
-
-Data:       1232 bytes (15.0% Full)
-
-(.data + .bss + .noinit)
-
-
+     AVR Memory Usage
+     ----------------
+     Device: atmega2560
+     
+     Program:   14412 bytes (5.5% Full)
+     (.text + .data + .bootloader)
+     
+     Data:       1232 bytes (15.0% Full)
+     (.data + .bss + .noinit)
 
 Here is a list of certified Arduino devices that are tested on every build in our CI environment:
 - Arduino UNO V3
