@@ -26,7 +26,7 @@ void setup()
     fatalCrash = true;
     return;
   }
-  configFile = SD.open("octoduino.ini");
+  File configFile = SD.open("octoduino.ini");
   if (configFile)
   {
     sPrintLn("Configuration file found");
@@ -35,14 +35,13 @@ void setup()
       sPrintLn(configFile.read());
     }
       configFile.close();
-    }
-    else
-    {
-      // if the file didn't open, print an error:
-      sPrintLn("Error: octoduino.ini was not found.");
-      fatalCrash = true;
-      return;
-    }
+  }
+  else
+  {
+    // if the file didn't open, print an error:
+    sPrintLn("Error: octoduino.ini was not found.");
+    fatalCrash = true;
+    return;
   }
 }
 void loop()
