@@ -1,3 +1,5 @@
+#include <SD.h>
+
 int CIBUILDNUMBER = 0;
 bool ShowDebug = true;
 bool fatalCrash = false;
