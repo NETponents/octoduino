@@ -27,17 +27,17 @@ void setup()
   configFile = SD.open("octoduino.ini");
   if (configFile)
   {
-    Serial.println("Configuration file found");
-    while (myFile.available())
+    sPrintLn("Configuration file found");
+    while (configFile.available())
     {
-      Serial.write(myFile.read());
+      sPrintLn(configFile.read());
     }
-    myFile.close();
+      configFile.close();
     }
     else
     {
       // if the file didn't open, print an error:
-      Serial.println("Error: octoduino.ini was not found.");
+      sPrintLn("Error: octoduino.ini was not found.");
       fatalCrash = true;
       return;
     }
