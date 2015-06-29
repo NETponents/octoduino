@@ -21,19 +21,36 @@ Want to get started using Octoduino? Great! Here's how to get started:
 
 ### Prerequisites
 - A supported MCU*
-- A shield that can interface with an SD card
-- An SD card, at least 512 MB but 4 GB (some shields don't support larger cards)
-- A computer with the Arduino IDE installed and an SD card reader
-- USB type B cable (the one that came with your Arduino)
+- A shield that can interface with an SD card (Octoduino is pre-configured for the official Ethernet Shield from SparkFun)
+- An SD card, at least 512 MB in size but no more than 2 GB
+- A computer with the Arduino/Energia IDE installed and an SD card reader
+- FTDI + USB/RS232 cable for programming
 
 #### *A note about device selection
 Any Arduino-certified device that supports shields should work. Please note that Leonardo and Yun are not supported at this time. Some "tiny" Arduinos will not work due to size constraints.
 
 Although not officially supported or tested, any Energia-capable TI MSP430 MCU should also work assuming there is enough space for Octoduino. It may be possible to use external EEPROM depending on the capabilities of the MCU. Also be aware that Octoduino will run MUCH slower on non-ATmega MCUs.
 
+The official size requirements:
+
+AVR Memory Usage
+
+----------------
+
+Device: atmega2560
+
+Program:   14412 bytes (5.5% Full)
+
+(.text + .data + .bootloader)
+
+Data:       1232 bytes (15.0% Full)
+
+(.data + .bss + .noinit)
+
+
+
 Here is a list of certified Arduino devices that are tested on every build in our CI environment:
 - Arduino UNO V3
-- Arduino Decimila
 - Arduino Mega
 
 ### 1. Installing Octoduino
