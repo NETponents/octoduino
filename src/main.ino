@@ -3,45 +3,18 @@
 
 bool ShowDebug = true;
 bool fatalCrash = false;
-int Language = 0;
 
 void setup()
 {
   pinMode(13, OUTPUT);
   digitalWrite(13, HIGH);
   Serial.begin(9600);
-  sPrintLn("Octoduino build: ERR 0x0");
+  sPrintLn("Octoduino build: ERR 0x1");
   sPrintLn("Copyright 2015 - NETponents");
   sPrintLn("Distributed under the GNU GPL v2.0 license");
   sPrintLn("Commercial use with this build of Octoduino is prohibited");
   sPrintLn("Initializing SD interface");
   pinMode(10, OUTPUT);
-  if (!SD.begin(4))
-  {
-    sPrintLn("ERR 0x1");
-    fatalCrash = true;
-    return;
-  }
-  File configFile = SD.open("octoduino.ini");
-  if (configFile)
-  {
-    sPrintLn("Configuration file found");
-    //while (configFile.available())
-    //{
-    //  while (configFile.peek() != ";")
-    //  {
-    //    configFile.read();
-    //  }
-    //}
-      configFile.close();
-  }
-  else
-  {
-    // if the file didn't open, print an error:
-    sPrintLn("ERR: 0x3");
-    fatalCrash = true;
-    return;
-  }
   //Begin parsing the PARSEBASIC main script
   Serial.println("Launching bootloader");
   File bootloader = SD.open("bootloader.pba");
@@ -57,7 +30,7 @@ void setup()
         cmd += bootloader.read();
       }
       bootloader.read();
-      //parse()
+      parseBasic(cmd);
     }
     bootloader.close();
   }
@@ -114,6 +87,31 @@ void parseBasic(String line)
   else if(line.startsWith("NEWPRINT"))
   {
     Serial.print("\n");
+  }
+  else if(line.startWith("EXTLOAD"))
+  {
+    line.replace("EXTLOAD ", "");
+    File newFile = SD.open(line);
+    if(newFile)
+    {
+      char terminator = ';';
+      while (newFile.available())
+      {
+        String cmd = "";
+        while (char(newFile.peek()) != terminator)
+        {
+          cmd += newFile.read();
+        }
+        newFile.read();
+        parseBasic(cmd);
+      }
+      newFile.close();
+    }
+    else
+    {
+      Serial.println("ERR: 0x4");
+      PBcrash();
+    }
   }
   else if(line.startsWith("END"))
   {
@@ -174,18 +172,4 @@ void parseConfigLine(char line[])
 void sPrintLn(const char message[])
 {
   Serial.println(message);
-}
-void sPrintLn(const char message[], bool isDebug)
-{
-  if(isDebug)
-  {
-    if(ShowDebug)
-    {
-      Serial.println(message);
-    }
-  }
-  else
-  {
-    Serial.println(message);
-  }
 }
