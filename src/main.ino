@@ -81,6 +81,67 @@ void loop()
     // After script
   }
 }
+void parseBasic(String line)
+{
+  if(line.startsWith("PRINT"))
+  {
+    while(true)
+    {
+      if(line.charAt(0) == '"')
+      {
+        line.remove(0);
+        break;
+      }
+      else
+      {
+        line.remove(0);
+      }
+    }
+    while(true)
+    {
+      if(line.charAt(0) == '"')
+      {
+        line.remove(0);
+        break;
+      }
+      else
+      {
+        //Do nothing
+      }
+    }
+    Serial.write(line);
+  }
+  else if(line.startsWith("NEWPRINT"))
+  {
+    Serial.write("\n");
+  }
+  else if(line.startsWith("END"))
+  {
+    PBstop();
+  }
+  else
+  {
+    PBcrash();
+  }
+}
+void PBstop()
+{
+  Serial.println("Program has finished. Terminating.");
+  digitalWrite(13, LOW);
+  while(true)
+  {
+    
+  }
+}
+void PBcrash()
+{
+  Serial.println("ParseBasic parser has encountered an error. Terminating.");
+  digitalWrite(13, LOW);
+  while(true)
+  {
+    
+  }
+}
 void parseConfigLine(char line[])
 {
   switch (line[0])
