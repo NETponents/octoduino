@@ -1,5 +1,6 @@
 int CIBUILDNUMBER = 0;
 bool ShowDebug = true;
+bool fatalCrash = false;
 
 void setup()
 {
@@ -15,14 +16,47 @@ void setup()
   digitalWrite(13, HIGH);
   sPrintLn("Starting up...");
   digitalWrite(13, LOW);
+  sPrintLn("Initializing SD interface");
+  pinMode(10, OUTPUT);
+  if (!SD.begin(4))
+  {
+    sPrintLn("initialization failed!");
+    fatalCrash = true;
+    return;
+  }
+  configFile = SD.open("octoduino.ini");
+  if (configFile)
+  {
+    Serial.println("Configuration file found");
+    while (myFile.available())
+    {
+      Serial.write(myFile.read());
+    }
+    myFile.close();
+    }
+    else
+    {
+      // if the file didn't open, print an error:
+      Serial.println("Error: octoduino.ini was not found.");
+      fatalCrash = true;
+      return;
+    }
+  }
 }
 void loop()
 {
-  // Before script
-  digitalWrite(13, HIGH);
-  // Do stuff
-  digitalWrite(13, LOW);
-  // After script
+  if(fatalCrash)
+  {
+    
+  }
+  else
+  {
+    // Before script
+    digitalWrite(13, HIGH);
+    // Do stuff
+    digitalWrite(13, LOW);
+    // After script
+  }
 }
 void sPrintLn(const char message[])
 {
