@@ -51,7 +51,7 @@ void setup()
     while (bootloader.available())
     {
       String cmd = "";
-      while (bootloader.peek() != ";")
+      while (char(bootloader.peek()) != ";")
       {
         cmd += bootloader.read();
       }
