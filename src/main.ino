@@ -3,7 +3,7 @@
 
 bool ShowDebug = true;
 bool fatalCrash = false;
-int language = 0;
+int Language = 0;
 
 void setup()
 {
@@ -51,7 +51,7 @@ void setup()
     while (bootloader.available())
     {
       String cmd = "";
-      while (char(bootloader.peek()) != ";")
+      while (char(bootloader.peek()) != char(";"))
       {
         cmd += bootloader.read();
       }
@@ -106,7 +106,7 @@ void parseConfigLine(char line[])
       //Do something
       break;
     default:
-      Serial.println("ERR: 0x2")
+      Serial.println("ERR: 0x2");
   }
 }
 void sPrintLn(const char message[])
