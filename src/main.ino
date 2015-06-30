@@ -56,7 +56,11 @@ void loop()
 }
 void parseBasic(String line)
 {
-  if(line.startsWith("PRINT"))
+  if(line.startsWith("//"))
+  {
+    //Do nothing, this is a comment
+  }
+  else if(line.startsWith("PRINT"))
   {
     while(true)
     {
