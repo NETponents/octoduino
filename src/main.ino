@@ -1,33 +1,20 @@
 #include <SD.h>
-#include <SPI.h> 
-
-bool ShowDebug = true;
-bool fatalCrash = false;
+#include <SPI.h>
+#include "bootstrap.h"
 
 void setup()
 {
   pinMode(13, OUTPUT);
-  digitalWrite(13, HIGH);
   Serial.begin(9600);
   sPrintLn("Octoduino build: ERR 0x1");
   sPrintLn("Copyright 2015 - NETponents");
   sPrintLn("Distributed under the GNU GPL v2.0 license");
   sPrintLn("Commercial use with this build of Octoduino is prohibited");
-  sPrintLn("Initializing SD interface");
-  //bootloader.cpp
+  initBootstrap();
 }
 void loop()
 {
-  if(fatalCrash)
-  {
-    digitalWrite(13, LOW);
-  }
-  else
-  {
-    // Before script
-    // Do stuff
-    // After script
-  }
+  //Do nothing, fatal crash or end of program execution
 }
 void parseBasic(String line)
 {
@@ -109,55 +96,4 @@ void parseBasic(String line)
   {
     PBcrash();
   }
-}
-void PBstop()
-{
-  Serial.println("Program has finished. Terminating.");
-  digitalWrite(13, LOW);
-  while(true)
-  {
-    
-  }
-}
-void PBcrash()
-{
-  Serial.println("ParseBasic parser has encountered an error. Terminating.");
-  digitalWrite(13, LOW);
-  while(true)
-  {
-    
-  }
-}
-void parseConfigLine(char line[])
-{
-  switch (line[0])
-  {
-    case '0':
-      //Language
-      //Language = (int)line[1];
-      break;
-    case '1':
-      //Debug
-      if(line[1] == '0')
-      {
-        ShowDebug = false;
-      }
-      else
-      {
-        ShowDebug = true;
-      }
-      break;
-    case '2':
-      //Do something
-      break;
-    case '3':
-      //Do something
-      break;
-    default:
-      Serial.println("ERR: 0x2");
-  }
-}
-void sPrintLn(const char message[])
-{
-  Serial.println(message);
 }
