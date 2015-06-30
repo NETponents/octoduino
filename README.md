@@ -52,7 +52,7 @@ Grab a copy of our code from GitHub:
 
      git clone http://github.com/NETponents/octoduino.git
 
-Then go ahead and open the sketch using your favorite Arduino IDE. Go ahead and deploy it to your Arduino. If you hit an error, reset your Arduino and make sure that no shields are attached. If you are still hitting errors, file a bug on our GitHub page <http://github.com/NETponents/octoduino/issues>. Be sure to leave information about your Arduino and your IDE!
+Then go ahead and open the sketch using your favorite Arduino IDE. Go ahead and deploy it to your Arduino. If you hit an error, reset your Arduino and make sure that no shields are attached. Also make sure that your device has enough SRAM to run Octoduino. If you are still hitting errors, file a bug on our GitHub page <http://github.com/NETponents/octoduino/issues>. Be sure to leave information about your Arduino and your IDE!
 
 ### 2. Creating the config files
 Now that your Arduino is ready to go, let's get the SD card ready. Insert the card into your computer. Make sure the card is COMPLETELY empty. Then format it as 'FAT32' or 'FAT16'. We reccommend 'FAT32' as it is newer and slightly faster. Once that is complete, create a new file named 'octoduino.ini'. Open it using your favorite text editor. Copy the following code, replacing anything between {} with your own parameters (do not include the brackets). If you are unsure of what to put, see the language-specific options in the **~/Docs** folder.
@@ -75,7 +75,7 @@ Now you can begin to upload your code files. For a simple NODE.JS program, your 
 Make sure you have a serial console open to your Arduino. Insert the SD card an reset your Arduino. You should begin to see your program get executed. Yay! If you hit a bug that was not caused by your code, be sure to let us know by filing a bug in our issue tracker.
 
 ## Contributing
-We welcome contributions of all kinds. This project follows the NETponents RING system.
+We welcome contributions of all kinds. For code contributions, this project follows the NETponents RING system (explained below). If you cannot make a code contribution, please consider making a donation through PayPal. NETponents only has one employee(an unpaid high school student), and we spend most of our time developing open source software.
 
 #### Ring 2
 If you are not in rings 1 or 0, you are in ring 2. Ring 2 is the public ring. Here's how contributtions work in Ring 2:
