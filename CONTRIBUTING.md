@@ -3,3 +3,6 @@ Make sure that your commit references the appropriate issue(s) in the details se
 
 # Issues
 DO NOT add milestones, asigneees, or labels. Leave that for the admins. Be as detailed as possible and keep your titles short. Also please refrain from issues from your own project(s). Please stay on topic!
+
+# Pull Requests
+No matter how basic the PR, ALWAYS wait for Travis CI to return with the results of the build before merging. Always be detailed in what you did and what issues you resolved. Always assign a member from NETponents (usually @ARMmaster17). If you do not have the ability to assign the PR, reference the person from the details section.
