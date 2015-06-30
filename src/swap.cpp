@@ -1,24 +1,66 @@
 #include <Arduino.h>
 #include "swap.h"
 
-void Swap::init()
+void swapinit()
 {
-  //Initialize the swapfile
+  if(SD.exists("/swap"))
+  {
+    if(!SD.rmdir("/swap"))
+    {
+      Serial.println("ERR: 0x5");
+    }
+  }
+  SD.mkdir("/swap");
+  swapready();
 }
-void Swap::screate(String name, String value)
+void swapcreate(String name, String value)
 {
-  //Create an entry
+  swapready();
+  if(SD.exists("/swap/" + name.c_str + ".swp"))
+  {
+    Serial.println("ERR: 0x6");
+    swapcrash();
+  }
+  File newSwap = SD.open("/swap/" + name.c_str + ".swp", FILE_WRITE);
+  if (newSwap)
+  {
+    newSwap.println(value);
+    newSwap.close();
+  }
+  else
+  {
+    swapcrash();
+  }
+  
 }
-char* Swap::sread(String name)
+char* swapread(String name)
 {
-  //Read an entry
+  swapready();
 }
-void Swap::supdate(String name, String value)
+void swapupdate(String name, String value)
 {
-  this->sdelete(name);
-  this->screate(name, value);
+  swapready();
+  swapdelete(name);
+  swapcreate(name, value);
 }
-void Swap::sdelete(String name)
+void swapdelete(String name)
 {
-  //Delete an entry
+  swapready();
+}
+void swapcrash()
+{
+  Serial.println("The SWAP module has failed!");
+  while(true)
+  {
+    
+  }
+}
+void swapready()
+{
+  if(SD.exists("/swap"))
+  {
+    return;
+  }
+  Serial.println("ERR: 0x6");
+  swapcrash();
 }
