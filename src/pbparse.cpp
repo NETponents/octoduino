@@ -1,5 +1,29 @@
 #include <Arduino.h>
 
+void PBstart(String filename)
+{
+  File bootloader = SD.open(filename.c_str());
+  if(bootloader)
+  {
+    char terminator = ';';
+    while (bootloader.available())
+    {
+      String cmd = "";
+      while (char(bootloader.peek()) != terminator)
+      {
+        cmd += bootloader.read();
+      }
+      bootloader.read();
+      PBparse(cmd);
+    }
+    bootloader.close();
+  }
+  else
+  {
+    Serial.println("ERR: 0x4");
+    PBcrash();
+  }
+}
 void PBparse(String line)
 {
   if(line.startsWith("//"))
