@@ -4,8 +4,10 @@
   class Swap{
     public:
       void init();
-      void create(String name, String value);
-      String read(String name);
-      void update(String name, String value);
-      void delete(String name);
+      void screate(String name, String value);
+      char[] sread(String name);
+      void supdate(String name, String value);
+      void sdelete(String name);
   };
+
+#endif
