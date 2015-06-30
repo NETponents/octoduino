@@ -77,27 +77,7 @@ void PBparse(String line)
   else if(line.startsWith("EXTLOAD"))
   {
     line.replace("EXTLOAD ", "");
-    File newFile = SD.open(line.c_str());
-    if(newFile)
-    {
-      char terminator = ';';
-      while (newFile.available())
-      {
-        String cmd = "";
-        while (char(newFile.peek()) != terminator)
-        {
-          cmd += newFile.read();
-        }
-        newFile.read();
-        parseBasic(cmd);
-      }
-      newFile.close();
-    }
-    else
-    {
-      Serial.println("ERR: 0x4");
-      PBcrash();
-    }
+    PBstart(line.c_str());
   }
   else if(line.startsWith("END"))
   {
