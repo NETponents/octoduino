@@ -5,7 +5,7 @@
     public:
       void init();
       void screate(String name, String value);
-      char[] sread(String name);
+      char* sread(String name);
       void supdate(String name, String value);
       void sdelete(String name);
   };
