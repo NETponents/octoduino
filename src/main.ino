@@ -92,6 +92,15 @@ void parseBasic(String line)
   {
     Serial.print("\n");
   }
+  else if(line.startsWith("CREATESWAP"))
+  {
+    if (SD.exists("core.swap"))
+    {
+      SD.remove("core.swap");
+    }
+    File swap = SD.open("core.swap", FILE_WRITE);
+    swap.close();
+  }
   else if(line.startsWith("EXTLOAD"))
   {
     line.replace("EXTLOAD ", "");
