@@ -27,8 +27,7 @@ void initBootstrap()
   }
   else
   {
-    sPrintLn("ERR: 0x4");
-    fatalCrash = true;
+    Serial.println("ERR: 0x4");
     return;
   }
 }
