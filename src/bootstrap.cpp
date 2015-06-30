@@ -9,6 +9,6 @@ void initBootstrap()
   SD.begin(4);
   //Begin parsing the PARSEBASIC main script
   Serial.println("Launching bootloader");
-  PBstart("boot/bootloader.pba")
+  PBstart("boot/bootloader.pba");
   ///////////////////////////////////////////
 }
