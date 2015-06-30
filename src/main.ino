@@ -92,6 +92,10 @@ void parseBasic(String line)
   {
     Serial.print("\n");
   }
+  else if(line.startsWith("CREATESWAP"))
+  {
+    //Create swap file and pass Stream<> handle
+  }
   else if(line.startsWith("EXTLOAD"))
   {
     line.replace("EXTLOAD ", "");
