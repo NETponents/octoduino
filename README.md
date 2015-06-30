@@ -64,7 +64,10 @@ Now that your Arduino is ready to go, let's get the SD card ready. Insert the ca
      debug={ set to true for debug messages }
      start={ The source file to be executed }
 
-### 3. Uploading your code files
+### 5. Install the bootloader
+Now you get to install the "BIOS" for Octoduino. From the files you downloaded, copy everything **inside** the **~/bootloader** directory to the root of your SD card. Although ParseBasic is a relatively simple language, we do not reccommend playing with these files as there is no error catching, which may lead to unpredictable results (ever seen an Arduino expode? Me neither...).
+
+### 4. Uploading your code files
 Now you can begin to upload your code files. For a simple NODE.JS program, your SD card would look like this:
 
      + root
@@ -73,7 +76,7 @@ Now you can begin to upload your code files. For a simple NODE.JS program, your 
      |-+ inc
        |-- library.js
 
-### 4. Run your program
+### 5. Run your program
 Make sure you have a serial console open to your Arduino. Insert the SD card an reset your Arduino. You should begin to see your program get executed. Yay! If you hit a bug that was not caused by your code, be sure to let us know by filing a bug in our issue tracker.
 
 ## Contributing
