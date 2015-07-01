@@ -70,6 +70,29 @@ void PBparse(String line)
   {
     swapinit();
   }
+  else if(line.startsWith("IO"))
+  {
+    line.replace("IO ", "");
+    String port = "";
+    for (int i=0; i < line.length(); i++)
+    {
+      if(line.charAt(i) == ' ')
+      {
+        return;
+      }
+      port += line.charAt(i);
+    }
+    int portn = int(port.c_str());
+    line.replace(port, "");
+    if (line.charAt(1) == '0')
+    {
+      digitalWrite(portn, LOW);
+    }
+    else
+    {
+      digitalWrite(portn, HIGH);
+    }
+  }
   else if(line.startsWith("NEW"))
   {
     line.replace("NEW ", "");
