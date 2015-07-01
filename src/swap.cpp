@@ -15,10 +15,10 @@ void swapinit()
   SD.mkdir("/swap");
   swapready();
 }
-char* swapGetPath(String name)
+String swapGetPath(String name)
 {
   String result = "/swap/" + name.c_str() + ".swp";
-  return result.c_str();
+  return result;
 }
 void swapcreate(String name, String value)
 {
