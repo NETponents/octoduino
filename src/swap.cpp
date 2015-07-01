@@ -1,4 +1,6 @@
 #include <Arduino.h>
+#include <SD.h>
+#include <SPI.h>
 #include "swap.h"
 
 void swapinit()
