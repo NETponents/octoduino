@@ -17,7 +17,7 @@ void swapinit()
 }
 char* swapGetPath(String name)
 {
-  char result[] = "/swap/" + name.c_str + ".swp"
+  char result[10 + name.length()] = "/swap/" + name.c_str + ".swp"
   return result;
 }
 void swapcreate(String name, String value)
