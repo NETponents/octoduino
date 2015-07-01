@@ -83,7 +83,7 @@ void PBparse(String line)
       vname += line.charAt(i);
     }
     vname.remove('$');
-    line.remove(vname);
+    line.replace(vname, "");
     if(line.length() <= 1)
     {
       swapcreate(vname, "");
@@ -100,12 +100,12 @@ void PBparse(String line)
   }
   else if(line.startsWith("DELETE"))
   {
-    line.remove("DELETE $");
+    line.replace("DELETE $", "");
     swapdelete(line);
   }
   else if(line.startsWith("SET"))
   {
-    line.remove("SET $");
+    line.replace("SET $", "");
     String vname = "";
     for (int i=0; i < line.length(), i++)
     {
