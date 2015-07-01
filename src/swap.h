@@ -2,6 +2,7 @@
   #define HEADER_SWAP
    
   void swapinit();
+  char* swapGetPath(String name);
   void swapcreate(String name, String value);
   char* swapread(String name);
   void swapupdate(String name, String value);

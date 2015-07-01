@@ -15,7 +15,7 @@ void swapinit()
   SD.mkdir("/swap");
   swapready();
 }
-char* swapGetPath(char* name)
+char* swapGetPath(String name)
 {
   char result[] = "/swap/" + name.c_str + ".swp"
   return result;
