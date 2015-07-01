@@ -15,15 +15,20 @@ void swapinit()
   SD.mkdir("/swap");
   swapready();
 }
+char* swapGetPath(char* name)
+{
+  char result[] = "/swap/" + name.c_str + ".swp"
+  return result;
+}
 void swapcreate(String name, String value)
 {
   swapready();
-  if(SD.exists("/swap/" + name.c_str + ".swp"))
+  if(SD.exists(swapGetPath(name)))
   {
     Serial.println("ERR: 0x6");
     swapcrash();
   }
-  File newSwap = SD.open("/swap/" + name.c_str + ".swp", FILE_WRITE);
+  File newSwap = SD.open(swapGetPath(name), FILE_WRITE);
   if (newSwap)
   {
     newSwap.println(value);
@@ -38,12 +43,12 @@ void swapcreate(String name, String value)
 char* swapread(String name)
 {
   swapready();
-  if(!SD.exists("/swap/" + name.c_str + ".swp"))
+  if(!SD.exists(swapGetPath(name)))
   {
     Serial.println("ERR: 0x7");
     swapcrash();
   }
-  File readSwap = SD.open("/swap/" + name.c_str + ".swp");
+  File readSwap = SD.open(swapGetPath(name));
   if(readSwap)
   {
     char result[];
@@ -66,9 +71,9 @@ void swapupdate(String name, String value)
 void swapdelete(String name)
 {
   swapready();
-  if(SD.exists("/swap/" + name.c_str + ".swp"))
+  if(SD.exists(swapGetPath(name)))
   {
-    SD.remove("/swap/" + name.c_str + ".swp");
+    SD.remove(swapGetPath(name));
     return;
   }
   Serial.println("ERR: 0x9");
