@@ -17,7 +17,9 @@ void swapinit()
 }
 String swapGetPath(String name)
 {
-  String result = "/swap/" + name.c_str() + ".swp";
+  String swp = "/swap/";
+  String ext = ".swp";
+  String result = swp + name + ext;
   return result;
 }
 void swapcreate(String name, String value)
