@@ -6,7 +6,7 @@ PRINT "====================================";
 NEWPRINT;
 PRINT "Initializing SWAP";
 NEWPRINT;
-EXTLOAD /bootloader/swapinit.pba;
+EXTLOAD /boot/swapinit.pba;
 PRINT "PBVM is ready";
 NEWPRINT;
 PRINT "Halting...";

@@ -1,0 +1,44 @@
+<html>
+    <head>
+        
+    </head>
+    <body>
+        <h1>Octoduino Documentation</h1>
+        <h5>Getting Started -> Setting Up</h5>
+        <hr />
+        <h3>Getting ready</h3>
+        <p>Thank you for trying out Octoduino! This part of the documentation will walk you through how to get started using Octoduino. If you run into any trouble, take a look at <code>~/docs/gs/troubleshooting.html</code>.</p>
+        <h3>Materials needed</h3>
+        <p>To use Octoduino, you will need:</p>
+        <ul>
+            <li>A certified device (see <code>~/docs/gs/certified.html</code>)</li>
+            <li>A USB SD card reader</li>
+            <li>A Linux computer with the Python runtime</li>
+            <bold>OR</bold>
+            <li>A computer with <code>git</code> or a GUI variant installed</li>
+            <li>A SPI SD card reader for your device (we reccommend the official LadyAda Ethernet Shield)</li>
+            <li>USB cable for communicating with your device</li>
+            <li>FTDI chip (if needed)</li>
+        </ul>
+        <p>With that out of the way, let's get on to installing Octoduino!</p>
+        <h3>Flashing the Arduino</h3>
+        <p>Before you begin, make sure your device has the Arduino bootloader installed. If your device is Arduino-certifiec then you don't need to worry about this.</p>
+        <p>Grab a copy of Octoduino from <a href="://github.com/NETponents/octoduino/releases">http://github.com/NETponents/octoduino/releases</a>. If none are available, get the latest source by running <code>git clone https://github.com/NETponents/octoduino.git</code> inside of an empty folder.</p>
+        <p>Now open up the Arduino IDE and open <code>~/src/main.ino</code>. Then go ahead and flash it to your device. If you hit an error, make sure there are no shields/wires attached other than the USB cable. Once that finishes, unplug your Arduino.</p>
+        <h3>Installing Octoduino</h3>
+        <p>Insert an SD card into your computer. Make sure it is completely empty. Format it to <code>FAT32</code>. If it asks you to name the partition, feel free to name it what ever you want.</p>
+        <p>Now open up the folder <code>~/bootloader</code>. Inside it you should find several files. Copy all of the files to the root of the SD card.</p>
+        <h3>First boot</h3>
+        <p>Go ahead and put the SD card into your Arduino. Then plug it into your computer with the serial console running. If all goes well, you should see it start up, initialize SWAP space, and then halt. If you hit an error, or your Arduino stalls for a long time (> 2 minutes), see the troubleshooting page for help.</p>
+        <h3>Some important tips</h3>
+        <ul>
+            <li>DO NOT remove the SD card while the Arduino is plugged into power!</li>
+            <li>DO NOT try to edit any .pba file. Just trust us on this one.</li>
+            <li>DO NOT mess with the SWAP folder.</li>
+            <li>DO NOT try runnning without an SD card, bad things will happen on subsequent boots.</li>
+            <li>DO file a bug on GitHub if you find an issue with Octoduino</li>
+        </ul>
+        <h3>Next steps:</h3>
+        <p>Next, you will probably want to start programming your robot. At this pont, that's not supported yet. To help, take a look at our GitHub Issues page to see what needs to be done.</p>
+    </body>
+</html>
