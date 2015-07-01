@@ -72,7 +72,7 @@ void PBparse(String line)
   }
   else if(line.startsWith("NEW"))
   {
-    line.remove("NEW ");
+    line.replace("NEW ", "");
     String vname;
     for (int i=0; i < line.length(); i++)
     {
