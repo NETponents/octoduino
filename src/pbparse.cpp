@@ -82,7 +82,7 @@ void PBparse(String line)
       }
       port += line.charAt(i);
     }
-    int portn = int(port);
+    int portn = int(port.c_str());
     line.replace(port, "");
     if (line.charAt(1) == '0')
     {
