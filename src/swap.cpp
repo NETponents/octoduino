@@ -42,7 +42,7 @@ void swapcreate(String name, String value)
   }
   
 }
-char* swapread(String name)
+String swapread(String name)
 {
   swapready();
   if(!SD.exists(swapGetPath(name)))
@@ -59,7 +59,7 @@ char* swapread(String name)
         result += readSwap.read();
     }
     readSwap.close();
-    return result.c_str();
+    return result;
   }
   Serial.println("ERR: 0x8");
   swapcrash();
