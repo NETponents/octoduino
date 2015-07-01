@@ -53,13 +53,13 @@ char* swapread(String name)
   File readSwap = SD.open(swapGetPath(name));
   if(readSwap)
   {
-    char result[];
+    String result = "";
     while (readSwap.available())
     {
         result += readSwap.read();
     }
     readSwap.close();
-    return result;
+    return result.c_str();
   }
   Serial.println("ERR: 0x8");
   swapcrash();
