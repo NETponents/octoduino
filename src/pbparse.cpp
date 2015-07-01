@@ -2,6 +2,7 @@
 #include <SD.h>
 #include <SPI.h>
 #include "pbparse.h"
+#include "swap.h"
 
 void PBstart(String filename)
 {
@@ -67,12 +68,59 @@ void PBparse(String line)
   }
   else if(line.startsWith("CREATESWAP"))
   {
-    if (SD.exists("core.swap"))
+    swapinit();
+  }
+  else if(line.startsWith("NEW"))
+  {
+    line.replace("NEW ", "");
+    String vname;
+    for (int i=0; i < line.length(); i++)
     {
-      SD.remove("core.swap");
+      if(line.charAt(i) == ' ')
+      {
+        return;
+      }
+      vname += line.charAt(i);
     }
-    File swap = SD.open("core.swap", FILE_WRITE);
-    swap.close();
+    vname.remove('$');
+    line.replace(vname, "");
+    if(line.length() <= 1)
+    {
+      swapcreate(vname, "");
+    }
+    else
+    {
+      String vval = "";
+      for (int i=1; i < line.length(); i++)
+      {
+        vval += line.charAt(i);
+      }
+      swapcreate(vname, vval);
+    }
+  }
+  else if(line.startsWith("DELETE"))
+  {
+    line.replace("DELETE $", "");
+    swapdelete(line);
+  }
+  else if(line.startsWith("SET"))
+  {
+    line.replace("SET $", "");
+    String vname = "";
+    for (int i=0; i < line.length(); i++)
+    {
+      if(line.charAt(i) == ' ')
+      {
+        return;
+      }
+      vname += line.charAt(i);
+    }
+    String vval = "";
+    for (int i=1; i < line.length(); i++)
+    {
+      vval += line.charAt(i);
+    }
+    swapupdate(vname, vval);
   }
   else if(line.startsWith("EXTLOAD"))
   {
