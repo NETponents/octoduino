@@ -1,0 +1,4 @@
+CREATESWAP;
+NEW $testvar Hello World;
+SET $testvar Hello2;
+DELETE $testvar;
