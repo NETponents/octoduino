@@ -74,7 +74,7 @@ void PBparse(String line)
   {
     line.remove("NEW ");
     String vname;
-    for (int i=0; i < line.length(), i++)
+    for (int i=0; i < line.length(); i++)
     {
       if(line.charAt(i) == ' ')
       {
@@ -91,7 +91,7 @@ void PBparse(String line)
     else
     {
       String vval = "";
-      for (int i=1; i < line.length(), i++)
+      for (int i=1; i < line.length(); i++)
       {
         vval += line.charAt(i);
       }
@@ -107,7 +107,7 @@ void PBparse(String line)
   {
     line.replace("SET $", "");
     String vname = "";
-    for (int i=0; i < line.length(), i++)
+    for (int i=0; i < line.length(); i++)
     {
       if(line.charAt(i) == ' ')
       {
@@ -116,7 +116,7 @@ void PBparse(String line)
       vname += line.charAt(i);
     }
     String vval = "";
-    for (int i=1; i < line.length(), i++)
+    for (int i=1; i < line.length(); i++)
     {
       vval += line.charAt(i);
     }
