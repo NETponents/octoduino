@@ -4,7 +4,7 @@
   void swapinit();
   String swapGetPath(String name);
   void swapcreate(String name, String value);
-  char* swapread(String name);
+  String swapread(String name);
   void swapupdate(String name, String value);
   void swapdelete(String name);
   void swapready();
