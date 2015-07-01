@@ -36,6 +36,24 @@ void swapcreate(String name, String value)
 char* swapread(String name)
 {
   swapready();
+  if(!SD.exists("/swap/" + name.c_str + ".swp"))
+  {
+    Serial.println("ERR: 0x7");
+    swapcrash();
+  }
+  File readSwap = SD.open("/swap/" + name.c_str + ".swp");
+  if(readSwap)
+  {
+    char result[];
+    while (readSwap.available())
+    {
+        result += readSwap.read();
+    }
+    readSwap.close();
+    return result;
+  }
+  Serial.println("ERR: 0x8");
+  swapcrash();
 }
 void swapupdate(String name, String value)
 {
@@ -46,6 +64,13 @@ void swapupdate(String name, String value)
 void swapdelete(String name)
 {
   swapready();
+  if(SD.exists("/swap/" + name.c_str + ".swp"))
+  {
+    SD.remove("/swap/" + name.c_str + ".swp");
+    return;
+  }
+  Serial.println("ERR: 0x9");
+  swapcrash();
 }
 void swapcrash()
 {
