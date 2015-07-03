@@ -11,4 +11,4 @@ PRINT "PBVM is ready";
 NEWPRINT;
 PRINT "Halting...";
 NEWPRINT;
-STOP;
+END;
