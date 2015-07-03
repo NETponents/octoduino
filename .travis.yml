@@ -18,4 +18,4 @@ install:
     - python -c "$(curl -fsSL https://raw.githubusercontent.com/platformio/platformio/master/scripts/get-platformio.py)"
 script:
     - platformio ci --project-conf ./platformio.ini
-    - python -c "$(curl -fsSL https://raw.githubusercontent.com/NETponents/ParseBasic/master/pb.py)"
+    - python -c "$(curl -fsSL https://raw.githubusercontent.com/NETponents/ParseBasic/master/pb.py)" ./bootloader/bootloader.pba
