@@ -2,7 +2,7 @@ language: python
 python:
     - "2.7"
 env:
-    - PLATFORMIO_CI_SRC=src/
+    #- PLATFORMIO_CI_SRC=src/
 git: 
   submodules: false 
 notifications:
