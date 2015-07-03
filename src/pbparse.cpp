@@ -3,6 +3,7 @@
 #include <SPI.h>
 #include "pbparse.h"
 #include "swap.h"
+#include "output.h"
 
 void PBstart(String filename)
 {
@@ -24,7 +25,7 @@ void PBstart(String filename)
   }
   else
   {
-    Serial.println("ERR: 0x4");
+    outwrite("ERR: 0x4");
     PBcrash();
   }
 }
@@ -60,11 +61,11 @@ void PBparse(String line)
         //Do nothing
       }
     }
-    Serial.print(line);
+    outwrite(line);
   }
   else if(line.startsWith("NEWPRINT"))
   {
-    Serial.print("\n");
+    outwrite("\n");
   }
   else if(line.startsWith("CREATESWAP"))
   {
@@ -161,7 +162,7 @@ void PBparse(String line)
 }
 void PBstop()
 {
-  Serial.println("Program has finished. Terminating.");
+  outwrite("Program has finished. Terminating.");
   while(true)
   {
     
@@ -169,7 +170,7 @@ void PBstop()
 }
 void PBcrash()
 {
-  Serial.println("ParseBasic parser has encountered an error. Terminating.");
+  outwrite("ParseBasic parser has encountered an error. Terminating.");
   while(true)
   {
     
