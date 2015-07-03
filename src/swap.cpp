@@ -2,6 +2,7 @@
 #include <SD.h>
 #include <SPI.h>
 #include "swap.h"
+#include "output.h"
 
 void swapinit()
 {
