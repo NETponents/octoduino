@@ -1,15 +1,17 @@
 #include <SD.h>
 #include <SPI.h>
 #include "bootstrap.h"
+#include "output.h"
 
 void setup()
 {
   pinMode(13, OUTPUT);
   Serial.begin(9600);
-  Serial.println("Octoduino build: ERR 0x1");
-  Serial.println("Copyright 2015 - NETponents");
-  Serial.println("Distributed under the GNU GPL v2.0 license");
-  Serial.println("Commercial use with this build of Octoduino is prohibited");
+  outinit();
+  outwrite("Octoduino build: ERR 0x1");
+  outwrite("Copyright 2015 - NETponents");
+  outwrite("Distributed under the GNU GPL v2.0 license");
+  outwrite("Commercial use with this build of Octoduino is prohibited");
   initBootstrap();
 }
 void loop()

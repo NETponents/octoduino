@@ -2,6 +2,7 @@
 #include <SD.h>
 #include <SPI.h>
 #include "swap.h"
+#include "output.h"
 
 void swapinit()
 {
@@ -9,7 +10,7 @@ void swapinit()
   {
     if(!SD.rmdir("/swap"))
     {
-      Serial.println("ERR: 0x5");
+      outwrite("ERR: 0x5");
     }
   }
   SD.mkdir("/swap");
@@ -27,7 +28,7 @@ void swapcreate(String name, String value)
   swapready();
   if(SD.exists(swapGetPath(name)))
   {
-    Serial.println("ERR: 0x6");
+    outwrite("ERR: 0x6");
     swapcrash();
   }
   File newSwap = SD.open(swapGetPath(name), FILE_WRITE);
@@ -47,7 +48,7 @@ String swapread(String name)
   swapready();
   if(!SD.exists(swapGetPath(name)))
   {
-    Serial.println("ERR: 0x7");
+    outwrite("ERR: 0x7");
     swapcrash();
   }
   File readSwap = SD.open(swapGetPath(name));
@@ -61,7 +62,7 @@ String swapread(String name)
     readSwap.close();
     return result;
   }
-  Serial.println("ERR: 0x8");
+  outwrite("ERR: 0x8");
   swapcrash();
 }
 void swapupdate(String name, String value)
@@ -78,12 +79,12 @@ void swapdelete(String name)
     SD.remove(swapGetPath(name));
     return;
   }
-  Serial.println("ERR: 0x9");
+  outwrite("ERR: 0x9");
   swapcrash();
 }
 void swapcrash()
 {
-  Serial.println("The SWAP module has failed!");
+  outwrite("The SWAP module has failed!");
   while(true)
   {
     
@@ -95,6 +96,6 @@ void swapready()
   {
     return;
   }
-  Serial.println("ERR: 0x6");
+  outwrite("ERR: 0x6");
   swapcrash();
 }
