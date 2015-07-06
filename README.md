@@ -19,11 +19,11 @@ No "real" languages are supported right now. We only support ParseBasic. It's pr
 - Arduino (C++)
 
 ## Getting started
-Want to get started using Octoduino? Great! Here's how to get started:
+Want to get started using Octoduino? Here's how to get started:
 
 ### Prerequisites
 - A supported MCU*
-- A shield that can interface with an SD card (Octoduino is pre-configured for the official Ethernet Shield from SparkFun)
+- A shield that can interface with an SD card (Octoduino is pre-configured for the official Ethernet Shield from AdaFruit)
 - An SD card, at least 512 MB in size but no more than 2 GB
 - A computer with the Arduino/Energia IDE installed and an SD card reader
 - FTDI + USB/RS232 cable for programming
