@@ -12,104 +12,55 @@
 [![Gratipay](https://img.shields.io/gratipay/ARMmaster17.svg)](http://gratipay.com/~ARMmaster17)
 
 ## What is it?
-Octoduino is a program for the Arduino that allows you to run script files from an SD card.
-
-## What languages are supported?
-No "real" languages are supported right now. We only support ParseBasic. It's pretty much the BIOS of Octoduino. We're hard at work adding support for new languages. Check out the issues page on GitHub if you would like to help move things along.
-
-### Fully supported
-- ParseBasic
-
-### Partially supported
-
-### On the drawing board
-- NODE.JS
-- Ruby
-- Arduino (C++)
+Octoduino was created to allow novice programmers create programs for the Arduino using any language they want. It also makes use of external SWAP space, so if you decide to do something extremely complex, you aren't limited by the Arduinos small SRAM space.
 
 ## Getting started
-Want to get started using Octoduino? Here's how to get started:
+Want to get started using Octoduino? Here's what you need to get started.
+- [ ] A supported Arduino board*
+- [ ] An ethernet + SD card shield (or a compatible custom circuit)
+- [ ] Computer with the Arduino IDE
+- [ ] SD/microSD card (depends on your shield) any size up to 4 GB
 
-### Prerequisites
-- A supported MCU*
-- A shield that can interface with an SD card (Octoduino is pre-configured for the official Ethernet Shield from AdaFruit)
-- An SD card, at least 512 MB in size but no more than 2 GB
-- A computer with the Arduino/Energia IDE installed and an SD card reader
-- FTDI + USB/RS232 cable for programming
+Only the following devices are gaurenteed to work. These build targets are tested on every build. Any devices not listed below may or may not work. Use at your own risk!
+- Uno
+- Mega (NOT Mega ADK)
+- Micro
+- Yun
+- Leonardo
+ 
+Energia devices are not supported. The reason being that no usable SDFAT library exists. In addition, the Octoduino bootloader is too big to fit on any MSP430 devices, so we decided to not support any Energia devices for now, however we may look at it in the future.
 
-#### *A note about device selection
-Any Arduino-certified device that supports shields should work. Please note that Leonardo and Yun are not supported at this time. Some "tiny" Arduinos will not work due to size constraints.
-
-Although not officially supported or tested, any Energia-capable TI MSP430 MCU should also work assuming there is enough space for Octoduino. It may be possible to use external EEPROM depending on the capabilities of the MCU. Also be aware that Octoduino will run MUCH slower on non-ATmega MCUs.
-
-The official size requirements:
+The official size requirements (percentages are for the Arduino Uno):
 
      AVR Memory Usage
+
      ----------------
-     Device: atmega2560
-     
-     Program:   14412 bytes (5.5% Full)
+
+     Device: atmega328p
+
+     Program:   19122 bytes (58.4% Full)
+
      (.text + .data + .bootloader)
-     
-     Data:       1232 bytes (15.0% Full)
+
+     Data:       1321 bytes (64.5% Full)
+
      (.data + .bss + .noinit)
 
-Here is a list of certified Arduino devices that are tested on every build in our CI environment:
-- Arduino UNO V3
-- Arduino Mega
-
-### 1. Installing Octoduino
-Grab a copy of our code from GitHub:
+Next, you'll need to grab a copy of our code from GitHub:
 
      git clone http://github.com/NETponents/octoduino.git
 
-Then go ahead and open the sketch using your favorite Arduino IDE. Go ahead and deploy it to your Arduino. If you hit an error, reset your Arduino and make sure that no shields are attached. Also make sure that your device has enough SRAM to run Octoduino. If you are still hitting errors, file a bug on our GitHub page <http://github.com/NETponents/octoduino/issues>. Be sure to leave information about your Arduino and your IDE!
+Open up the **~/src** folder. Inside, you should find several code files. Go ahead and open **main.ino** using the Arduino IDE. Go ahead and compile and deploy the program to your Arduino. If you recieve a build error, be sure to report it in our issue tracker on GitHub. Make sure you include your IDE and board information! If you recieve a deploy error, make sure no shields/wires are attached and try again. If you are still hitting errors, either your device is broken or is not supported by Octoduino.
 
-### 2. Creating the config files
-Now that your Arduino is ready to go, let's get the SD card ready. Insert the card into your computer. Make sure the card is COMPLETELY empty. Then format it as 'FAT32' or 'FAT16'. We reccommend 'FAT32' as it is newer and slightly faster. Once that is complete, create a new file named 'octoduino.ini'. Open it using your favorite text editor. Copy the following code, replacing anything between {} with your own parameters (do not include the brackets). If you are unsure of what to put, see the language-specific options in the **~/Docs** folder.
+=====
 
-     language={ your language id }
-     output=true
-     debug={ set to true for debug messages }
-     start={ The source file to be executed }
+Once that is done, we can install Octoduino to the SD card. Go ahead an plug it into your computer. Make sure that the card is empty. Format the card to FAT32. Now copy the folder **~/bootloader** from the Octoduino source to the SD card.
 
-### 5. Install the bootloader
-Now you get to install the "BIOS" for Octoduino. From the files you downloaded, copy everything **inside** the **~/bootloader** directory to the root of your SD card. Although ParseBasic is a relatively simple language, we do not reccommend playing with these files as there is no error catching, which may lead to unpredictable results (ever seen an Arduino expode? Me neither...).
+The last part is to copy over your own code files. Right now, the only language supported is ParseBasic. This is basically the "Assembly" language of Octoduino. In the future, we'll add more languages as we develop Octoduino. See the documentation on how to create your own ParseBasic file.
 
-### 4. Uploading your code files
-Now you can begin to upload your code files. For a simple NODE.JS program, your SD card would look like this:
+=====
 
-     + root
-     |-- octoduino.ini
-     |-- program.js
-     |-+ inc
-       |-- library.js
-
-### 5. Run your program
-Make sure you have a serial console open to your Arduino. Insert the SD card an reset your Arduino. You should begin to see your program get executed. Yay! If you hit a bug that was not caused by your code, be sure to let us know by filing a bug in our issue tracker.
+Now you get to run your program. Insert your SD card into your shield, then attach it to your Arduino. Make sure you have a serial console open and it is set to your Arduinos COM/tty port. Apply power and you should see your program execute. If you hit a bug, be sure to file an issue on GitHub with your system details.
 
 ## Contributing
-We welcome contributions of all kinds. For code contributions, this project follows the NETponents RING system (explained below). If you cannot make a code contribution, please consider making a donation through PayPal. NETponents only has one employee(an unpaid high school student), and we spend most of our time developing open source software.
-
-#### Ring 2
-If you are not in rings 1 or 0, you are in ring 2. Ring 2 is the public ring. Here's how contributtions work in Ring 2:
-- To make changes, you must fork the project to your own account.
-- Since we don't know you, permanant forking of this project is not allowed.
-- When you open a PR, you will be given lowest priority (unless it is a bug patch).
-
-#### Ring 1
-This is a ring of trusted developers. We give them the **Collaborator** badge on the issues page, and give them some perks:
-- To make changes, you still have to fork the project to your own account.
-- With a project administrators permission, you may create a permanent fork of the project (as long as you adhere to the terms in LICENSE.md).
-- When you open a PR, you will be given medium priority (unless it is a bug patch).
-- In the issues section of the project, you will be given the **Collaborator** badge.
-- You get added as a member (NOT employee) of the NETponents organization.
-
-#### Ring 0
-This ring is closed to the public. This ring contains employees of NETponents. Full admin access is given, however new progress must be done on a separate branch.
-
-### Getting promoted
-Put simply, if you show interest in the project, contribute regularly, and follow all the guidelines for contributions, you'll get promoted in no time.
-
-### Contributing guidelines
-We are very strict in terms of how everything is documented on GitHub. For full details, please view this projects *~/CONTRIBUTING.md*.
+I welcome contributions of all kinds. Octoduino is developed by an unpaid high school student. If you know how to program Arduinos, please consider making a code contribution. Please review the guidelines in **~/CONTRIBUTING.md** before startings. Otherwise, I accept donations through Gratipay (badge is at top of README.md).
