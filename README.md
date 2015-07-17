@@ -9,7 +9,7 @@
 [![GitHub issues](https://img.shields.io/github/issues/NETponents/octoduino.svg)](https://github.com/NETponents/octoduino)
 [![Issue Stats](http://issuestats.com/github/NETponents/octoduino/badge/pr?style=flat)](http://issuestats.com/github/NETponents/octoduino)
 [![Issue Stats](http://issuestats.com/github/NETponents/octoduino/badge/issue?style=flat)](http://issuestats.com/github/NETponents/octoduino)
-[![Gratipay](https://img.shields.io/gratipay/ARMmaster17.svg)]()
+[![Gratipay](https://img.shields.io/gratipay/ARMmaster17.svg)](http://gratipay.com/~ARMmaster17)
 
 ## What is it?
 Octoduino is a program for the Arduino that allows you to run script files from an SD card.
