@@ -18,9 +18,9 @@ Octoduino was created to allow novice programmers create programs for the Arduin
 
 ## Getting started
 Want to get started using Octoduino? Here's what you need to get started.
-- [ ] A supported Arduino board*
-- [ ] An ethernet + SD card shield (or a compatible custom circuit)
-- [ ] Computer with the Arduino IDE
+- [ ] A supported Arduino board
+- [ ] An ethernet + SD card shield (or a compatible custom circuit using breakout board)
+- [ ] Computer with the Arduino IDE (or other compatible IDE, we use PlatformIO)
 - [ ] SD/microSD card (depends on your shield) any size up to 4 GB
 
 Only the following devices are gaurenteed to work. These build targets are tested on every build. Any devices not listed below may or may not work. Use at your own risk!
@@ -28,7 +28,7 @@ Only the following devices are gaurenteed to work. These build targets are teste
 - Mega (NOT Mega ADK)
 - Micro
 - Yun
-- Leonardo
+- Leonardo (Tracing a bug with serial output)
  
 Energia devices are not supported. The reason being that no usable SDFAT library exists. In addition, the Octoduino bootloader is too big to fit on any MSP430 devices, so we decided to not support any Energia devices for now, however we may look at it in the future.
 
