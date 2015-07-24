@@ -56,7 +56,7 @@ Open up the **~/src** folder. Inside, you should find several code files. Go ahe
 
 =====
 
-Once that is done, we can install Octoduino to the SD card. Go ahead an plug it into your computer. Make sure that the card is empty. Format the card to FAT32. Now copy the folder **~/bootloader** from the Octoduino source to the SD card.
+Once that is done, we can install Octoduino to the SD card. Go ahead an plug it into your computer. Make sure that the card is empty. Format the card to FAT32. Now copy everything ***IN*** the folder **~/bootloader** from the Octoduino source to the SD card.
 
 The last part is to copy over your own code files. Right now, the only language supported is ParseBasic. This is basically the "Assembly" language of Octoduino. In the future, we'll add more languages as we develop Octoduino. See the documentation on how to create your own ParseBasic file.
 
