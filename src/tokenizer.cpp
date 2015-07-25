@@ -24,7 +24,7 @@ String TKgetToken(String line, int tokenIndex)
                 isend = true;
                 break;
             }
-            else if(line.charAt(counter == '"')
+            else if(line.charAt(counter == '"'))
             {
                 if(isstring)
                 {
