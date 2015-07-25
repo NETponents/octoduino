@@ -18,6 +18,6 @@ install:
     - python -c "$(curl -fsSL https://raw.githubusercontent.com/platformio/platformio/master/scripts/get-platformio.py)"
 script:
     - platformio ci --project-conf ./platformio.ini
-    - cd ./bootloader
+    - cd ./boot
     # Install ParseBasic interpreter version 0.1.0
-    - python -c "$(curl -fsSL https://raw.githubusercontent.com/NETponents/ParseBasic/v0.1.1/pb.py)" ./bootloader.pba
+    - python -c "$(curl -fsSL https://raw.githubusercontent.com/NETponents/ParseBasic/v0.1.1/pb.py)" ./boot.pba

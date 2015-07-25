@@ -6,7 +6,7 @@ PRINT "====================================";
 NEWPRINT;
 PRINT "Initializing SWAP";
 NEWPRINT;
-EXTLOAD /boot/swapinit.pba;
+EXTLOAD /pblib/swapinit.pba;
 PRINT "PBVM is ready";
 NEWPRINT;
 PRINT "Attempting to load /run.pba";
