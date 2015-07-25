@@ -51,13 +51,13 @@ String TKgetToken(String line, int tokenIndex)
                 resultToken = resultToken + line.charAt(counter);
             }
         }
-        if(isend == true)
+        if(tcounter == tokenIndex)
         {
-            resultToken = "TKERROR";
             return resultToken;
         }
-        else if(tcounter == tokenIndex)
+        else if(isend == true)
         {
+            resultToken = "TKERROR";
             return resultToken;
         }
         else
