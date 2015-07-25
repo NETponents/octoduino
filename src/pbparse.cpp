@@ -47,6 +47,10 @@ void PBparse(String line)
     {
       outwrite("\n");
     }
+    else if(opcode == "WAIT")
+    {
+      delay(int(TKgetToken(line, 1).c_str()));
+    }
     else if(opcode == "CREATESWAP")
     {
       swapinit();
