@@ -7,6 +7,10 @@ void setup()
 {
   pinMode(13, OUTPUT);
   Serial.begin(9600);
+  while(!Serial)
+  {
+    ;
+  }
   outinit();
   outwrite("Octoduino v0.1.0");
   outwrite("Copyright 2015 - NETponents");
