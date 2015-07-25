@@ -89,6 +89,44 @@ void PBparse(String line)
     {
       PBstart(TKgetToken(line, 1).c_str());
     }
+    else if(opcode == "FILEWRITE")
+    {
+      File extfile = SD.open(TKgetToken(line, 1), FILE_WRITE);
+      if(extfile)
+      {
+        extfile.println(swapread(TKgetToken(line, 2)).c_str());
+      }
+      else
+      {
+        PBcrash();
+      }
+      extfile.close();
+    }
+    else if(opcode == "FILEREAD")
+    {
+      if (SD.exists(TKgetToken(line, 1)))
+      {
+        File extfile = SD.open(TKgetToken(line, 1), FILE_WRITE);
+        if(extfile)
+        {
+          String readvar = "";
+          while (extfile.available())
+          {
+            readvar = readvar + extfile.read();
+          }
+          swapupdate(TKgetToken(line, 2), readvar);
+        }
+        else
+        {
+          PBcrash();
+        }
+        extfile.close();
+      }
+      else
+      {
+        PBcrash();
+      }
+    }
     else if(opcode == "END")
     {
       PBstop();
