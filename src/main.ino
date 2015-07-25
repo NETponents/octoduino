@@ -8,7 +8,7 @@ void setup()
   pinMode(13, OUTPUT);
   Serial.begin(9600);
   outinit();
-  outwrite("Octoduino build: ERR 0x1");
+  outwrite("Octoduino v0.1.0");
   outwrite("Copyright 2015 - NETponents");
   outwrite("Distributed under the GNU GPL v2.0 license");
   outwrite("Commercial use with this build of Octoduino is prohibited");
