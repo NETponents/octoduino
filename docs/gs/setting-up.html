@@ -28,6 +28,7 @@
         <h3>Installing Octoduino</h3>
         <p>Insert an SD card into your computer. Make sure it is completely empty. Format it to <code>FAT32</code>. If it asks you to name the partition, feel free to name it what ever you want.</p>
         <p>Now open up the folder <code>~/bootloader</code>. Inside it you should find several files. Copy all of the files to the root of the SD card.</p>
+        <p>Now you get to add your program. Open up <b>bootloader.pba</b> and uncomment the following line: <code>//EXTLOAD /run.pba;</code>. Then create a PB program and name it <b>run.pba</b> and put it at the root of the SD card. If you need help, you can view the ParseBasic documentation at <a href="https://github.com/NETponents/ParseBasic">the project page</a>. Make sure you are using the documentation that Octoduino is compatible with, not the latest version.</p>
         <h3>First boot</h3>
         <p>Go ahead and put the SD card into your Arduino. Then plug it into your computer with the serial console running. If all goes well, you should see it start up, initialize SWAP space, and then halt. If you hit an error, or your Arduino stalls for a long time (> 2 minutes), see the troubleshooting page for help.</p>
         <h3>Some important tips</h3>
