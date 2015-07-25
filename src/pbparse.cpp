@@ -4,6 +4,7 @@
 #include "pbparse.h"
 #include "swap.h"
 #include "output.h"
+#include "tokenizer.h"
 
 void PBstart(String filename)
 {
@@ -35,129 +36,63 @@ void PBparse(String line)
   {
     //Do nothing, this is a comment
   }
-  else if(line.startsWith("PRINT"))
-  {
-    while(true)
-    {
-      if(line.charAt(0) == '"')
-      {
-        line.remove(0);
-        break;
-      }
-      else
-      {
-        line.remove(0);
-      }
-    }
-    while(true)
-    {
-      if(line.charAt(0) == '"')
-      {
-        line.remove(0);
-        break;
-      }
-      else
-      {
-        //Do nothing
-      }
-    }
-    outwrite(line);
-  }
-  else if(line.startsWith("NEWPRINT"))
-  {
-    outwrite("\n");
-  }
-  else if(line.startsWith("CREATESWAP"))
-  {
-    swapinit();
-  }
-  else if(line.startsWith("IO"))
-  {
-    line.replace("IO ", "");
-    String port = "";
-    for (int i=0; i < line.length(); i++)
-    {
-      if(line.charAt(i) == ' ')
-      {
-        return;
-      }
-      port += line.charAt(i);
-    }
-    int portn = int(port.c_str());
-    line.replace(port, "");
-    if (line.charAt(1) == '0')
-    {
-      digitalWrite(portn, LOW);
-    }
-    else
-    {
-      digitalWrite(portn, HIGH);
-    }
-  }
-  else if(line.startsWith("NEW"))
-  {
-    line.replace("NEW ", "");
-    String vname;
-    for (int i=0; i < line.length(); i++)
-    {
-      if(line.charAt(i) == ' ')
-      {
-        return;
-      }
-      vname += line.charAt(i);
-    }
-    vname.remove('$');
-    line.replace(vname, "");
-    if(line.length() <= 1)
-    {
-      swapcreate(vname, "");
-    }
-    else
-    {
-      String vval = "";
-      for (int i=1; i < line.length(); i++)
-      {
-        vval += line.charAt(i);
-      }
-      swapcreate(vname, vval);
-    }
-  }
-  else if(line.startsWith("DELETE"))
-  {
-    line.replace("DELETE $", "");
-    swapdelete(line);
-  }
-  else if(line.startsWith("SET"))
-  {
-    line.replace("SET $", "");
-    String vname = "";
-    for (int i=0; i < line.length(); i++)
-    {
-      if(line.charAt(i) == ' ')
-      {
-        return;
-      }
-      vname += line.charAt(i);
-    }
-    String vval = "";
-    for (int i=1; i < line.length(); i++)
-    {
-      vval += line.charAt(i);
-    }
-    swapupdate(vname, vval);
-  }
-  else if(line.startsWith("EXTLOAD"))
-  {
-    line.replace("EXTLOAD ", "");
-    PBstart(line.c_str());
-  }
-  else if(line.startsWith("END"))
-  {
-    PBstop();
-  }
   else
   {
-    PBcrash();
+    String opcode = TKgetToken(line, 0);
+    if(opcode == "PRINT")
+    {
+      outwrite(TKgetToken(line, 1));
+    }
+    else if(opcode == "NEWPRINT")
+    {
+      outwrite("\n");
+    }
+    else if(opcode == "CREATESWAP")
+    {
+      swapinit();
+    }
+    else if(opcode == "IO")
+    {
+      int portn = int(TKgetToken(line, 1).c_str());
+      int state = int(TKgetToken(line, 2).c_str());
+      if(state == '0')
+      {
+        digitalWrite(portn, LOW);
+      }
+      else
+      {
+        digitalWrite(portn, HIGH);
+      }
+    }
+    else if(opcode == "NEW")
+    {
+      String value = TKgetToken(line, 2);
+      if(value == "TKERROR")
+      {
+        value = "";
+      }
+      swapcreate(TKgetToken(line, 1), value);
+    }
+    else if(opcode == "DELETE")
+    {
+      swapdelete(TKgetToken(line, 1));
+    }
+    else if(opcode == "SET")
+    {
+      swapupdate(TKgetToken(line, 1), TKgetToken(line, 2));
+    }
+    else if(opcode == "EXTLOAD")
+    {
+      PBstart(TKgetToken(line, 1).c_str());
+    }
+    else if(opcode == "END")
+    {
+      PBstop();
+    }
+    else
+    {
+      PBcrash();
+    }
   }
 }
 void PBstop()
