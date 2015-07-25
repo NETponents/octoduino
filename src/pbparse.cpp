@@ -104,7 +104,7 @@ void PBparse(String line)
     }
     else if(opcode == "FILEREAD")
     {
-      if (SD.exists(TK.getToken(line, 1)))
+      if (SD.exists(TKgetToken(line, 1)))
       {
         File extfile = SD.open(TKgetToken(line, 1), FILE_WRITE);
         if(extfile)
