@@ -1,4 +1,4 @@
 CREATESWAP;
-NEW $testvar Hello World;
-SET $testvar Hello2;
+NEW $PBtestvar "Hello World";
+SET $PBtestvar "Hello2";
 DELETE $testvar;
