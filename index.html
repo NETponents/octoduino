@@ -1,45 +1,35 @@
 <!DOCTYPE html>
-<html>
-
+<html lang="en-us">
   <head>
-    <meta charset='utf-8'>
-    <meta http-equiv="X-UA-Compatible" content="chrome=1">
-    <meta name="description" content="Octoduino : Arduino sketch that allows programming in multiple scripting languages from an SD card.">
-
-    <link rel="stylesheet" type="text/css" media="screen" href="stylesheets/stylesheet.css">
-
-    <title>Octoduino</title>
+    <meta charset="UTF-8">
+    <title>Octoduino by NETponents</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="stylesheets/normalize.css" media="screen">
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" type="text/css" href="stylesheets/stylesheet.css" media="screen">
+    <link rel="stylesheet" type="text/css" href="stylesheets/github-light.css" media="screen">
   </head>
-
   <body>
+    <section class="page-header">
+      <h1 class="project-name">Octoduino</h1>
+      <h2 class="project-tagline">Arduino sketch that allows programming in multiple scripting languages from an SD card.</h2>
+      <a href="https://github.com/NETponents/octoduino" class="btn">View on GitHub</a>
+      <a href="https://github.com/NETponents/octoduino/zipball/master" class="btn">Download .zip</a>
+      <a href="https://github.com/NETponents/octoduino/tarball/master" class="btn">Download .tar.gz</a>
+    </section>
 
-    <!-- HEADER -->
-    <div id="header_wrap" class="outer">
-        <header class="inner">
-          <a id="forkme_banner" href="https://github.com/NETponents/octoduino">View on GitHub</a>
-
-          <h1 id="project_title">Octoduino</h1>
-          <h2 id="project_tagline">Arduino sketch that allows programming in multiple scripting languages from an SD card.</h2>
-
-            <section id="downloads">
-              <a class="zip_download_link" href="https://github.com/NETponents/octoduino/zipball/master">Download this project as a .zip file</a>
-              <a class="tar_download_link" href="https://github.com/NETponents/octoduino/tarball/master">Download this project as a tar.gz file</a>
-            </section>
-        </header>
-    </div>
-
-    <!-- MAIN CONTENT -->
-    <div id="main_content_wrap" class="outer">
-      <section id="main_content" class="inner">
-        <h1>
+    <section class="main-content">
+      <h1>
 <a id="octoduino" class="anchor" href="#octoduino" aria-hidden="true"><span class="octicon octicon-link"></span></a>Octoduino</h1>
 
 <p><a href="https://gitter.im/NETponents/octoduino?utm_source=badge&amp;utm_medium=badge&amp;utm_campaign=pr-badge&amp;utm_content=badge"><img src="https://badges.gitter.im/Join%20Chat.svg" alt="Join the chat at https://gitter.im/NETponents/octoduino"></a>
 <a href="https://github.com/NETponents/octoduino"><img src="https://img.shields.io/github/license/NETponents/octoduino.svg" alt="GitHub license"></a>
 <a href="https://travis-ci.org/NETponents/octoduino"><img src="https://travis-ci.org/NETponents/octoduino.svg?branch=master" alt="Build Status"></a>
+<a href="https://github.com/NETponents/ParseBasic"><img src="https://img.shields.io/badge/ParseBasic-v0.1.1-blue.svg" alt="ParseBasic"></a>
 <a href="https://github.com/NETponents/octoduino"><img src="https://img.shields.io/github/forks/NETponents/octoduino.svg" alt="GitHub forks"></a>
 <a href="https://github.com/NETponents/octoduino"><img src="https://img.shields.io/github/stars/NETponents/octoduino.svg" alt="GitHub stars"></a>
 <a href="https://github.com/NETponents/octoduino"><img src="https://img.shields.io/github/release/NETponents/octoduino.svg" alt="GitHub release"></a>
+<a href="https://github.com/NETponents/octoduino/releases"><img src="https://img.shields.io/github/downloads/NETponents/octoduino/latest/total.svg" alt="Github Releases"></a>
 <a href="https://github.com/NETponents/octoduino"><img src="https://img.shields.io/github/issues/NETponents/octoduino.svg" alt="GitHub issues"></a>
 <a href="http://issuestats.com/github/NETponents/octoduino"><img src="http://issuestats.com/github/NETponents/octoduino/badge/pr?style=flat" alt="Issue Stats"></a>
 <a href="http://issuestats.com/github/NETponents/octoduino"><img src="http://issuestats.com/github/NETponents/octoduino/badge/issue?style=flat" alt="Issue Stats"></a>
@@ -56,9 +46,9 @@
 <p>Want to get started using Octoduino? Here's what you need to get started.</p>
 
 <ul>
-<li>[ ] A supported Arduino board*</li>
-<li>[ ] An ethernet + SD card shield (or a compatible custom circuit)</li>
-<li>[ ] Computer with the Arduino IDE</li>
+<li>[ ] A supported Arduino board</li>
+<li>[ ] An ethernet + SD card shield (or a compatible custom circuit using breakout board)</li>
+<li>[ ] Computer with the Arduino IDE (or other compatible IDE, we use PlatformIO)</li>
 <li>[ ] SD/microSD card (depends on your shield) any size up to 4 GB</li>
 </ul>
 
@@ -69,7 +59,7 @@
 <li>Mega (NOT Mega ADK)</li>
 <li>Micro</li>
 <li>Yun</li>
-<li>Leonardo</li>
+<li>Leonardo (Tracing a bug with serial output)</li>
 </ul>
 
 <p>Energia devices are not supported. The reason being that no usable SDFAT library exists. In addition, the Octoduino bootloader is too big to fit on any MSP430 devices, so we decided to not support any Energia devices for now, however we may look at it in the future.</p>
@@ -100,7 +90,7 @@
 
 <h1></h1>
 
-<p>Once that is done, we can install Octoduino to the SD card. Go ahead an plug it into your computer. Make sure that the card is empty. Format the card to FAT32. Now copy the folder <strong>~/bootloader</strong> from the Octoduino source to the SD card.</p>
+<p>Once that is done, we can install Octoduino to the SD card. Go ahead an plug it into your computer. Make sure that the card is empty. Format the card to FAT32. Now copy everything <strong><em>IN</em></strong> the folder <strong>~/boot</strong> from the Octoduino source to the SD card.</p>
 
 <p>The last part is to copy over your own code files. Right now, the only language supported is ParseBasic. This is basically the "Assembly" language of Octoduino. In the future, we'll add more languages as we develop Octoduino. See the documentation on how to create your own ParseBasic file.</p>
 
@@ -111,19 +101,17 @@
 <h2>
 <a id="contributing" class="anchor" href="#contributing" aria-hidden="true"><span class="octicon octicon-link"></span></a>Contributing</h2>
 
-<p>I welcome contributions of all kinds. Octoduino is developed by an unpaid high school student. If you know how to program Arduinos, please consider making a code contribution. Please review the guidelines in <strong>~/CONTRIBUTING.md</strong> before startings. Otherwise, I accept donations through Gratipay (badge is at top of README.md).</p>
-      </section>
-    </div>
+<p>I welcome contributions of all kinds. Octoduino is developed by an unpaid high school student. If you know how to program Arduinos, please consider making a code contribution. Please review the guidelines in <strong>~/CONTRIBUTING.md</strong> before starting. Otherwise, I accept donations through Gratipay (badge is at top of README.md).</p>
 
-    <!-- FOOTER  -->
-    <div id="footer_wrap" class="outer">
-      <footer class="inner">
-        <p class="copyright">Octoduino maintained by <a href="https://github.com/NETponents">NETponents</a></p>
-        <p>Published with <a href="https://pages.github.com">GitHub Pages</a></p>
+      <footer class="site-footer">
+        <span class="site-footer-owner"><a href="https://github.com/NETponents/octoduino">Octoduino</a> is maintained by <a href="https://github.com/NETponents">NETponents</a>.</span>
+
+        <span class="site-footer-credits">This page was generated by <a href="https://pages.github.com">GitHub Pages</a> using the <a href="https://github.com/jasonlong/cayman-theme">Cayman theme</a> by <a href="https://twitter.com/jasonlong">Jason Long</a>.</span>
       </footer>
-    </div>
 
-    
+    </section>
 
+  
   </body>
 </html>
+
