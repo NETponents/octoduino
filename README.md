@@ -16,6 +16,10 @@
 ## What is it?
 Octoduino was created to allow novice programmers create programs for the Arduino using any language they want. It also makes use of external SWAP space, so if you decide to do something extremely complex, you aren't limited by the Arduinos small SRAM space.
 
+## Latest version [![GitHub release](https://img.shields.io/github/release/NETponents/octoduino.svg)](https://github.com/NETponents/octoduino)
+### What's new
+- Updated documentation
+
 ## Getting started
 Want to get started using Octoduino? Here's what you need to get started.
 - [ ] A supported Arduino board
