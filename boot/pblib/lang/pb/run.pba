@@ -1,1 +1,2 @@
-PRINT "ERROR: this is not supported yet.";
+PRINT "ParseBasic Parser v0.1";
+PRINT "Searching for pbstart.pba file...";
