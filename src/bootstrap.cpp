@@ -6,10 +6,11 @@
 
 void initBootstrap()
 {
+  // Pre-req for SD class
   pinMode(10, OUTPUT);
+  //Open SD card
   SD.begin(4);
   //Begin parsing the PARSEBASIC main script
   outwrite("Launching bootloader");
   PBstart("boot/bootloader.pba");
-  ///////////////////////////////////////////
 }
