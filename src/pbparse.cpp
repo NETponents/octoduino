@@ -1,6 +1,6 @@
 #include <Arduino.h>
 #include <SD.h>
-#include <SPI.h>
+#include <SPI.h> // Required for PlatformIO
 #include "pbparse.h"
 #include "swap.h"
 #include "output.h"
@@ -8,37 +8,49 @@
 
 void PBstart(String filename)
 {
+  // Open file handle to source file
   File bootloader = SD.open(filename.c_str());
+  // Check to see if file handle opened
   if(bootloader)
   {
+    // Instruction terminator
     char terminator = ';';
     while (bootloader.available())
     {
+      // Clear instruction buffer
       String cmd = "";
+      // Read until you hit instruction terminator
       while (char(bootloader.peek()) != terminator)
       {
         cmd += bootloader.read();
       }
-      bootloader.read();
+      // Read one more time to include instruction terminator
+      cmd += bootloader.read();
+      // Send the instruction for parsing
       PBparse(cmd);
     }
+    // Close file handle
     bootloader.close();
   }
   else
   {
+    // File handle could not be opened, crash the system
     outwrite("ERR: 0x4");
     PBcrash();
   }
 }
 void PBparse(String line)
 {
+  // Check if this line is a comment
   if(line.startsWith("//"))
   {
     //Do nothing, this is a comment
   }
   else
   {
+    // Get opcode from instruction
     String opcode = TKgetToken(line, 0);
+    // Check opcode against dictionary
     if(opcode == "PRINT")
     {
       outwrite(TKgetToken(line, 1));
@@ -129,6 +141,7 @@ void PBparse(String line)
     }
     else if(opcode == "END")
     {
+      // Program has requested that execution end
       PBstop();
     }
     else
@@ -139,17 +152,20 @@ void PBparse(String line)
 }
 void PBstop()
 {
+  // Halt the program
   outwrite("Program has finished. Terminating.");
   while(true)
   {
-    
+    // Loop until power is reset
   }
 }
 void PBcrash()
 {
+  // System has crashed
+  // Notify user
   outwrite("ParseBasic parser has encountered an error. Terminating.");
   while(true)
   {
-    
+    // Loop until power is reset
   }
 }
