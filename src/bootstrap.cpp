@@ -1,6 +1,6 @@
 #include <Arduino.h>
 #include <SD.h>
-#include <SPI.h>
+#include <SPI.h> //Required for PlatformIO
 #include "pbparse.h"
 #include "output.h"
 
