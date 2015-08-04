@@ -24,5 +24,5 @@ void setup()
 }
 void loop()
 {
-  //Do nothing, fatal crash or end of program execution
+  // Do nothing until power is cut
 }
