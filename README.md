@@ -32,7 +32,7 @@ Only the following devices are gaurenteed to work. These build targets are teste
 - Mega (NOT Mega ADK)
 - Micro
 - Yun
-- Leonardo (Tracing a bug with serial output)
+- Leonardo
  
 Energia devices are not supported. The reason being that no usable SDFAT library exists. In addition, the Octoduino bootloader is too big to fit on any MSP430 devices, so we decided to not support any Energia devices for now, however we may look at it in the future.
 
