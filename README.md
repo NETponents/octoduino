@@ -44,13 +44,13 @@ The official size requirements (percentages are for the Arduino Uno):
 
      Device: atmega328p
 
-     Program:   19122 bytes (58.4% Full)
-
+     Program:   19406 bytes (59.2% Full)
      (.text + .data + .bootloader)
 
-     Data:       1321 bytes (64.5% Full)
-
+     Data:       1313 bytes (64.1% Full)
      (.data + .bss + .noinit)
+
+
 
 Next, you'll need to grab a copy of our code from GitHub:
 
