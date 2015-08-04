@@ -5,6 +5,7 @@ String TKgetToken(String line, int tokenIndex)
     String resultToken = "";
     int counter = -1;
     int tcounter = -1;
+    line.trim();
     int length = line.length();
     boolean isend = false;
     bool isstring = false;
