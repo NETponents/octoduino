@@ -5,6 +5,7 @@
 // MIT license. Copyright 2015 Joshua Zenn.    //
 /////////////////////////////////////////////////
 
+// No need for <Arduino.h>
 #include <SD.h>
 #include <SPI.h> // Required for PlatformIO
 #include "bootstrap.h"
