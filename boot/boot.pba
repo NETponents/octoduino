@@ -10,7 +10,7 @@ PRINT "[OK]";
 NEWPRINT;
 PRINT "Config: ";
 NEW $PBconfigpath "ERROR";
-FILEREAD "/lang.cfg" $PBconfigpath;
+FILEREAD "/lang.oct" $PBconfigpath;
 PRINT "[OK]";
 NEWPRINT;
 NEW $OPPB "pb";
