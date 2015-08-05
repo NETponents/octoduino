@@ -62,6 +62,10 @@ void PBparse(String line)
     {
       outwrite(TKgetToken(line, 1));
     }
+    else if(opcode == "PRINTV")
+    {
+      outwrite(swapread(TKgetToken(line, 1)));
+    }
     else if(opcode == "NEWPRINT")
     {
       outwrite("\n");
@@ -69,6 +73,20 @@ void PBparse(String line)
     else if(opcode == "WAIT")
     {
       delay(int(TKgetToken(line, 1).c_str()));
+    }
+    else if(opcode == "IFE")
+    {
+      if(swapread(TKgetToken(line, 1)) == swapread(TKgetToken(line, 2)))
+      {
+        PBstart(TKgetToken(line, 3).c_str());
+      }
+    }
+    else if(opcode == "IFNE")
+    {
+      if(swapread(TKgetToken(line, 1)) != swapread(TKgetToken(line, 2)))
+      {
+        PBstart(TKgetToken(line, 3).c_str());
+      }
     }
     else if(opcode == "CREATESWAP")
     {

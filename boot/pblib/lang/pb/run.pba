@@ -1,0 +1,12 @@
+NEWPRINT;
+PRINT "ParseBasic Parser v0.1";
+NEWPRINT;
+PRINT "Searching for pbstart.pba file...";
+NEWPRINT;
+PRINT "ENTRY POINT: ";
+NEW $PBconfigpath "ERROR";
+FILEREAD "/pbstart.pba" $PBconfigpath;
+PRINT "[OK]";
+NEWPRINT;
+EXTLOAD "/pbstart.pba";
+END;
