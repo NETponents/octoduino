@@ -1,5 +1,5 @@
 NEWPRINT;
-PRINT "ParseBasic Parser v0.1";
+PRINT "ParseBasic Parser v0.1.3";
 NEWPRINT;
 PRINT "Searching for pbstart.pba file...";
 NEWPRINT;
