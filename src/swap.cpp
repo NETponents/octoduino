@@ -68,6 +68,11 @@ String swapread(String name)
 {
   // Make sure that swap is ready
   swapready();
+  // Check for special compile-time variables
+  if(name == "$bootver")
+  {
+    return "v0.1.3";
+  }
   // Check to see if variable exists
   if(!SD.exists(swapGetPath(name)))
   {
