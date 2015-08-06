@@ -53,6 +53,8 @@ Open *~/src/main.ino*. Go ahead and deploy it to your Arduino. If you encounter 
 
 Now take your SD/microSD card and format it to FAT32. Then copy everything ***IN*** the *~/boot* folder to the card. Now you may add your own code files in the root of the SD card (see the documentation on how to name your files). Due to a limitation of the SDFAT library, your file names must conform to the 8.3 standard. This means that the name of the file may only be 8 characters long, and the extension may only be 3 characters long.
 
+Lastly, create a file at the root of the card called *lang.oct* and inside of it, put `pb`. This tells Octoduino to use the ParseBasic interpreter (the only one available right now).
+
 Now you get to run your program. Insert your SD card into your shield, then attach it to your Arduino. Make sure you have a serial console open and it is set to your Arduinos COM/tty port. Apply power and you should see your program execute. If you hit a bug, be sure to file an issue on GitHub with your system details.
 
 ## Contributing
