@@ -1,1 +1,1 @@
-src/*.pba ParseBasic
+*.pba linguist-language=ParseBasic
