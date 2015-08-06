@@ -14,26 +14,20 @@
 [![Gratipay](https://img.shields.io/gratipay/ARMmaster17.svg)](http://gratipay.com/~ARMmaster17)
 
 ## What is it?
-Octoduino was created to allow novice programmers create programs for the Arduino using any language they want. It also makes use of external SWAP space, so if you decide to do something extremely complex, you aren't limited by the Arduinos small SRAM space.
+Octoduino was created to allow novice programmers create programs for the Arduino using any language they want. It also makes use of external SWAP space, so if you decide to do something extremely complex, you aren't limited by the Arduinos small RAM space.
 
 ## Documentation
 All documentation, along with a change log and known bugs list, is located in the `~/docs` directory. All items on the Github wiki reflect the latest source on the master branch, not the latest release.
 
 ## Getting started
 Want to get started using Octoduino? Here's what you need to get started.
-- [ ] A supported Arduino board
+- [ ] A supported Arduino board (see documentation for full list)
 - [ ] An ethernet + SD card shield (or a compatible custom circuit using breakout board)
-- [ ] Computer with the Arduino IDE (or other compatible IDE, we use PlatformIO)
 - [ ] SD/microSD card (depends on your shield) any size up to 4 GB
 
-Only the following devices are gaurenteed to work. These build targets are tested on every build. Any devices not listed below may or may not work. Use at your own risk!
-- Uno
-- Mega (NOT Mega ADK)
-- Micro
-- Yun
-- Leonardo
+We assume that you know how to flash programs onto your Arduino. If you are new, check out https://www.arduino.cc/en/Guide/Windows#toc9.
  
-Energia devices are not supported. The reason being that no usable SDFAT library exists. In addition, the Octoduino bootloader is too big to fit on any MSP430 devices, so we decided to not support any Energia devices for now, however we may look at it in the future.
+Energia devices are not supported at this time. The reason being that no usable SDFAT library exists. In addition, the Octoduino bootloader is too big to fit on any MSP430 devices, so we decided to not support any Energia devices for now, however we may look at it in the future.
 
 The official size requirements (percentages are for the Arduino Uno):
 
@@ -55,17 +49,11 @@ Next, you'll need to grab a copy of our code from GitHub:
 
      git clone http://github.com/NETponents/octoduino.git
 
-Open up the **~/src** folder. Inside, you should find several code files. Go ahead and open **main.ino** using the Arduino IDE. Go ahead and compile and deploy the program to your Arduino. If you recieve a build error, be sure to report it in our issue tracker on GitHub. Make sure you include your IDE and board information! If you recieve a deploy error, make sure no shields/wires are attached and try again. If you are still hitting errors, either your device is broken or is not supported by Octoduino.
+Open *~/src/main.ino*. Go ahead and deploy it to your Arduino. If you encounter build errors, please report it in the GitHub issue tracker. If you recieve a deploy error, your device may be broken or not supported.
 
-=====
-
-Once that is done, we can install Octoduino to the SD card. Go ahead an plug it into your computer. Make sure that the card is empty. Format the card to FAT32. Now copy everything ***IN*** the folder **~/boot** from the Octoduino source to the SD card.
-
-The last part is to copy over your own code files. Right now, the only language supported is ParseBasic. This is basically the "Assembly" language of Octoduino. In the future, we'll add more languages as we develop Octoduino. See the documentation on how to create your own ParseBasic file.
-
-=====
+Now take your SD/microSD card and format it to FAT32. Then copy everything ***IN*** the *~/boot* folder to the card. Now you may add your own code files in the root of the SD card (see the documentation on how to name your files). Due to a limitation of the SDFAT library, your file names must conform to the 8.3 standard. This means that the name of the file may only be 8 characters long, and the extension may only be 3 characters long.
 
 Now you get to run your program. Insert your SD card into your shield, then attach it to your Arduino. Make sure you have a serial console open and it is set to your Arduinos COM/tty port. Apply power and you should see your program execute. If you hit a bug, be sure to file an issue on GitHub with your system details.
 
 ## Contributing
-I welcome contributions of all kinds. Octoduino is developed by an unpaid high school student. If you know how to program Arduinos, please consider making a code contribution. Please review the guidelines in **~/CONTRIBUTING.md** before starting. Otherwise, I accept donations through Gratipay (badge is at top of README.md).
+I welcome contributions of all kinds. Octoduino is developed by an unpaid high school student and the community. If you know C++, please consider making a code contribution. Please review the guidelines in **~/CONTRIBUTING.md** before starting. Otherwise, I accept donations through Gratipay (badge is at top of README.md).
