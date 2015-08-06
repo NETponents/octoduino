@@ -1,0 +1,9 @@
+<html>
+  <body>
+    <h1>SWAP</h1>
+    <p>Most Arduinos have very limited RAM. To overcome this, we developed a system that uses your SD card as an extension of the onboard RAM. Linux users may recognize this as SWAP. Although differently implemented, both Linux SWAP and Octoduino Swap serve the same purpose.</p>
+    <p>The BIOS of Octoduino is programmed in ParseBasic. In it's most basic form, all variables are stored as strings. Because of this, the contents of any variable can easily be written to and retrieved from a simple text file.</p>
+    <p>Although we do not recommend playing with the files yourself, ParseBasic creates and modifies SWAP files for you whenever you use the  NEW ,  SET , or  DELETE  opcodes.</p>
+    <p>As of the latest source, there is a bug where all files in the swap folder must be deleted manually in between runs. This is due to a limitation in the Arduino SDFAT library.</p>
+  </body>
+</html>
