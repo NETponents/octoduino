@@ -5,7 +5,7 @@
     <title>Octoduino by NETponents</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" type="text/css" href="stylesheets/normalize.css" media="screen">
-    <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
     <link rel="stylesheet" type="text/css" href="stylesheets/stylesheet.css" media="screen">
     <link rel="stylesheet" type="text/css" href="stylesheets/github-light.css" media="screen">
   </head>
@@ -38,7 +38,12 @@
 <h2>
 <a id="what-is-it" class="anchor" href="#what-is-it" aria-hidden="true"><span class="octicon octicon-link"></span></a>What is it?</h2>
 
-<p>Octoduino was created to allow novice programmers create programs for the Arduino using any language they want. It also makes use of external SWAP space, so if you decide to do something extremely complex, you aren't limited by the Arduinos small SRAM space.</p>
+<p>Octoduino was created to allow novice programmers create programs for the Arduino using any language they want. It also makes use of external SWAP space, so if you decide to do something extremely complex, you aren't limited by the Arduinos small RAM space.</p>
+
+<h2>
+<a id="documentation" class="anchor" href="#documentation" aria-hidden="true"><span class="octicon octicon-link"></span></a>Documentation</h2>
+
+<p>All documentation, along with a change log and known bugs list, is located in the <code>~/docs</code> directory and on the GitHub Wiki. All items on the Github wiki reflect the latest source on the master branch, not the latest release.</p>
 
 <h2>
 <a id="getting-started" class="anchor" href="#getting-started" aria-hidden="true"><span class="octicon octicon-link"></span></a>Getting started</h2>
@@ -46,23 +51,14 @@
 <p>Want to get started using Octoduino? Here's what you need to get started.</p>
 
 <ul>
-<li>[ ] A supported Arduino board</li>
+<li>[ ] A supported Arduino board (see documentation for full list)</li>
 <li>[ ] An ethernet + SD card shield (or a compatible custom circuit using breakout board)</li>
-<li>[ ] Computer with the Arduino IDE (or other compatible IDE, we use PlatformIO)</li>
 <li>[ ] SD/microSD card (depends on your shield) any size up to 4 GB</li>
 </ul>
 
-<p>Only the following devices are gaurenteed to work. These build targets are tested on every build. Any devices not listed below may or may not work. Use at your own risk!</p>
+<p>We assume that you know how to flash programs onto your Arduino. If you are new, check out <a href="https://www.arduino.cc/en/Guide/Windows#toc9">https://www.arduino.cc/en/Guide/Windows#toc9</a>.</p>
 
-<ul>
-<li>Uno</li>
-<li>Mega (NOT Mega ADK)</li>
-<li>Micro</li>
-<li>Yun</li>
-<li>Leonardo (Tracing a bug with serial output)</li>
-</ul>
-
-<p>Energia devices are not supported. The reason being that no usable SDFAT library exists. In addition, the Octoduino bootloader is too big to fit on any MSP430 devices, so we decided to not support any Energia devices for now, however we may look at it in the future.</p>
+<p>Energia devices are not supported at this time. The reason being that no usable SDFAT library exists. In addition, the Octoduino bootloader is too big to fit on any MSP430 devices, so we decided to not support any Energia devices for now, however we may look at it in the future.</p>
 
 <p>The official size requirements (percentages are for the Arduino Uno):</p>
 
@@ -72,12 +68,10 @@
 
  Device: atmega328p
 
- Program:   19122 bytes (58.4% Full)
-
+ Program:   19406 bytes (59.2% Full)
  (.text + .data + .bootloader)
 
- Data:       1321 bytes (64.5% Full)
-
+ Data:       1313 bytes (64.1% Full)
  (.data + .bss + .noinit)
 </code></pre>
 
@@ -86,22 +80,18 @@
 <pre><code> git clone http://github.com/NETponents/octoduino.git
 </code></pre>
 
-<p>Open up the <strong>~/src</strong> folder. Inside, you should find several code files. Go ahead and open <strong>main.ino</strong> using the Arduino IDE. Go ahead and compile and deploy the program to your Arduino. If you recieve a build error, be sure to report it in our issue tracker on GitHub. Make sure you include your IDE and board information! If you recieve a deploy error, make sure no shields/wires are attached and try again. If you are still hitting errors, either your device is broken or is not supported by Octoduino.</p>
+<p>Open <em>~/src/main.ino</em>. Go ahead and deploy it to your Arduino. If you encounter build errors, please report it in the GitHub issue tracker. If you recieve a deploy error, your device may be broken or not supported.</p>
 
-<h1></h1>
+<p>Now take your SD/microSD card and format it to FAT32. Then copy everything <strong><em>IN</em></strong> the <em>~/boot</em> folder to the card. Now you may add your own code files in the root of the SD card (see the documentation on how to name your files). Due to a limitation of the SDFAT library, your file names must conform to the 8.3 standard. This means that the name of the file may only be 8 characters long, and the extension may only be 3 characters long.</p>
 
-<p>Once that is done, we can install Octoduino to the SD card. Go ahead an plug it into your computer. Make sure that the card is empty. Format the card to FAT32. Now copy everything <strong><em>IN</em></strong> the folder <strong>~/boot</strong> from the Octoduino source to the SD card.</p>
-
-<p>The last part is to copy over your own code files. Right now, the only language supported is ParseBasic. This is basically the "Assembly" language of Octoduino. In the future, we'll add more languages as we develop Octoduino. See the documentation on how to create your own ParseBasic file.</p>
-
-<h1></h1>
+<p>Lastly, create a file at the root of the card called <em>lang.oct</em> and inside of it, put <code>pb</code>. This tells Octoduino to use the ParseBasic interpreter (the only one available right now).</p>
 
 <p>Now you get to run your program. Insert your SD card into your shield, then attach it to your Arduino. Make sure you have a serial console open and it is set to your Arduinos COM/tty port. Apply power and you should see your program execute. If you hit a bug, be sure to file an issue on GitHub with your system details.</p>
 
 <h2>
 <a id="contributing" class="anchor" href="#contributing" aria-hidden="true"><span class="octicon octicon-link"></span></a>Contributing</h2>
 
-<p>I welcome contributions of all kinds. Octoduino is developed by an unpaid high school student. If you know how to program Arduinos, please consider making a code contribution. Please review the guidelines in <strong>~/CONTRIBUTING.md</strong> before starting. Otherwise, I accept donations through Gratipay (badge is at top of README.md).</p>
+<p>I welcome contributions of all kinds. Octoduino is developed by an unpaid high school student and the community. If you know C++, please consider making a code contribution. Please review the guidelines in <strong>~/CONTRIBUTING.md</strong> before starting. Otherwise, I accept donations through Gratipay (badge is at top of README.md).</p>
 
       <footer class="site-footer">
         <span class="site-footer-owner"><a href="https://github.com/NETponents/octoduino">Octoduino</a> is maintained by <a href="https://github.com/NETponents">NETponents</a>.</span>
@@ -114,4 +104,3 @@
   
   </body>
 </html>
-
