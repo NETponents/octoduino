@@ -72,16 +72,8 @@ void PBparse(String line)
     }
     else if(opcode == "GETC")
     {
-      try
-      {
-        int cindex = TKgetToken(line, 3).toInt();
-        swapupdate(TKgetToken(line, 2), String(TKgetToken(line, 1).charAt(cindex)));
-      }
-      catch
-      {
-        outwrite("Error in GETC: arg 3 is not a valid int.");
-        PBcrash();
-      }
+      int cindex = TKgetToken(line, 3).toInt();
+      swapupdate(TKgetToken(line, 2), String(TKgetToken(line, 1).charAt(cindex)));
     }
     else if(opcode == "NEWPRINT")
     {
