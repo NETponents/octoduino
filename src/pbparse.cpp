@@ -66,6 +66,14 @@ void PBparse(String line)
     {
       outwrite(swapread(TKgetToken(line, 1)));
     }
+    else if(opcode == "ADDS")
+    {
+      swapupdate(TKgetToken(line, 3), TKgetToken(line, 1) + TKgetToken(line, 2));
+    }
+    else if(opcode == "GETC")
+    {
+      swapupdate(TKgetToken(line, 2), TKgetToken(line, 1).CharAt((int)TKgetToken(line, 3)));
+    }
     else if(opcode == "NEWPRINT")
     {
       outwrite("\n");
