@@ -24,7 +24,7 @@ void outwrite(String msg)
   ms = ms % 1000;
   unsigned long hr = mi / 60;
   mi = mi % 60;
-  String timestamp = "[" + hr.c_str() + ":" + mi.c_str() + ":" + ms.c_str() + "] ";
+  String timestamp = "[" + hr + ":" + mi + ":" + ms + "] ";
   msg = timestamp + msg;
   // Print message to serial
   Serial.println(msg);
