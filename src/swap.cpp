@@ -20,7 +20,7 @@ void swapinit()
     if(!SD.rmdir("/swap"))
     {
       // Error, SWAP folder is not empty
-      outwrite("ERR: 0x5");
+      outwrite("Error in SWAP: SWAP folder is not empty");
     }
   }
   // Create the swap folder
@@ -45,7 +45,7 @@ void swapcreate(String name, String value)
   if(SD.exists(swapGetPath(name)))
   {
     // It does, so crash system
-    outwrite("ERR: 0x6");
+    outwrite("Error in SWAP: Tried to create a variable that already exists");
     swapcrash();
   }
   // Create new file handle for new swap file
@@ -60,6 +60,7 @@ void swapcreate(String name, String value)
   else
   {
     // IO error, crash the system
+    outwrite("Error in SWAP: Could not open variable SWAP file. Check the medium for storage corruption");
     swapcrash();
   }
   

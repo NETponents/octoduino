@@ -79,6 +79,7 @@ String TKgetToken(String line, int tokenIndex)
         // Check if end of string
         else if(isend == true)
         {
+            outwrite("Error in tokenizer: unknown token");
             resultToken = "TKERROR";
             return resultToken;
         }
@@ -89,6 +90,7 @@ String TKgetToken(String line, int tokenIndex)
         }
     }
     // Token index not found, send error
+    outwrite("Error in tokenizer: argument index not found");
     resultToken = "TKERROR";
     return resultToken;
 }
