@@ -66,6 +66,15 @@ void PBparse(String line)
     {
       outwrite(swapread(TKgetToken(line, 1)));
     }
+    else if(opcode == "ADDS")
+    {
+      swapupdate(TKgetToken(line, 3), TKgetToken(line, 1) + TKgetToken(line, 2));
+    }
+    else if(opcode == "GETC")
+    {
+      int cindex = TKgetToken(line, 3).toInt();
+      swapupdate(TKgetToken(line, 2), String(TKgetToken(line, 1).charAt(cindex)));
+    }
     else if(opcode == "NEWPRINT")
     {
       outwrite("\n");
