@@ -42,7 +42,7 @@ void PBstart(String filename)
   else
   {
     // File handle could not be opened, crash the system
-    outwrite("ERR: 0x4");
+    outwrite("Error in PBparse: Runner could not open requested file.");
     PBcrash();
   }
 }
