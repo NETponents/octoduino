@@ -72,7 +72,7 @@ void PBparse(String line)
     }
     else if(opcode == "GETC")
     {
-      swapupdate(TKgetToken(line, 2), TKgetToken(line, 1).CharAt((int)TKgetToken(line, 3)));
+      swapupdate(TKgetToken(line, 2), TKgetToken(line, 1).charAt(int(TKgetToken(line, 3))));
     }
     else if(opcode == "NEWPRINT")
     {
