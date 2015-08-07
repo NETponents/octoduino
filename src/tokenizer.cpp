@@ -6,6 +6,7 @@
 /////////////////////////////////////////////////
 
 #include <Arduino.h>
+#include "output.h"
 
 String TKgetToken(String line, int tokenIndex)
 {
