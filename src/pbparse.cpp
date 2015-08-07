@@ -75,7 +75,7 @@ void PBparse(String line)
       try
       {
         int cindex = TKgetToken(line, 3).toInt();
-        swapupdate(TKgetToken(line, 2), TKgetToken(line, 1).charAt(cindex));
+        swapupdate(TKgetToken(line, 2), String(TKgetToken(line, 1).charAt(cindex)));
       }
       catch
       {
