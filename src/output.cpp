@@ -18,6 +18,14 @@ void outinit()
 }
 void outwrite(String msg)
 {
+  // Get time
+  unsigned long ms = millis();
+  unsigned long mi = ms / 1000;
+  ms = ms % 1000;
+  unsigned long hr = mi / 60;
+  mi = mi % 60;
+  String timestamp = "[" + hr.c_str() + ":" + mi.c_str() + ":" + ms.c_str() + "] ";
+  msg = timestamp + msg;
   // Print message to serial
   Serial.println(msg);
   // Also print message to logger
