@@ -24,7 +24,7 @@ void swapinit()
       clearFolder(root);
       if(SD.exists("/swap"))
       {
-        outwrite("Error in SWAP: working directory not cleared.")
+        outwrite("Error in SWAP: working directory not cleared.");
         swapcrash();
       }
     }
