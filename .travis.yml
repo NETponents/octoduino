@@ -19,7 +19,6 @@ install:
 before_script:
     - cd ./start
     - mv ./start.ino ./main.ino
-    - rm ./start.ino
 script:
     - platformio ci --project-conf ../platformio.ini
     #- cd ./boot
