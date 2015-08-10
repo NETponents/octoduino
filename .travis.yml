@@ -22,7 +22,7 @@ before_script:
     - cd ..
     - mv ./start ./src
 script:
-    - platformio ci --project-conf ../platformio.ini
+    - platformio ci --project-conf ./platformio.ini
     #- cd ./boot
     # Install ParseBasic interpreter version 0.1.0
     # Commented out to avoid issue with logic code
