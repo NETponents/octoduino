@@ -105,6 +105,7 @@ void PBparse(String line)
     {
       int portn = int(TKgetToken(line, 1).c_str());
       int state = int(TKgetToken(line, 2).c_str());
+      pinMode(portn, OUTPUT);
       if(state == '0')
       {
         digitalWrite(portn, LOW);
