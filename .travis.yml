@@ -17,8 +17,9 @@ branches:
 install:
     - python -c "$(curl -fsSL https://raw.githubusercontent.com/platformio/platformio/master/scripts/get-platformio.py)"
 script:
-    - platformio ci --project-conf ./platformio.ini
-    - cd ./boot
+    - cd ./start
+    - platformio ci --project-conf ../platformio.ini
+    #- cd ./boot
     # Install ParseBasic interpreter version 0.1.0
     # Commented out to avoid issue with logic code
     #- python -c "$(curl -fsSL https://raw.githubusercontent.com/NETponents/ParseBasic/v0.1.1/pb.py)" ./boot.pba
