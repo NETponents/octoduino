@@ -25,7 +25,7 @@ Want to get started using Octoduino? Here's what you need to get started.
 - [ ] An ethernet + SD card shield (or a compatible custom circuit using breakout board)
 - [ ] SD/microSD card (depends on your shield) any size up to 4 GB
 
-We assume that you know how to flash programs onto your Arduino. If you are new, check out https://www.arduino.cc/en/Guide/Windows#toc9.
+We assume that you know how to flash programs onto your Arduino. If you are new, check out https://www.arduino.cc/en/Guide/Windows#toc9. Out of the box, the official Arduino IDE is supported. If you wish to use PlatformIO, there is a bit of tinkering involved. Check out the documentation or the wiki on GitHub for step-by-step instructions.
  
 Energia devices are not supported at this time. The reason being that no usable SDFAT library exists. In addition, the Octoduino bootloader is too big to fit on any MSP430 devices, so we decided to not support any Energia devices for now, however we may look at it in the future.
 
