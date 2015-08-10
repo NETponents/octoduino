@@ -16,8 +16,11 @@ branches:
     - master
 install:
     - python -c "$(curl -fsSL https://raw.githubusercontent.com/platformio/platformio/master/scripts/get-platformio.py)"
-script:
+before_script:
     - cd ./start
+    - mv ./start.ino ./main.ino
+    - rm ./start.ino
+script:
     - platformio ci --project-conf ../platformio.ini
     #- cd ./boot
     # Install ParseBasic interpreter version 0.1.0
