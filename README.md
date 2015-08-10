@@ -31,19 +31,15 @@ Energia devices are not supported at this time. The reason being that no usable 
 
 The official size requirements (percentages are for the Arduino Uno):
 
-     AVR Memory Usage
+    AVR Memory Usage
+    ----------------
+    Device: atmega328p
+    
+    Program:   21386 bytes (65.3% Full)
+    (.text + .data + .bootloader)
 
-     ----------------
-
-     Device: atmega328p
-
-     Program:   19406 bytes (59.2% Full)
-     (.text + .data + .bootloader)
-
-     Data:       1313 bytes (64.1% Full)
-     (.data + .bss + .noinit)
-
-
+    Data:       1609 bytes (78.6% Full)
+    (.data + .bss + .noinit)
 
 Next, you'll need to grab a copy of our code from GitHub:
 
