@@ -56,23 +56,21 @@
 <li>[ ] SD/microSD card (depends on your shield) any size up to 4 GB</li>
 </ul>
 
-<p>We assume that you know how to flash programs onto your Arduino. If you are new, check out <a href="https://www.arduino.cc/en/Guide/Windows#toc9">https://www.arduino.cc/en/Guide/Windows#toc9</a>.</p>
+<p>We assume that you know how to flash programs onto your Arduino. If you are new, check out <a href="https://www.arduino.cc/en/Guide/Windows#toc9">https://www.arduino.cc/en/Guide/Windows#toc9</a>. Out of the box, the official Arduino IDE is supported. If you wish to use PlatformIO, there is a bit of tinkering involved. Check out the documentation or the wiki on GitHub for step-by-step instructions.</p>
 
 <p>Energia devices are not supported at this time. The reason being that no usable SDFAT library exists. In addition, the Octoduino bootloader is too big to fit on any MSP430 devices, so we decided to not support any Energia devices for now, however we may look at it in the future.</p>
 
 <p>The official size requirements (percentages are for the Arduino Uno):</p>
 
-<pre><code> AVR Memory Usage
+<pre><code>AVR Memory Usage
+----------------
+Device: atmega328p
 
- ----------------
+Program:   21386 bytes (65.3% Full)
+(.text + .data + .bootloader)
 
- Device: atmega328p
-
- Program:   19406 bytes (59.2% Full)
- (.text + .data + .bootloader)
-
- Data:       1313 bytes (64.1% Full)
- (.data + .bss + .noinit)
+Data:       1609 bytes (78.6% Full)
+(.data + .bss + .noinit)
 </code></pre>
 
 <p>Next, you'll need to grab a copy of our code from GitHub:</p>
