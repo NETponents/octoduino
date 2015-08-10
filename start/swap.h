@@ -9,6 +9,7 @@
   #define HEADER_SWAP
    
   void swapinit();
+  void clearFolder(File fldr);
   String swapGetPath(String name);
   void swapcreate(String name, String value);
   String swapread(String name);

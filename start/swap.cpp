@@ -19,14 +19,41 @@ void swapinit()
     // Attempt to remove it
     if(!SD.rmdir("/swap"))
     {
-      // Error, SWAP folder is not empty
-      outwrite("Error in SWAP: SWAP folder is not empty");
+      // SWAP folder is not empty
+      File root = SD.open("/swap/");
+      clearFolder(root);
+      if(SD.exists("/swap"))
+      {
+        outwrite("Error in SWAP: working directory not cleared.");
+        swapcrash();
+      }
     }
   }
   // Create the swap folder
   SD.mkdir("/swap");
   // Check to make sure that the swap folder was created
   swapready();
+}
+void clearFolder(File fldr)
+{
+  while(true)
+  {
+    File node = fldr.openNextFile();
+    if(!node)
+    {
+      // No more files found in directory
+      break;
+    }
+    else if(node.isDirectory())
+    {
+      clearFolder(node);
+      SD.rmdir(node.name());
+    }
+    else
+    {
+      SD.remove(node.name());
+    }
+  }
 }
 String swapGetPath(String name)
 {
