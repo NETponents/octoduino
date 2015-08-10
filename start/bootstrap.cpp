@@ -19,5 +19,5 @@ void initBootstrap()
   SD.begin(4);
   //Begin parsing the PARSEBASIC main script
   outwrite("Launching bootloader");
-  PBstart("boot/bootloader.pba");
+  PBstart("/boot.pba");
 }
