@@ -40,7 +40,7 @@ You will need to download [PlatformIO](http://github.com/platformio/platformio) 
 Make sure that both PlatformIO and Python are in your system %PATH%. We have included a Visual Studio project file. Simply open the file and build the project.
 
 ### Mac OS X + Linux
-You will need to deploy manually using PlatformIO. Navigate to the Octoduino download directory and run `platformio run --target upload --environment %BOARD% --BUILD_FLAGS="-DBUILDPIPE_BNUM=$TRAVIS_BUILD_NUMBER"` replacing **%BOARD%** with the type of Arduino you are deploying to.
+You will need to deploy manually using PlatformIO. Navigate to the Octoduino download directory and run `platformio run --target upload --environment %BOARD% --BUILD_FLAGS="-DBUILDPIPE_BNUM='local'"` replacing **%BOARD%** with the type of Arduino you are deploying to.
 
 If you need help, see the documentation or talk to us on our Gitter channel.
 
