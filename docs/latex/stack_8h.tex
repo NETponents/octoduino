@@ -1,0 +1,65 @@
+\hypertarget{stack_8h}{\section{src/stack.h File Reference}
+\label{stack_8h}\index{src/stack.\-h@{src/stack.\-h}}
+}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{stack_8h_af2e942c725757f0c9e89a8c43480645d}{stackinit} ()
+\item 
+void \hyperlink{stack_8h_acdf6a9f8d3ceac973e7ce5312125ba5b}{stackpush} (String filepath)
+\item 
+void \hyperlink{stack_8h_ad0a6b5c411c5dbbec37a526e948db14c}{stackpop} (String filepath)
+\item 
+String \hyperlink{stack_8h_a666fa57d445783f668ac36f23b76bc82}{stackdump} ()
+\end{DoxyCompactItemize}
+
+
+\subsection{Function Documentation}
+\hypertarget{stack_8h_a666fa57d445783f668ac36f23b76bc82}{\index{stack.\-h@{stack.\-h}!stackdump@{stackdump}}
+\index{stackdump@{stackdump}!stack.h@{stack.\-h}}
+\subsubsection[{stackdump}]{\setlength{\rightskip}{0pt plus 5cm}String stackdump (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{stack_8h_a666fa57d445783f668ac36f23b76bc82}
+Returns a dump of the stack. \hypertarget{stack_8h_af2e942c725757f0c9e89a8c43480645d}{\index{stack.\-h@{stack.\-h}!stackinit@{stackinit}}
+\index{stackinit@{stackinit}!stack.h@{stack.\-h}}
+\subsubsection[{stackinit}]{\setlength{\rightskip}{0pt plus 5cm}void stackinit (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{stack_8h_af2e942c725757f0c9e89a8c43480645d}
+Initializes the stack object within the S\-W\-A\-P storage area. 
+
+References swapcreate().
+
+\hypertarget{stack_8h_ad0a6b5c411c5dbbec37a526e948db14c}{\index{stack.\-h@{stack.\-h}!stackpop@{stackpop}}
+\index{stackpop@{stackpop}!stack.h@{stack.\-h}}
+\subsubsection[{stackpop}]{\setlength{\rightskip}{0pt plus 5cm}void stackpop (
+\begin{DoxyParamCaption}
+\item[{String}]{filepath}
+\end{DoxyParamCaption}
+)}}\label{stack_8h_ad0a6b5c411c5dbbec37a526e948db14c}
+Removes the highest instance of thee requested program from the stack object. 
+
+References swapread(), and swapupdate().
+
+
+
+Referenced by P\-Bstart().
+
+\hypertarget{stack_8h_acdf6a9f8d3ceac973e7ce5312125ba5b}{\index{stack.\-h@{stack.\-h}!stackpush@{stackpush}}
+\index{stackpush@{stackpush}!stack.h@{stack.\-h}}
+\subsubsection[{stackpush}]{\setlength{\rightskip}{0pt plus 5cm}void stackpush (
+\begin{DoxyParamCaption}
+\item[{String}]{filepath}
+\end{DoxyParamCaption}
+)}}\label{stack_8h_acdf6a9f8d3ceac973e7ce5312125ba5b}
+Pushes a new layer onto the stack. 
+
+References swapread(), and swapupdate().
+
+
+
+Referenced by P\-Bstart().
+

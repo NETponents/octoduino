@@ -1,0 +1,77 @@
+\hypertarget{pbparse_8h}{\section{src/pbparse.h File Reference}
+\label{pbparse_8h}\index{src/pbparse.\-h@{src/pbparse.\-h}}
+}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{pbparse_8h_ae9e4f8e85c618400fa4fb746791835e1}{P\-Bstart} (String filename)
+\item 
+void \hyperlink{pbparse_8h_a2f0e576515f3af26be1391ab6bb706e7}{P\-Bparse} (String line)
+\item 
+void \hyperlink{pbparse_8h_a65cd8b9c05ebef540ab9bc1a3b32ed39}{P\-Bcrash} (void)
+\item 
+void \hyperlink{pbparse_8h_ac92380d14d841a682d127e47fe5e4cea}{P\-Bstop} (void)
+\end{DoxyCompactItemize}
+
+
+\subsection{Function Documentation}
+\hypertarget{pbparse_8h_a65cd8b9c05ebef540ab9bc1a3b32ed39}{\index{pbparse.\-h@{pbparse.\-h}!P\-Bcrash@{P\-Bcrash}}
+\index{P\-Bcrash@{P\-Bcrash}!pbparse.h@{pbparse.\-h}}
+\subsubsection[{P\-Bcrash}]{\setlength{\rightskip}{0pt plus 5cm}void P\-Bcrash (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}}\label{pbparse_8h_a65cd8b9c05ebef540ab9bc1a3b32ed39}
+Halts the system forcefully due to a software or hardware error. 
+
+References outwrite().
+
+
+
+Referenced by P\-Bparse(), and P\-Bstart().
+
+\hypertarget{pbparse_8h_a2f0e576515f3af26be1391ab6bb706e7}{\index{pbparse.\-h@{pbparse.\-h}!P\-Bparse@{P\-Bparse}}
+\index{P\-Bparse@{P\-Bparse}!pbparse.h@{pbparse.\-h}}
+\subsubsection[{P\-Bparse}]{\setlength{\rightskip}{0pt plus 5cm}void P\-Bparse (
+\begin{DoxyParamCaption}
+\item[{String}]{line}
+\end{DoxyParamCaption}
+)}}\label{pbparse_8h_a2f0e576515f3af26be1391ab6bb706e7}
+Parses one line of trimmed P\-B code. 
+
+References outwrite(), P\-Bcrash(), P\-Bstart(), P\-Bstop(), swapcreate(), swapdelete(), swapinit(), swapread(), swapupdate(), and T\-Kget\-Token().
+
+
+
+Referenced by P\-Bstart().
+
+\hypertarget{pbparse_8h_ae9e4f8e85c618400fa4fb746791835e1}{\index{pbparse.\-h@{pbparse.\-h}!P\-Bstart@{P\-Bstart}}
+\index{P\-Bstart@{P\-Bstart}!pbparse.h@{pbparse.\-h}}
+\subsubsection[{P\-Bstart}]{\setlength{\rightskip}{0pt plus 5cm}void P\-Bstart (
+\begin{DoxyParamCaption}
+\item[{String}]{filename}
+\end{DoxyParamCaption}
+)}}\label{pbparse_8h_ae9e4f8e85c618400fa4fb746791835e1}
+Creates a runner to begin execution of a new source file. 
+
+References outwrite(), P\-Bcrash(), P\-Bparse(), stackpop(), and stackpush().
+
+
+
+Referenced by init\-Bootstrap(), and P\-Bparse().
+
+\hypertarget{pbparse_8h_ac92380d14d841a682d127e47fe5e4cea}{\index{pbparse.\-h@{pbparse.\-h}!P\-Bstop@{P\-Bstop}}
+\index{P\-Bstop@{P\-Bstop}!pbparse.h@{pbparse.\-h}}
+\subsubsection[{P\-Bstop}]{\setlength{\rightskip}{0pt plus 5cm}void P\-Bstop (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}}\label{pbparse_8h_ac92380d14d841a682d127e47fe5e4cea}
+Halts the system safely by request of the program. 
+
+References outwrite().
+
+
+
+Referenced by P\-Bparse().
+

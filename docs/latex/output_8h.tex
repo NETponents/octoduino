@@ -1,0 +1,31 @@
+\hypertarget{output_8h}{\section{src/output.h File Reference}
+\label{output_8h}\index{src/output.\-h@{src/output.\-h}}
+}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{output_8h_a143444810abd4f49d8d5a3a79b91ae11}{outinit} ()
+\item 
+void \hyperlink{output_8h_a0fe18982f68419dcaf995dcbb6db3d34}{outwrite} (String msg)
+\end{DoxyCompactItemize}
+
+
+\subsection{Function Documentation}
+\hypertarget{output_8h_a143444810abd4f49d8d5a3a79b91ae11}{\index{output.\-h@{output.\-h}!outinit@{outinit}}
+\index{outinit@{outinit}!output.h@{output.\-h}}
+\subsubsection[{outinit}]{\setlength{\rightskip}{0pt plus 5cm}void outinit (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{output_8h_a143444810abd4f49d8d5a3a79b91ae11}
+Initializes the output stream(s). The included streams are determined at compile-\/time to minimize memory use. \hypertarget{output_8h_a0fe18982f68419dcaf995dcbb6db3d34}{\index{output.\-h@{output.\-h}!outwrite@{outwrite}}
+\index{outwrite@{outwrite}!output.h@{output.\-h}}
+\subsubsection[{outwrite}]{\setlength{\rightskip}{0pt plus 5cm}void outwrite (
+\begin{DoxyParamCaption}
+\item[{String}]{msg}
+\end{DoxyParamCaption}
+)}}\label{output_8h_a0fe18982f68419dcaf995dcbb6db3d34}
+Writes a String to all initialized output streams. 
+
+Referenced by init\-Bootstrap(), P\-Bcrash(), P\-Bparse(), P\-Bstart(), P\-Bstop(), swapcrash(), swapcreate(), swapdelete(), swapinit(), swapread(), swapready(), and T\-Kget\-Token().
+

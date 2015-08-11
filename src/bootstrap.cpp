@@ -11,6 +11,9 @@
 #include "pbparse.h"
 #include "output.h"
 
+/**
+ * Initializes the system to execute the main PB file
+ */
 void initBootstrap()
 {
   // Pre-req for SD class

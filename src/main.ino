@@ -11,6 +11,9 @@
 #include "bootstrap.h"
 #include "output.h"
 
+/**
+ * Set up the system (required by Arduino).
+ */
 void setup()
 {
   // Status LED
@@ -30,6 +33,9 @@ void setup()
   // Start the bootloader
   initBootstrap();
 }
+/**
+ * Loop (required by Arduino). Not used.
+ */
 void loop()
 {
   // Do nothing until power is cut

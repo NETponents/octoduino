@@ -1,0 +1,165 @@
+\hypertarget{swap_8cpp}{\section{src/swap.cpp File Reference}
+\label{swap_8cpp}\index{src/swap.\-cpp@{src/swap.\-cpp}}
+}
+{\ttfamily \#include $<$Arduino.\-h$>$}\\*
+{\ttfamily \#include $<$S\-D.\-h$>$}\\*
+{\ttfamily \#include $<$S\-P\-I.\-h$>$}\\*
+{\ttfamily \#include \char`\"{}swap.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}output.\-h\char`\"{}}\\*
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{swap_8cpp_a72bda546746635db7784b5a35ab43bc0}{swapinit} ()
+\item 
+void \hyperlink{swap_8cpp_aa3fa0f99295bf9b2a144684b766e03a3}{clear\-Folder} (File fldr)
+\item 
+String \hyperlink{swap_8cpp_a9fd4381189fbf1d71875847fc7e3dcc6}{swap\-Get\-Path} (String name)
+\item 
+void \hyperlink{swap_8cpp_a43a093648c3555135f18eb1d6ad85b96}{swapcreate} (String name, String value)
+\item 
+String \hyperlink{swap_8cpp_ad92323b56dc289cdf90d435c78337479}{swapread} (String name)
+\item 
+void \hyperlink{swap_8cpp_a41c753b32ab7020ae342d860efa8272a}{swapupdate} (String name, String value)
+\item 
+void \hyperlink{swap_8cpp_a3005d9bbb4d2fb32ce545339f6eb6705}{swapdelete} (String name)
+\item 
+void \hyperlink{swap_8cpp_adce7139a01989006748bfdffdd1232ef}{swapcrash} ()
+\item 
+void \hyperlink{swap_8cpp_a2bff2c0562ef8a2e35527721fffa6b89}{swapready} ()
+\end{DoxyCompactItemize}
+
+
+\subsection{Function Documentation}
+\hypertarget{swap_8cpp_aa3fa0f99295bf9b2a144684b766e03a3}{\index{swap.\-cpp@{swap.\-cpp}!clear\-Folder@{clear\-Folder}}
+\index{clear\-Folder@{clear\-Folder}!swap.cpp@{swap.\-cpp}}
+\subsubsection[{clear\-Folder}]{\setlength{\rightskip}{0pt plus 5cm}void clear\-Folder (
+\begin{DoxyParamCaption}
+\item[{File}]{fldr}
+\end{DoxyParamCaption}
+)}}\label{swap_8cpp_aa3fa0f99295bf9b2a144684b766e03a3}
+Recursivly removes all files from within a folder, then deletes it and returns. 
+
+References clear\-Folder().
+
+
+
+Referenced by clear\-Folder(), and swapinit().
+
+\hypertarget{swap_8cpp_adce7139a01989006748bfdffdd1232ef}{\index{swap.\-cpp@{swap.\-cpp}!swapcrash@{swapcrash}}
+\index{swapcrash@{swapcrash}!swap.cpp@{swap.\-cpp}}
+\subsubsection[{swapcrash}]{\setlength{\rightskip}{0pt plus 5cm}void swapcrash (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{swap_8cpp_adce7139a01989006748bfdffdd1232ef}
+Crashes the system due to a S\-W\-A\-P error. 
+
+References outwrite().
+
+
+
+Referenced by swapcreate(), swapdelete(), swapinit(), swapread(), and swapready().
+
+\hypertarget{swap_8cpp_a43a093648c3555135f18eb1d6ad85b96}{\index{swap.\-cpp@{swap.\-cpp}!swapcreate@{swapcreate}}
+\index{swapcreate@{swapcreate}!swap.cpp@{swap.\-cpp}}
+\subsubsection[{swapcreate}]{\setlength{\rightskip}{0pt plus 5cm}void swapcreate (
+\begin{DoxyParamCaption}
+\item[{String}]{name, }
+\item[{String}]{value}
+\end{DoxyParamCaption}
+)}}\label{swap_8cpp_a43a093648c3555135f18eb1d6ad85b96}
+Creates a new swap object and assigns it the given value. 
+
+References outwrite(), swapcrash(), swap\-Get\-Path(), and swapready().
+
+
+
+Referenced by P\-Bparse(), stackinit(), and swapupdate().
+
+\hypertarget{swap_8cpp_a3005d9bbb4d2fb32ce545339f6eb6705}{\index{swap.\-cpp@{swap.\-cpp}!swapdelete@{swapdelete}}
+\index{swapdelete@{swapdelete}!swap.cpp@{swap.\-cpp}}
+\subsubsection[{swapdelete}]{\setlength{\rightskip}{0pt plus 5cm}void swapdelete (
+\begin{DoxyParamCaption}
+\item[{String}]{name}
+\end{DoxyParamCaption}
+)}}\label{swap_8cpp_a3005d9bbb4d2fb32ce545339f6eb6705}
+Removes the requested S\-W\-A\-P object from the S\-W\-A\-P space. 
+
+References outwrite(), swapcrash(), swap\-Get\-Path(), and swapready().
+
+
+
+Referenced by P\-Bparse(), and swapupdate().
+
+\hypertarget{swap_8cpp_a9fd4381189fbf1d71875847fc7e3dcc6}{\index{swap.\-cpp@{swap.\-cpp}!swap\-Get\-Path@{swap\-Get\-Path}}
+\index{swap\-Get\-Path@{swap\-Get\-Path}!swap.cpp@{swap.\-cpp}}
+\subsubsection[{swap\-Get\-Path}]{\setlength{\rightskip}{0pt plus 5cm}String swap\-Get\-Path (
+\begin{DoxyParamCaption}
+\item[{String}]{name}
+\end{DoxyParamCaption}
+)}}\label{swap_8cpp_a9fd4381189fbf1d71875847fc7e3dcc6}
+Gets the full S\-W\-A\-P path of the requested variable. 
+
+Referenced by swapcreate(), swapdelete(), and swapread().
+
+\hypertarget{swap_8cpp_a72bda546746635db7784b5a35ab43bc0}{\index{swap.\-cpp@{swap.\-cpp}!swapinit@{swapinit}}
+\index{swapinit@{swapinit}!swap.cpp@{swap.\-cpp}}
+\subsubsection[{swapinit}]{\setlength{\rightskip}{0pt plus 5cm}void swapinit (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{swap_8cpp_a72bda546746635db7784b5a35ab43bc0}
+Initializes the S\-W\-A\-P area on the S\-D card. 
+
+References clear\-Folder(), outwrite(), swapcrash(), and swapready().
+
+
+
+Referenced by P\-Bparse().
+
+\hypertarget{swap_8cpp_ad92323b56dc289cdf90d435c78337479}{\index{swap.\-cpp@{swap.\-cpp}!swapread@{swapread}}
+\index{swapread@{swapread}!swap.cpp@{swap.\-cpp}}
+\subsubsection[{swapread}]{\setlength{\rightskip}{0pt plus 5cm}String swapread (
+\begin{DoxyParamCaption}
+\item[{String}]{name}
+\end{DoxyParamCaption}
+)}}\label{swap_8cpp_ad92323b56dc289cdf90d435c78337479}
+Returns the value of the requested S\-W\-A\-P object. 
+
+References outwrite(), swapcrash(), swap\-Get\-Path(), and swapready().
+
+
+
+Referenced by P\-Bparse(), stackpop(), and stackpush().
+
+\hypertarget{swap_8cpp_a2bff2c0562ef8a2e35527721fffa6b89}{\index{swap.\-cpp@{swap.\-cpp}!swapready@{swapready}}
+\index{swapready@{swapready}!swap.cpp@{swap.\-cpp}}
+\subsubsection[{swapready}]{\setlength{\rightskip}{0pt plus 5cm}void swapready (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{swap_8cpp_a2bff2c0562ef8a2e35527721fffa6b89}
+Checks to see if the S\-W\-A\-P has been initialized. If not, it forces a system crash with \hyperlink{swap_8cpp_adce7139a01989006748bfdffdd1232ef}{swapcrash()}. 
+
+References outwrite(), and swapcrash().
+
+
+
+Referenced by swapcreate(), swapdelete(), swapinit(), swapread(), and swapupdate().
+
+\hypertarget{swap_8cpp_a41c753b32ab7020ae342d860efa8272a}{\index{swap.\-cpp@{swap.\-cpp}!swapupdate@{swapupdate}}
+\index{swapupdate@{swapupdate}!swap.cpp@{swap.\-cpp}}
+\subsubsection[{swapupdate}]{\setlength{\rightskip}{0pt plus 5cm}void swapupdate (
+\begin{DoxyParamCaption}
+\item[{String}]{name, }
+\item[{String}]{value}
+\end{DoxyParamCaption}
+)}}\label{swap_8cpp_a41c753b32ab7020ae342d860efa8272a}
+Replaces the requested S\-W\-A\-P object with the given value. 
+
+References swapcreate(), swapdelete(), and swapready().
+
+
+
+Referenced by P\-Bparse(), stackpop(), and stackpush().
+

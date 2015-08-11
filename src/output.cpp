@@ -15,6 +15,9 @@
   LiquidCrystal lcd(12, 11, 5, 4, 3, 2);
 #endif
 
+/**
+ * Initializes the output stream(s). The included streams are determined at compile-time to minimize memory use.
+ */
 void outinit()
 {
   // Initialize text logs on SD card
@@ -36,6 +39,9 @@ void outinit()
     Serial.println("IO Channel: LCD [OK]");
   #endif
 }
+/**
+ * Writes a String to all initialized output streams.
+ */
 void outwrite(String msg)
 {
   // Get time (HH:MM:SS)

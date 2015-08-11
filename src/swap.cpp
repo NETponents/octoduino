@@ -11,6 +11,9 @@
 #include "swap.h"
 #include "output.h"
 
+/**
+ * Initializes the SWAP area on the SD card.
+ */
 void swapinit()
 {
   // Check to see if swap exists
@@ -34,6 +37,9 @@ void swapinit()
   // Check to make sure that the swap folder was created
   swapready();
 }
+/**
+ * Recursivly removes all files from within a folder, then deletes it and returns.
+ */
 void clearFolder(File fldr)
 {
   while(true)
@@ -55,6 +61,9 @@ void clearFolder(File fldr)
     }
   }
 }
+/**
+ * Gets the full SWAP path of the requested variable.
+ */
 String swapGetPath(String name)
 {
   // Add parts together
@@ -64,6 +73,9 @@ String swapGetPath(String name)
   // Return full filename
   return result;
 }
+/**
+ * Creates a new swap object and assigns it the given value.
+ */
 void swapcreate(String name, String value)
 {
   // Make sure that swap is ready
@@ -92,6 +104,9 @@ void swapcreate(String name, String value)
   }
   
 }
+/**
+ * Returns the value of the requested SWAP object.
+ */
 String swapread(String name)
 {
   // Make sure that swap is ready
@@ -129,6 +144,9 @@ String swapread(String name)
   outwrite("ERR: 0x8");
   swapcrash();
 }
+/**
+ * Replaces the requested SWAP object with the given value.
+ */
 void swapupdate(String name, String value)
 {
   // Make sure swap is ready
@@ -138,6 +156,9 @@ void swapupdate(String name, String value)
   // Create new value
   swapcreate(name, value);
 }
+/**
+ * Removes the requested SWAP object from the SWAP space.
+ */
 void swapdelete(String name)
 {
   // Make sure swap is ready
@@ -153,6 +174,9 @@ void swapdelete(String name)
   outwrite("ERR: 0x9");
   swapcrash();
 }
+/**
+ * Crashes the system due to a SWAP error.
+ */
 void swapcrash()
 {
   // Notify user of crash
@@ -162,6 +186,9 @@ void swapcrash()
     // Do nothing until system is reset
   }
 }
+/**
+ * Checks to see if the SWAP has been initialized. If not, it forces a system crash with swapcrash().
+ */
 void swapready()
 {
   // Check if swap was initialized

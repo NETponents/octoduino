@@ -14,6 +14,9 @@
 #include "tokenizer.h"
 #include "stack.h"
 
+/**
+ * Creates a runner to begin execution of a new source file.
+ */
 void PBstart(String filename)
 {
   // Open file handle to source file
@@ -51,6 +54,9 @@ void PBstart(String filename)
     PBcrash();
   }
 }
+/**
+ * Parses one line of trimmed PB code.
+ */
 void PBparse(String line)
 {
   // Check if this line is a comment
@@ -190,6 +196,9 @@ void PBparse(String line)
     }
   }
 }
+/**
+ * Halts the system safely by request of the program.
+ */
 void PBstop()
 {
   // Halt the program
@@ -199,6 +208,9 @@ void PBstop()
     // Loop until power is reset
   }
 }
+/**
+ * Halts the system forcefully due to a software or hardware error.
+ */
 void PBcrash()
 {
   // System has crashed

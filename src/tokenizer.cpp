@@ -8,6 +8,9 @@
 #include <Arduino.h>
 #include "output.h"
 
+/**
+ * Parses a given PB line and returns the token found at the given token index.
+ */
 String TKgetToken(String line, int tokenIndex)
 {
     // Create buffer for output
