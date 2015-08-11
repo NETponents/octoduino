@@ -31,9 +31,16 @@ Next, you'll need to grab a copy of our code from GitHub:
  
 ## Building
 
-***As of version 0.1.4, the Arduino IDE cannot be used to build Octoduino***. Instead, you have two options. You may either download and flash the pre-compiled *.hex* files, or you can build the project using PlatformIO. If you are on a Windows computer, we reccommend using the *.hex* file option (see the docs).
+***As of version 0.1.4, the Arduino IDE cannot be used to build Octoduino***. Instead, we have provided multiple build options.
 
-If you are on a Linux or Mac OS X computer and have PlatformIO installed, edit `~/build` to match your destination board and upload port, then run it.
+### All platforms
+You will need to download [PlatformIO](http://github.com/platformio/platformio) for your platform. If you don't already have it, you will need Python to install PlatformIO.
+
+### Windows
+Make sure that both PlatformIO and Python are in your system %PATH%. We have included a Visual Studio project file. Simply open the file and build the project.
+
+### Mac OS X + Linux
+You will need to deploy manually using PlatformIO. We are working on a script to automate this. For now, use the commands provided in `~/.travis.yml` as a reference.
 
 If you need help, see the documentation or talk to us on our Gitter channel.
 
