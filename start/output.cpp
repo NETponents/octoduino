@@ -31,16 +31,9 @@ void outinit()
     }
   #endif
   #ifdef IO_LOG_LCD
-    if(lcd)
-    {
-      lcd.begin(16, 2);
-      lcd.noCursor();
-      Serial.println("IO Channel: LCD [OK]");
-    }
-    else
-    {
-      Serial.println("IO Channel: LCD [FAIL]");
-    }
+    lcd.begin(16, 2);
+    lcd.noCursor();
+    Serial.println("IO Channel: LCD [OK]");
   #endif
 }
 void outwrite(String msg)
