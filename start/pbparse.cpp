@@ -12,6 +12,7 @@
 #include "swap.h"
 #include "output.h"
 #include "tokenizer.h"
+#include "stack.h"
 
 void PBstart(String filename)
 {
@@ -20,6 +21,8 @@ void PBstart(String filename)
   // Check to see if file handle opened
   if(bootloader)
   {
+    // Push it onto the stack
+    stackpush(filename);
     // Instruction terminator
     char terminator = ';';
     while (bootloader.available())
@@ -38,6 +41,8 @@ void PBstart(String filename)
     }
     // Close file handle
     bootloader.close();
+    // Pop it from the stack
+    stackpop(filename);
   }
   else
   {
