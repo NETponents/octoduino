@@ -2,7 +2,13 @@ language: python
 python:
     - "2.7"
 env:
-    - PLATFORMIO_CI_SRC=src/
+    global:
+        - PLATFORMIO_CI_SRC=src/
+    matrix:
+        - PLATFORMIO_SRC_BUILD_FLAGS=""
+        - PLATFORMIO_SRC_BUILD_FLAGS="-DIO_LOG_SD"
+        - PLATFORMIO_SRC_BUILD_FLAGS="-DIO_LOG_LCD"
+        - PLATFORMIO_SRC_BUILD_FLAGS="-DIO_LOG_SD -DIO_LOG_LCD"
 git: 
   submodules: false 
 notifications:
