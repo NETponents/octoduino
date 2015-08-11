@@ -9,6 +9,11 @@
 #include <SD.h>
 #include <SPI.h> // Required for PlatformIO
 #include "output.h"
+#ifdef IO_LOG_LCD
+  #include <LiquidCrystal.h>
+  
+  LiquidCrystal lcd(12, 11, 5, 4, 3, 2);
+#endif
 
 void outinit()
 {
@@ -18,11 +23,23 @@ void outinit()
     if(logger)
     {
       logger.println("Logging started");
-      outwrite("IO Channel: SD [OK]");
+      Serial.println("IO Channel: SD [OK]");
     }
     else
     {
-      outwrite("IO Channel: SD [FAIL]");
+      Serial.println("IO Channel: SD [FAIL]");
+    }
+  #endif
+  #ifdef IO_LOG_LCD
+    if(lcd)
+    {
+      lcd.begin(16, 2);
+      lcd.noCursor();
+      Serial.println("IO Channel: LCD [OK]");
+    }
+    else
+    {
+      Serial.println("IO Channel: LCD [FAIL]");
     }
   #endif
 }
@@ -48,5 +65,18 @@ void outwrite(String msg)
     File logger = SD.open("/log.txt");
     logger.println(msg);
     logger.close();
+  #endif
+  #ifdef IO_LOG_SD
+    lcd.clear();
+    lcd.home();
+    lcd.print("[");
+    lcd.print(hr);
+    lcd.print(":");
+    lcd.print(mi);
+    lcd.print(":");
+    lcd.print(ms);
+    lcd.print("] ");
+    lcd.setCursor(0, 1);
+    lcd.print(msg);
   #endif
 }
