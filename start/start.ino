@@ -23,7 +23,7 @@ void setup()
   }
   // Initialize output class
   outinit();
-  outwrite("Octoduino v0.1.3");
+  outwrite("Octoduino v0.1.3. Build: " + BUILDPIPE_BNUM);
   outwrite("Copyright 2015 - NETponents");
   outwrite("Distributed under the GNU GPL v2.0 license");
   outwrite("Commercial use with this build of Octoduino is prohibited");
