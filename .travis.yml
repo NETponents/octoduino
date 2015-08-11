@@ -1,6 +1,10 @@
 language: python
 python:
     - "2.7"
+addons:
+    apt:
+        packages:
+            - doxygen
 env:
     global:
         - PLATFORMIO_CI_SRC=src/
@@ -25,6 +29,7 @@ install:
     - python -c "$(curl -fsSL https://raw.githubusercontent.com/platformio/platformio/master/scripts/get-platformio.py)"
 script:
     - platformio ci --project-conf ./platformio.ini
+    - doxygen ./Doxyfile
     #- cd ./boot
     # Install ParseBasic interpreter version 0.1.0
     # Commented out to avoid issue with logic code

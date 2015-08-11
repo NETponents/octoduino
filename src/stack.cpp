@@ -10,12 +10,18 @@
 #include <SPI.h> // Required for PlatformIO
 #include "swap.h" 
 
+/**
+ * Initializes the stack object within the SWAP storage area.
+ */
 void stackinit()
 {
   #ifdef CORE_STACK
     swapcreate("OCTSTACK","");
   #endif
 }
+/**
+ * Pushes a new layer onto the stack.
+ */
 void stackpush(String filepath)
 {
   #ifdef CORE_STACK
@@ -24,6 +30,9 @@ void stackpush(String filepath)
     swapupdate("OCTSTACK", result);
   #endif
 }
+/**
+ * Removes the highest instance of thee requested program from the stack object.
+ */
 void stackpop(String filepath)
 {
   #ifdef CORE_STACK
@@ -32,6 +41,9 @@ void stackpop(String filepath)
     swapupdate("OCTSTACK", stackvar);
   #endif
 }
+/**
+ * Returns a dump of the stack.
+ */
 String stackdump()
 {
   String dump = "";
