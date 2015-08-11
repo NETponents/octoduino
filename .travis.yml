@@ -23,11 +23,6 @@ branches:
     - master
 install:
     - python -c "$(curl -fsSL https://raw.githubusercontent.com/platformio/platformio/master/scripts/get-platformio.py)"
-before_script:
-    - cd ./start
-    - mv ./start.ino ./main.ino
-    - cd ..
-    - mv ./start ./src
 script:
     - platformio ci --project-conf ./platformio.ini
     #- cd ./boot
