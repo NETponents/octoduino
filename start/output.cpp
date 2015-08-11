@@ -13,8 +13,18 @@
 void outinit()
 {
   // Initialize text logs on SD card
-  File logger = SD.open("/log.txt");
-  logger.println("Logging started");
+  #ifdef IO_LOG_SD
+    File logger = SD.open("/log.txt");
+    if(logger)
+    {
+      logger.println("Logging started");
+      outwrite("IO Channel: SD [OK]");
+    }
+    else
+    {
+      outwrite("IO Channel: SD [FAIL]");
+    }
+  #endif
 }
 void outwrite(String msg)
 {
@@ -34,7 +44,9 @@ void outwrite(String msg)
   Serial.print("] ");
   Serial.println(msg);
   // Also print message to logger
-  File logger = SD.open("/log.txt");
-  logger.println(msg);
-  logger.close();
+  #ifdef IO_LOG_SD
+    File logger = SD.open("/log.txt");
+    logger.println(msg);
+    logger.close();
+  #endif
 }
