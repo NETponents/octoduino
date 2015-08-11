@@ -59,7 +59,7 @@ void outwrite(String msg)
     logger.println(msg);
     logger.close();
   #endif
-  #ifdef IO_LOG_SD
+  #ifdef IO_LOG_LCD
     lcd.clear();
     lcd.home();
     lcd.print("[");
