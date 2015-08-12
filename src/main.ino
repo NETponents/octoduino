@@ -8,8 +8,12 @@
 // No need for <Arduino.h>
 #include <SD.h>
 #include <SPI.h> // Required for PlatformIO
-#include "bootstrap.h"
+#include <core.h>
 #include "output.h"
+
+#ifndef BUILDPIPE_BNUM
+  #define BUILDPIPE_BNUM "local"
+#endif
 
 /**
  * Set up the system (required by Arduino).
@@ -18,20 +22,14 @@ void setup()
 {
   // Status LED
   pinMode(13, OUTPUT);
-  // Open serial
-  Serial.begin(9600);
-  while(!Serial)
-  {
-    ; // Leonardo: wait for serial to connect
-  }
   // Initialize output class
-  outinit();
-  outwrite("Octoduino v0.1.3. Build: " + BUILDPIPE_BNUM);
-  outwrite("Copyright 2015 - NETponents");
-  outwrite("Distributed under the GNU GPL v2.0 license");
-  outwrite("Commercial use with this build of Octoduino is prohibited");
+  Output.init();
+  Output.write("Octoduino v0.1.3. Build: " + BUILDPIPE_BNUM);
+  Output.write("Copyright 2015 - NETponents");
+  Output.write("Distributed under the GNU GPL v2.0 license");
+  Output.write("Commercial use with this build of Octoduino is prohibited");
   // Start the bootloader
-  initBootstrap();
+  Core.init();
 }
 /**
  * Loop (required by Arduino). Not used.
