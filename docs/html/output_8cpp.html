@@ -38,6 +38,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
   <div id="navrow1" class="tabs">
     <ul class="tablist">
       <li><a href="index.html"><span>Main&#160;Page</span></a></li>
+      <li><a href="annotated.html"><span>Classes</span></a></li>
       <li class="current"><a href="files.html"><span>Files</span></a></li>
       <li>
         <div id="MSearchBox" class="MSearchBoxInactive">
@@ -68,7 +69,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Functions</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Macros</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -84,6 +85,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </div><!-- top -->
 <div class="header">
   <div class="summary">
+<a href="#nested-classes">Classes</a> &#124;
 <a href="#func-members">Functions</a>  </div>
   <div class="headertitle">
 <div class="title">output.cpp File Reference</div>  </div>
@@ -93,54 +95,53 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <code>#include &lt;SD.h&gt;</code><br/>
 <code>#include &lt;SPI.h&gt;</code><br/>
 <code>#include &quot;<a class="el" href="output_8h_source.html">output.h</a>&quot;</code><br/>
-</div><table class="memberdecls">
+</div>
+<p><a href="output_8cpp_source.html">Go to the source code of this file.</a></p>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
+Classes</h2></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classOutput.html">Output</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:a143444810abd4f49d8d5a3a79b91ae11"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="output_8cpp.html#a143444810abd4f49d8d5a3a79b91ae11">outinit</a> ()</td></tr>
-<tr class="separator:a143444810abd4f49d8d5a3a79b91ae11"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a0fe18982f68419dcaf995dcbb6db3d34"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="output_8cpp.html#a0fe18982f68419dcaf995dcbb6db3d34">outwrite</a> (String msg)</td></tr>
-<tr class="separator:a0fe18982f68419dcaf995dcbb6db3d34"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aedc913c139bb562646d3459b0ca28997"><td class="memItemLeft" align="right" valign="top">class <a class="el" href="classOutput.html">Output</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="output_8cpp.html#aedc913c139bb562646d3459b0ca28997">init</a> ()</td></tr>
+<tr class="separator:aedc913c139bb562646d3459b0ca28997"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Function Documentation</h2>
-<a class="anchor" id="a143444810abd4f49d8d5a3a79b91ae11"></a>
+<a class="anchor" id="aedc913c139bb562646d3459b0ca28997"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">void outinit </td>
+          <td class="memname">static void init </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td></td>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Initializes the output stream(s). The included streams are determined at compile-time to minimize memory use. </p>
+<p><a class="el" href="classOutput.html">Output</a> stream wrapper for Serial class provided by Wiring Waits for serial connection (if set through build args) </p>
 
-</div>
-</div>
-<a class="anchor" id="a0fe18982f68419dcaf995dcbb6db3d34"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void outwrite </td>
-          <td>(</td>
-          <td class="paramtype">String&#160;</td>
-          <td class="paramname"><em>msg</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<p>Writes a String to all initialized output streams. </p>
-
-<p>Referenced by <a class="el" href="bootstrap_8h.html#ac774d72c4917ad13e91568a569fe61a7">initBootstrap()</a>, <a class="el" href="pbparse_8h.html#a65cd8b9c05ebef540ab9bc1a3b32ed39">PBcrash()</a>, <a class="el" href="pbparse_8h.html#a2f0e576515f3af26be1391ab6bb706e7">PBparse()</a>, <a class="el" href="pbparse_8h.html#ae9e4f8e85c618400fa4fb746791835e1">PBstart()</a>, <a class="el" href="pbparse_8h.html#ac92380d14d841a682d127e47fe5e4cea">PBstop()</a>, <a class="el" href="swap_8h.html#adce7139a01989006748bfdffdd1232ef">swapcrash()</a>, <a class="el" href="swap_8h.html#a43a093648c3555135f18eb1d6ad85b96">swapcreate()</a>, <a class="el" href="swap_8h.html#a3005d9bbb4d2fb32ce545339f6eb6705">swapdelete()</a>, <a class="el" href="swap_8h.html#a72bda546746635db7784b5a35ab43bc0">swapinit()</a>, <a class="el" href="swap_8h.html#ad92323b56dc289cdf90d435c78337479">swapread()</a>, <a class="el" href="swap_8h.html#a2bff2c0562ef8a2e35527721fffa6b89">swapready()</a>, and <a class="el" href="tokenizer_8h.html#a70a507e2f0f641805781f24623616721">TKgetToken()</a>.</p>
-
+<p>Definition at line <a class="el" href="output_8cpp_source.html#l00061">61</a> of file <a class="el" href="output_8cpp_source.html">output.cpp</a>.</p>
+<div class="fragment"><div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;  {</div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;    <span class="comment">// Open serial</span></div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;    Serial.begin(9600);</div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;<span class="preprocessor">    #ifdef IO_LOG_SERIAL</span></div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;<span class="preprocessor"></span>      <span class="keywordflow">while</span>(!Serial)</div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;      {</div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;        ; <span class="comment">// Wait for serial to connect (required for Leonardo)</span></div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;      }</div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;<span class="preprocessor">    #endif</span></div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;<span class="preprocessor"></span>    <span class="keywordflow">return</span> 0;</div>
+<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;  }</div>
+</div><!-- fragment -->
 </div>
 </div>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Tue Aug 11 2015 19:13:49 for Octoduino by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Wed Aug 12 2015 17:11:43 for Octoduino by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.6
 </small></address>

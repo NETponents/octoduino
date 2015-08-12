@@ -5,9 +5,13 @@
 // MIT license. Copyright 2015 Joshua Zenn.    //
 /////////////////////////////////////////////////
 
-#ifndef HEADER_BOOTSTRAP
-  #define HEADER_BOOTSTRAP
+#ifndef HEADER_CORE
+  #define HEADER_CORE
    
-  void initBootstrap( void );
+  class Core
+  {
+    public:
+      static void init();
+  }
    
 #endif

@@ -7,15 +7,17 @@
 
 #ifndef HEADER_SWAP
   #define HEADER_SWAP
-   
-  void swapinit();
-  void clearFolder(File fldr);
-  String swapGetPath(String name);
-  void swapcreate(String name, String value);
-  String swapread(String name);
-  void swapupdate(String name, String value);
-  void swapdelete(String name);
-  void swapready();
-  void swapcrash();
+  
+  class Swap
+  {
+    static void Swap::init();
+    static void Swap::clearFolder(File fldr);
+    static String Swap::GetPath(String name);
+    static void Swap::create(String name, String value);
+    static String Swap::read(String name);
+    static void Swap::update(String name, String value);
+    static void Swap::sdelete(String name);
+    static void Swap::ready();
+  }
 
 #endif

@@ -38,6 +38,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
   <div id="navrow1" class="tabs">
     <ul class="tablist">
       <li><a href="index.html"><span>Main&#160;Page</span></a></li>
+      <li><a href="annotated.html"><span>Classes</span></a></li>
       <li class="current"><a href="files.html"><span>Files</span></a></li>
       <li>
         <div id="MSearchBox" class="MSearchBoxInactive">
@@ -68,7 +69,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Functions</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Macros</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -84,7 +85,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </div><!-- top -->
 <div class="header">
   <div class="summary">
-<a href="#func-members">Functions</a>  </div>
+<a href="#nested-classes">Classes</a>  </div>
   <div class="headertitle">
 <div class="title">stack.cpp File Reference</div>  </div>
 </div><!--header-->
@@ -93,99 +94,18 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <code>#include &lt;SD.h&gt;</code><br/>
 <code>#include &lt;SPI.h&gt;</code><br/>
 <code>#include &quot;<a class="el" href="swap_8h_source.html">swap.h</a>&quot;</code><br/>
-</div><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
-Functions</h2></td></tr>
-<tr class="memitem:af2e942c725757f0c9e89a8c43480645d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="stack_8cpp.html#af2e942c725757f0c9e89a8c43480645d">stackinit</a> ()</td></tr>
-<tr class="separator:af2e942c725757f0c9e89a8c43480645d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:acdf6a9f8d3ceac973e7ce5312125ba5b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="stack_8cpp.html#acdf6a9f8d3ceac973e7ce5312125ba5b">stackpush</a> (String filepath)</td></tr>
-<tr class="separator:acdf6a9f8d3ceac973e7ce5312125ba5b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad0a6b5c411c5dbbec37a526e948db14c"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="stack_8cpp.html#ad0a6b5c411c5dbbec37a526e948db14c">stackpop</a> (String filepath)</td></tr>
-<tr class="separator:ad0a6b5c411c5dbbec37a526e948db14c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a666fa57d445783f668ac36f23b76bc82"><td class="memItemLeft" align="right" valign="top">String&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="stack_8cpp.html#a666fa57d445783f668ac36f23b76bc82">stackdump</a> ()</td></tr>
-<tr class="separator:a666fa57d445783f668ac36f23b76bc82"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</div>
+<p><a href="stack_8cpp_source.html">Go to the source code of this file.</a></p>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
+Classes</h2></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classStack.html">Stack</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<h2 class="groupheader">Function Documentation</h2>
-<a class="anchor" id="a666fa57d445783f668ac36f23b76bc82"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">String stackdump </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<p>Returns a dump of the stack. </p>
-
-</div>
-</div>
-<a class="anchor" id="af2e942c725757f0c9e89a8c43480645d"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void stackinit </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<p>Initializes the stack object within the SWAP storage area. </p>
-
-<p>References <a class="el" href="swap_8cpp.html#a43a093648c3555135f18eb1d6ad85b96">swapcreate()</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="ad0a6b5c411c5dbbec37a526e948db14c"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void stackpop </td>
-          <td>(</td>
-          <td class="paramtype">String&#160;</td>
-          <td class="paramname"><em>filepath</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<p>Removes the highest instance of thee requested program from the stack object. </p>
-
-<p>References <a class="el" href="swap_8cpp.html#ad92323b56dc289cdf90d435c78337479">swapread()</a>, and <a class="el" href="swap_8cpp.html#a41c753b32ab7020ae342d860efa8272a">swapupdate()</a>.</p>
-
-<p>Referenced by <a class="el" href="pbparse_8h.html#ae9e4f8e85c618400fa4fb746791835e1">PBstart()</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="acdf6a9f8d3ceac973e7ce5312125ba5b"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void stackpush </td>
-          <td>(</td>
-          <td class="paramtype">String&#160;</td>
-          <td class="paramname"><em>filepath</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<p>Pushes a new layer onto the stack. </p>
-
-<p>References <a class="el" href="swap_8cpp.html#ad92323b56dc289cdf90d435c78337479">swapread()</a>, and <a class="el" href="swap_8cpp.html#a41c753b32ab7020ae342d860efa8272a">swapupdate()</a>.</p>
-
-<p>Referenced by <a class="el" href="pbparse_8h.html#ae9e4f8e85c618400fa4fb746791835e1">PBstart()</a>.</p>
-
-</div>
-</div>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Tue Aug 11 2015 19:13:49 for Octoduino by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Wed Aug 12 2015 17:11:43 for Octoduino by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.6
 </small></address>

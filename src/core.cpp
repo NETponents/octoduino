@@ -12,15 +12,22 @@
 #include "output.h"
 
 /**
- * Initializes the system to execute the main PB file
+ * Class that contains the core functions for controling threads on the system.
  */
-void initBootstrap()
+class Core
 {
-  // Pre-req for SD class
-  pinMode(10, OUTPUT);
-  //Open SD card
-  SD.begin(4);
-  //Begin parsing the PARSEBASIC main script
-  outwrite("Launching bootloader");
-  PBstart("/boot.pba");
+  /**
+  * Initializes the system to execute the main PB file
+  */
+  static void Core::init()
+  {
+    // Pre-req for SD class
+    pinMode(10, OUTPUT);
+    //Open SD card
+    SD.begin(4);
+    Swap::init();
+    //Begin parsing the PARSEBASIC main script
+    Output::write("Launching bootloader");
+    Parse::start("/boot.pba");
+  }
 }

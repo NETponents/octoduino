@@ -1,4 +1,6 @@
 var searchData=
 [
-  ['clearfolder',['clearFolder',['../swap_8cpp.html#aa3fa0f99295bf9b2a144684b766e03a3',1,'clearFolder(File fldr):&#160;swap.cpp'],['../swap_8h.html#aa3fa0f99295bf9b2a144684b766e03a3',1,'clearFolder(File fldr):&#160;swap.cpp']]]
+  ['core',['Core',['../classCore.html',1,'']]],
+  ['core_2ecpp',['core.cpp',['../core_8cpp.html',1,'']]],
+  ['core_2eh',['core.h',['../core_8h.html',1,'']]]
 ];
