@@ -38,14 +38,17 @@
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <NMakeBuildCommandLine>platformio --force run</NMakeBuildCommandLine>
     <NMakeCleanCommandLine>platformio --force run --target clean</NMakeCleanCommandLine>
-    <NMakePreprocessorDefinitions></NMakePreprocessorDefinitions>
-    <NMakeIncludeSearchPath></NMakeIncludeSearchPath>
+    <NMakePreprocessorDefinitions>
+    </NMakePreprocessorDefinitions>
+    <NMakeIncludeSearchPath>
+    </NMakeIncludeSearchPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <NMakeBuildCommandLine>platformio run</NMakeBuildCommandLine>
     <NMakeCleanCommandLine>platformio run --target clean</NMakeCleanCommandLine>
     <NMakePreprocessorDefinitions>{";".join(defines)}}</NMakePreprocessorDefinitions>
-    <NMakeIncludeSearchPath></NMakeIncludeSearchPath>
+    <NMakeIncludeSearchPath>
+    </NMakeIncludeSearchPath>
   </PropertyGroup>
   <ItemDefinitionGroup>
   </ItemDefinitionGroup>
@@ -54,5 +57,22 @@
   </ImportGroup>
   <ItemGroup>
     <None Include="platformio.ini" />
+    <None Include="src\main.ino" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="src\core.cpp" />
+    <ClCompile Include="src\output.cpp" />
+    <ClCompile Include="src\pbparse.cpp" />
+    <ClCompile Include="src\stack.cpp" />
+    <ClCompile Include="src\swap.cpp" />
+    <ClCompile Include="src\tokenizer.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="src\core.h" />
+    <ClInclude Include="src\output.h" />
+    <ClInclude Include="src\pbparse.h" />
+    <ClInclude Include="src\stack.h" />
+    <ClInclude Include="src\swap.h" />
+    <ClInclude Include="src\tokenizer.h" />
   </ItemGroup>
 </Project>
