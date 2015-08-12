@@ -6,9 +6,6 @@ addons:
         packages:
             - doxygen
 env:
-    global:
-        - PLATFORMIO_CI_SRC=src/
-        - PLATFORMIO_CI_LIB=lib/
     matrix:
         - PLATFORMIO_SRC_BUILD_FLAGS="-DBUILDPIPE_BNUM=$TRAVIS_BUILD_NUMBER"
         - PLATFORMIO_SRC_BUILD_FLAGS="-DBUILDPIPE_BNUM=$TRAVIS_BUILD_NUMBER -DIO_LOG_SD"
