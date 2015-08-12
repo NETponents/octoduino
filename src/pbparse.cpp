@@ -211,11 +211,11 @@ class Parse
         {
           Swap::create(_name, _value);
         }
-        static void Parse::Opcode::System::SWAP::DELETE(_name)
+        static void Parse::Opcode::System::SWAP::DELETE(String _name)
         {
           Swap::sdelete(_name);
         }
-        static void Parse::Opcode::System::SWAP::SET(_name, _value)
+        static void Parse::Opcode::System::SWAP::SET(String _name, String _value)
         {
           Swap::update(_name, _value);
         }

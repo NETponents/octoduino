@@ -10,7 +10,8 @@
   
   class Tokenizer
   {
-    static String TKgetToken(String line, int tokenIndex);
-  }
+  public:
+	static String TKgetToken(String line, int tokenIndex);
+  };
   
 #endif 

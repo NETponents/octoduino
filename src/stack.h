@@ -10,10 +10,11 @@
    
   class Stack
   {
-    void stackinit();
-    void stackpush(String filepath);
-    void stackpop(String filepath);
-    String stackdump();
-  }
+  public:
+	static void init();
+    static void push(String filepath);
+    static void pop(String filepath);
+    static String dump();
+  };
 
 #endif
