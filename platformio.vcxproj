@@ -42,6 +42,7 @@
     </NMakePreprocessorDefinitions>
     <NMakeIncludeSearchPath>
     </NMakeIncludeSearchPath>
+    <LibraryPath>C:\Program Files %28x86%29\Arduino\libraries;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <NMakeBuildCommandLine>platformio run</NMakeBuildCommandLine>

@@ -10,6 +10,7 @@
 #include <SPI.h> //Required for PlatformIO
 #include "pbparse.h"
 #include "output.h"
+#include "swap.h"
 
 /**
  * Class that contains the core functions for controling threads on the system.
@@ -30,4 +31,4 @@ class Core
     Output::write("Launching bootloader");
     Parse::start("/boot.pba");
   }
-}
+};

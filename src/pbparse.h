@@ -49,7 +49,7 @@
 			static void CREATESWAP();
 			static void NEW(String _name, String _value);
 			static void DELETE(String _name);
-			static void SET(String name, String _value)
+			static void SET(String name, String _value);
 		};
 	  };
       class Logic
