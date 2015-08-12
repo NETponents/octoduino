@@ -11,6 +11,7 @@
 #include "pbparse.h"
 #include "output.h"
 #include "swap.h"
+#include "core.h"
 
 
   /**

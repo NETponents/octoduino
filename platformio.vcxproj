@@ -42,7 +42,8 @@
     </NMakePreprocessorDefinitions>
     <NMakeIncludeSearchPath>
     </NMakeIncludeSearchPath>
-    <LibraryPath>C:\Program Files %28x86%29\Arduino\libraries;$(LibraryPath)</LibraryPath>
+    <LibraryPath>C:\Users\wordm\Documents\GitHub\octoduino\.pioenvs\arduino_uno;C:\Program Files %28x86%29\Arduino\libraries;$(LibraryPath)</LibraryPath>
+    <IncludePath>C:\Users\wordm\Documents\GitHub\octoduino\.pioenvs\arduino_uno\SPI;C:\Users\wordm\Documents\GitHub\octoduino\.pioenvs\arduino_uno\SD;C:\Users\wordm\Documents\GitHub\octoduino\.pioenvs\arduino_uno\LiquidCrystal;C:\Users\wordm\Documents\GitHub\octoduino\.pioenvs\arduino_uno\FrameworkArduinoVariant;C:\Users\wordm\Documents\GitHub\octoduino\.pioenvs\arduino_uno\FrameworkArduino;$(IncludePath)</IncludePath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <NMakeBuildCommandLine>platformio run</NMakeBuildCommandLine>
