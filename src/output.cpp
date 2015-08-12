@@ -38,7 +38,8 @@
     ms = ms % 1000;
     unsigned long hr = mi / 60;
     mi = mi % 60;
-    msg = "[" + hr + ":" + mi + ":" + ms + "] " + msg;
+    //msg = "[" + hr + ":" + mi + ":" + ms + "] " + msg;
+    msg = sprintf("[%l:%l:%l] %s", hr, mi, ms, msg.c_str())
     ch_Serial::write(msg);
     #ifdef IO_LOG_SD
       ch_SD::write(msg);
