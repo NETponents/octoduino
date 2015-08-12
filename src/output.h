@@ -5,8 +5,8 @@
 // MIT license. Copyright 2015 Joshua Zenn.    //
 /////////////////////////////////////////////////
 
-#ifndef HEADER_OUTPUT
-  #define HEADER_OUTPUT
+#ifndef HEADER_OSTREAM
+  #define HEADER_OSTREAM
    
   class Output
   {
