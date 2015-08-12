@@ -8,8 +8,8 @@
 // No need for <Arduino.h>
 #include <SD.h>
 #include <SPI.h> // Required for PlatformIO
-#include <core.h>
-#include <output.h>
+#include "core.h"
+#include "output.h"
 
 #ifndef BUILDPIPE_BNUM
   #define BUILDPIPE_BNUM "local"

@@ -13,12 +13,10 @@
   #include <LiquidCrystal.h>
 #endif
 
-class Output
-{
   /**
   * Initializes the output stream(s). The included streams are determined at compile-time to minimize memory use.
   */
-  static void init()
+  void Output::init()
   {
     // Initialize channels
     ch_Serial::init();
@@ -32,7 +30,7 @@ class Output
   /**
   * Writes a String to all initialized output streams.
   */
-  static void write(String msg)
+  void Output::write(String msg)
   {
     // Get time (HH:MM:SS)
     unsigned long ms = millis();
@@ -49,16 +47,14 @@ class Output
       ch_LCD::write(msg);
     #endif
   }
-};
 /**
  * Output stream wrapper for Serial class provided by Wiring
  */
-class ch_Serial
-{
+
   /**
    * Waits for serial connection (if set through build args)
    */
-  static int init()
+  int ch_Serial::init()
   {
     // Open serial
     Serial.begin(9600);
@@ -73,21 +69,19 @@ class ch_Serial
   /**
    * Writes given String object to Serial output.
    */
-  static int write(String msg)
+  int ch_Serial::write(String msg)
   {
     Serial.println(msg);
   }
-};
 #ifdef IO_LOG_SD
   /**
    * Output stream for logging on SD card.
    */
-  class ch_SD
-  {
+  
     /**
      * Opens SD card access and creates log file.
      */
-    static int init()
+    int ch_SD::init()
     {
       SD.begin(4);
       File logger = SD.open("/log.txt");
@@ -101,7 +95,7 @@ class ch_Serial
     /**
      * Opens log file and writes buffer string.
      */
-    static int write(String msg)
+    int ch_SD::write(String msg)
     {
       File logger = SD.open("/log.txt");
       if(!logger)
@@ -113,20 +107,18 @@ class ch_Serial
       logger.close();
       return 0;
     }
-  };
 #endif
 #ifdef IO_LOG_LCD
   /**
    * Output stream for Hitachi LCD screens
    */
-  class ch_LCD
-  {
+  
     LiquidCrystal lcd(12, 11, 5, 4, 3, 2);
     
     /**
      * Initialize LCD object.
      */
-    static int init()
+    int ch_LCD::init()
     {
       lcd.begin(16, 2);
       lcd.noCursor();
@@ -134,11 +126,11 @@ class ch_Serial
     /**
      * Clears the screen, then writes output to the screen.
      */
-    static int write(String msg)
+    int ch_LCD::write(String msg)
     {
       lcd.clear();
       lcd.home();
       lcd.print(msg);
     }
-  };
+
 #endif

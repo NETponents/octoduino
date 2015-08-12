@@ -8,14 +8,13 @@
 #include <Arduino.h> 
 #include <SD.h> 
 #include <SPI.h> // Required for PlatformIO
-#include "swap.h" 
+#include "swap.h"
+#include "stack.h"
 
-class Stack
-{
   /**
    * Initializes the stack object within the SWAP storage area.
    */
-  static void init()
+  void Stack::init()
   {
     #ifdef CORE_STACK
       Swap::create("OCTSTACK","");
@@ -24,7 +23,7 @@ class Stack
   /**
    * Pushes a new layer onto the stack.
    */
-  static void push(String filepath)
+  void Stack::push(String filepath)
   {
     #ifdef CORE_STACK
       String result = " -> ";
@@ -35,7 +34,7 @@ class Stack
   /**
    * Removes the highest instance of the requested program from the stack object.
    */
-  static void pop(String filepath)
+  void Stack::pop(String filepath)
   {
     #ifdef CORE_STACK
       String stackvar = Swap::read("OCTSTACK");
@@ -46,7 +45,7 @@ class Stack
   /**
    * Returns a dump of the stack.
    */
-  static String dump()
+  String Stack::dump()
   {
     String dump = "";
     #ifdef CORE_STACK
@@ -54,4 +53,3 @@ class Stack
     #endif
     return dump;
   }
-};
