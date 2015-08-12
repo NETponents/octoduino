@@ -16,7 +16,7 @@ class Swap
   /**
    * Initializes the SWAP area on the SD card.
    */
-  static void Swap::init()
+  static void init()
   {
     // Check to see if swap exists
     if(SD.exists("/swap"))
@@ -46,7 +46,7 @@ class Swap
   /**
    * Recursivly removes all files from within a folder, then deletes it and returns.
    */
-  static void Swap::clearFolder(File fldr)
+  static void clearFolder(File fldr)
   {
     while(true)
     {
@@ -70,7 +70,7 @@ class Swap
   /**
    * Gets the full SWAP path of the requested variable.
    */
-  static String Swap::GetPath(String name)
+  static String GetPath(String name)
   {
     // Add parts together
     String swp = "/swap/";
@@ -82,7 +82,7 @@ class Swap
   /**
    * Creates a new swap object and assigns it the given value.
    */
-  static void Swap::create(String name, String value)
+  static void create(String name, String value)
   {
     // Make sure that swap is ready
     Swap::ready();
@@ -121,7 +121,7 @@ class Swap
   /**
    * Returns the value of the requested SWAP object.
    */
-  static String Swap::read(String name)
+  static String read(String name)
   {
     // Make sure that swap is ready
     Swap::ready();
@@ -169,7 +169,7 @@ class Swap
   /**
    * Replaces the requested SWAP object with the given value.
    */
-  static void Swap::update(String name, String value)
+  static void update(String name, String value)
   {
     // Make sure swap is ready
     Swap::ready();
@@ -181,7 +181,7 @@ class Swap
   /**
    * Removes the requested SWAP object from the SWAP space.
    */
-  static void Swap::sdelete(String name)
+  static void sdelete(String name)
   {
     // Make sure swap is ready
     Swap::ready();
@@ -203,7 +203,7 @@ class Swap
   /**
    * Checks to see if the SWAP has been initialized. If not, it forces a system crash with swapcrash().
    */
-  static void Swap::ready()
+  static void ready()
   {
     // Check if swap was initialized
     if(SD.exists("/swap"))
@@ -214,4 +214,4 @@ class Swap
     Output::write("ERR: 0x6");
     // TODO: crash system
   }
-}
+};

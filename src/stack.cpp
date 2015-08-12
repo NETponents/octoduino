@@ -15,43 +15,43 @@ class Stack
   /**
    * Initializes the stack object within the SWAP storage area.
    */
-  void Stack::init()
+  static void init()
   {
     #ifdef CORE_STACK
-      swapcreate("OCTSTACK","");
+      Swap::create("OCTSTACK","");
     #endif
   }
   /**
    * Pushes a new layer onto the stack.
    */
-  void Stack::push(String filepath)
+  static void push(String filepath)
   {
     #ifdef CORE_STACK
       String result = " -> ";
-      result = swapread("OCTSTACK") + result + filepath;
-      swapupdate("OCTSTACK", result);
+      result = Swap::read("OCTSTACK") + result + filepath;
+      Swap::update("OCTSTACK", result);
     #endif
   }
   /**
    * Removes the highest instance of the requested program from the stack object.
    */
-  void Stack::pop(String filepath)
+  static void pop(String filepath)
   {
     #ifdef CORE_STACK
-      String stackvar = swapread("OCTSTACK");
+      String stackvar = Swap::read("OCTSTACK");
       stackvar.remove(stackvar.lastIndexOf(filepath), filepath.length());
-      swapupdate("OCTSTACK", stackvar);
+      Swap::update("OCTSTACK", stackvar);
     #endif
   }
   /**
    * Returns a dump of the stack.
    */
-  String Stack::dump()
+  static String dump()
   {
     String dump = "";
     #ifdef CORE_STACK
-      dump = swapread("OCTOSTACK");
+      dump = Swap::read("OCTOSTACK");
     #endif
     return dump;
   }
-}
+};

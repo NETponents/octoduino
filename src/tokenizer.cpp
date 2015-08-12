@@ -13,7 +13,7 @@ class Tokenizer
     /**
      * Parses a given PB line and returns the token found at the given token index.
      */
-    static String Tokenizer::TKgetToken(String line, int tokenIndex)
+    static String TKgetToken(String line, int tokenIndex)
     {
         // Create buffer for output
         String resultToken = "";
@@ -100,4 +100,4 @@ class Tokenizer
         resultToken = "TKERROR";
         return resultToken;
     }
-}
+};

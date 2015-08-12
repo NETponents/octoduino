@@ -19,7 +19,7 @@ class Parse
   /**
    * Creates a runner to begin execution of a new source file.
    */
-  static void Parse::start(String filename)
+  static void start(String filename)
   {
     File source = SD.open(filename.c_str());
     if(!source)
@@ -48,9 +48,9 @@ class Parse
   /**
    * Parses one line of trimmed PB code.
    */
-  static void Parse::run(String line)
+  static void run(String line)
   {
-    line.trim()
+	line.trim();
     if(line.startsWith("//"))
     {
       // Do nothing, this is a comment
@@ -84,26 +84,26 @@ class Parse
         }
       }
     }
-  }
+  };
   class Opcode
   {
     class IO
     {
-      static void Parse::Opcode::IO::PRINT(String _msg)
+      static void PRINT(String _msg)
       {
         Output::write(_msg);
       }
-      static void Parse::Opcode::IO::PRINTV(String _var)
+      static void PRINTV(String _var)
       {
         Output::write(Swap::read(_var));
       }
-      static void Parse::Opcode::IO::NEWPRINT()
+      static void NEWPRINT()
       {
         Output::write("\n");
       }
       class Ports
       {
-        static void Parse::Opcode::IO::Ports::IO(String _port, String _state)
+        static void IO(String _port, String _state)
         {
           int _nPort = int(_port.c_str());
           int _nState = int(_state.c_str());
@@ -117,10 +117,10 @@ class Parse
             digitalWrite(_nPort, HIGH);
           }
         }
-      }
+	  };
       class File
       {
-        static void Parse::Opcode::IO::File::FILEWRITE(String _filepath, String _var)
+        static void FILEWRITE(String _filepath, String _var)
         {
           File _file = SD.open(_filepath, FILE_WRITE);
           if(_file)
@@ -138,7 +138,7 @@ class Parse
           _file.flush();
           _file.close();
         }
-        static void Parse::Opcode::IO::File::FILEREAD(String _filepath, String _var)
+        static void FILEREAD(String _filepath, String _var)
         {
           if(!SD.exists(_filepath))
           {
@@ -165,34 +165,34 @@ class Parse
           Swap::update(_var, _readbuf);
           _file.close();
         }
-      }
-    }
+	  };
+	};
     class Var
     {
       class String
       {
-        static void Parse::Opcode::Var::String::ADDS(String _s1, String _s2, String _store)
+        static void ADDS(String _s1, String _s2, String _store)
         {
           Swap::update(_store, _s1 + _s2);
         }
-        static void Parse::Opcode::String::ADDS::GETC(String _srg, String _rchar, String _store)
+        static void GETC(String _srg, String _rchar, String _store)
         {
           int _cindex = _rchar.toInt();
           Swap::update(_store, String(_srg.charAt(_cindex)));
         }
-      }
-    }
+	  };
+	};
     class System
     {
-      static void Parse::Opcode::System::WAIT(String _pTime)
+      static void WAIT(String _pTime)
       {
         delay(int(_pTime.c_str()));
       }
-      static void Parse::Opcode::System::EXTLOAD(String _filepath)
+      static void EXTLOAD(String _filepath)
       {
         Parse::start(_filepath);
       }
-      static void Parse::Opcode::System::END()
+      static void END()
       {
         // TODO: halt system
         while(true)
@@ -202,41 +202,41 @@ class Parse
       }
       class SWAP
       {
-        static void Parse::Opcode::System::SWAP::CREATESWAP()
+        static void CREATESWAP()
         {
           // Do nothing since this is handled by Core::
           //swapinit();
         }
-        static void Parse::Opcode::System::SWAP::NEW(String _name, String _value)
+        static void NEW(String _name, String _value)
         {
           Swap::create(_name, _value);
         }
-        static void Parse::Opcode::System::SWAP::DELETE(String _name)
+        static void DELETE(String _name)
         {
           Swap::sdelete(_name);
         }
-        static void Parse::Opcode::System::SWAP::SET(String _name, String _value)
+        static void SET(String _name, String _value)
         {
           Swap::update(_name, _value);
         }
-      }
-    }
+	  };
+	};
     class Logic
     {
-      static void Parse::Opcode::Logic::IFE(String _op1, String _op2, String _sFile)
+      static void IFE(String _op1, String _op2, String _sFile)
       {
         if(Swap::read(_op1) == Swap::read(_op2))
         {
           Parse::start(_sFile);
         }
       }
-      static void Parse::Opcode::Logic::IFNE(String _op1, String _op2, String _sFile)
+      static void IFNE(String _op1, String _op2, String _sFile)
       {
         if(Swap::read(_op1) != Swap::read(_op2))
         {
           Parse::start(_sFile);
         }
-      }
-    }
-  }
-}
+	  };
+	};
+  };
+};

@@ -20,7 +20,7 @@ class Core
   /**
   * Initializes the system to execute the main PB file
   */
-  static void Core::init()
+  static void init()
   {
     // Pre-req for SD class
     pinMode(10, OUTPUT);

@@ -18,7 +18,7 @@ class Output
   /**
   * Initializes the output stream(s). The included streams are determined at compile-time to minimize memory use.
   */
-  static void Output::init()
+  static void init()
   {
     // Initialize channels
     ch_Serial::init();
@@ -32,7 +32,7 @@ class Output
   /**
   * Writes a String to all initialized output streams.
   */
-  static void Output::write(String msg)
+  static void write(String msg)
   {
     // Get time (HH:MM:SS)
     unsigned long ms = millis();
@@ -49,7 +49,7 @@ class Output
       ch_LCD::write(msg);
     #endif
   }
-}
+};
 /**
  * Output stream wrapper for Serial class provided by Wiring
  */
@@ -58,7 +58,7 @@ class ch_Serial
   /**
    * Waits for serial connection (if set through build args)
    */
-  static int ch_Serial::init()
+  static int init()
   {
     // Open serial
     Serial.begin(9600);
@@ -73,11 +73,11 @@ class ch_Serial
   /**
    * Writes given String object to Serial output.
    */
-  static int ch_Serial::write(String msg)
+  static int write(String msg)
   {
     Serial.println(msg);
   }
-}
+};
 #ifdef IO_LOG_SD
   /**
    * Output stream for logging on SD card.
@@ -87,7 +87,7 @@ class ch_Serial
     /**
      * Opens SD card access and creates log file.
      */
-    static int ch_SD::init()
+    static int init()
     {
       SD.begin(4);
       File logger = SD.open("/log.txt");
@@ -101,7 +101,7 @@ class ch_Serial
     /**
      * Opens log file and writes buffer string.
      */
-    static int ch_SD::write(String msg)
+    static int write(String msg)
     {
       File logger = SD.open("/log.txt");
       if(!logger)
@@ -113,7 +113,7 @@ class ch_Serial
       logger.close();
       return 0;
     }
-  }
+  };
 #endif
 #ifdef IO_LOG_LCD
   /**
@@ -126,7 +126,7 @@ class ch_Serial
     /**
      * Initialize LCD object.
      */
-    static int ch_LCD::init()
+    static int init()
     {
       lcd.begin(16, 2);
       lcd.noCursor();
@@ -134,11 +134,11 @@ class ch_Serial
     /**
      * Clears the screen, then writes output to the screen.
      */
-    static int ch_LCD::write(String msg)
+    static int write(String msg)
     {
       lcd.clear();
       lcd.home();
       lcd.print(msg);
     }
-  }
+  };
 #endif
