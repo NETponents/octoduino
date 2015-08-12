@@ -8,8 +8,8 @@
 // No need for <Arduino.h>
 #include <SD.h>
 #include <SPI.h> // Required for PlatformIO
-#include <core.h>
-#include "output.h"
+#include <core/core.h>
+#include <output/output.h>
 
 #ifndef BUILDPIPE_BNUM
   #define BUILDPIPE_BNUM "local"
@@ -23,13 +23,13 @@ void setup()
   // Status LED
   pinMode(13, OUTPUT);
   // Initialize output class
-  Output.init();
-  Output.write("Octoduino v0.1.3. Build: " + BUILDPIPE_BNUM);
-  Output.write("Copyright 2015 - NETponents");
-  Output.write("Distributed under the GNU GPL v2.0 license");
-  Output.write("Commercial use with this build of Octoduino is prohibited");
+  Output::init();
+  Output::write("Octoduino v0.1.3. Build: " + BUILDPIPE_BNUM);
+  Output::write("Copyright 2015 - NETponents");
+  Output::write("Distributed under the GNU GPL v2.0 license");
+  Output::write("Commercial use with this build of Octoduino is prohibited");
   // Start the bootloader
-  Core.init();
+  Core::init();
 }
 /**
  * Loop (required by Arduino). Not used.

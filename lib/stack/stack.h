@@ -8,9 +8,12 @@
 #ifndef HEADER_STACK
   #define HEADER_STACK
    
-  void stackinit();
-  void stackpush(String filepath);
-  void stackpop(String filepath);
-  String stackdump();
+  class Stack
+  {
+    void stackinit();
+    void stackpush(String filepath);
+    void stackpop(String filepath);
+    String stackdump();
+  }
 
 #endif

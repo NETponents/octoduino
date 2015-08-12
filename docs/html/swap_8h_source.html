@@ -38,6 +38,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
   <div id="navrow1" class="tabs">
     <ul class="tablist">
       <li><a href="index.html"><span>Main&#160;Page</span></a></li>
+      <li><a href="annotated.html"><span>Classes</span></a></li>
       <li class="current"><a href="files.html"><span>Files</span></a></li>
       <li>
         <div id="MSearchBox" class="MSearchBoxInactive">
@@ -68,7 +69,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Functions</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Macros</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -94,31 +95,25 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="comment"></span></div>
 <div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="preprocessor">#ifndef HEADER_SWAP</span></div>
 <div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="preprocessor"></span><span class="preprocessor">  #define HEADER_SWAP</span></div>
-<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="preprocessor"></span>   </div>
-<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;  <span class="keywordtype">void</span> <a class="code" href="swap_8h.html#a72bda546746635db7784b5a35ab43bc0">swapinit</a>();</div>
-<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;  <span class="keywordtype">void</span> <a class="code" href="swap_8h.html#aa3fa0f99295bf9b2a144684b766e03a3">clearFolder</a>(File fldr);</div>
-<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;  String <a class="code" href="swap_8h.html#a9fd4381189fbf1d71875847fc7e3dcc6">swapGetPath</a>(String name);</div>
-<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;  <span class="keywordtype">void</span> <a class="code" href="swap_8h.html#a43a093648c3555135f18eb1d6ad85b96">swapcreate</a>(String name, String value);</div>
-<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;  String <a class="code" href="swap_8h.html#ad92323b56dc289cdf90d435c78337479">swapread</a>(String name);</div>
-<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;  <span class="keywordtype">void</span> <a class="code" href="swap_8h.html#a41c753b32ab7020ae342d860efa8272a">swapupdate</a>(String name, String value);</div>
-<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;  <span class="keywordtype">void</span> <a class="code" href="swap_8h.html#a3005d9bbb4d2fb32ce545339f6eb6705">swapdelete</a>(String name);</div>
-<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;  <span class="keywordtype">void</span> <a class="code" href="swap_8h.html#a2bff2c0562ef8a2e35527721fffa6b89">swapready</a>();</div>
-<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;  <span class="keywordtype">void</span> <a class="code" href="swap_8h.html#adce7139a01989006748bfdffdd1232ef">swapcrash</a>();</div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;</div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;<span class="preprocessor">#endif</span></div>
-<div class="ttc" id="swap_8h_html_a9fd4381189fbf1d71875847fc7e3dcc6"><div class="ttname"><a href="swap_8h.html#a9fd4381189fbf1d71875847fc7e3dcc6">swapGetPath</a></div><div class="ttdeci">String swapGetPath(String name)</div><div class="ttdef"><b>Definition:</b> <a href="swap_8cpp_source.html#l00067">swap.cpp:67</a></div></div>
-<div class="ttc" id="swap_8h_html_a2bff2c0562ef8a2e35527721fffa6b89"><div class="ttname"><a href="swap_8h.html#a2bff2c0562ef8a2e35527721fffa6b89">swapready</a></div><div class="ttdeci">void swapready()</div><div class="ttdef"><b>Definition:</b> <a href="swap_8cpp_source.html#l00192">swap.cpp:192</a></div></div>
-<div class="ttc" id="swap_8h_html_a3005d9bbb4d2fb32ce545339f6eb6705"><div class="ttname"><a href="swap_8h.html#a3005d9bbb4d2fb32ce545339f6eb6705">swapdelete</a></div><div class="ttdeci">void swapdelete(String name)</div><div class="ttdef"><b>Definition:</b> <a href="swap_8cpp_source.html#l00162">swap.cpp:162</a></div></div>
-<div class="ttc" id="swap_8h_html_a43a093648c3555135f18eb1d6ad85b96"><div class="ttname"><a href="swap_8h.html#a43a093648c3555135f18eb1d6ad85b96">swapcreate</a></div><div class="ttdeci">void swapcreate(String name, String value)</div><div class="ttdef"><b>Definition:</b> <a href="swap_8cpp_source.html#l00079">swap.cpp:79</a></div></div>
-<div class="ttc" id="swap_8h_html_aa3fa0f99295bf9b2a144684b766e03a3"><div class="ttname"><a href="swap_8h.html#aa3fa0f99295bf9b2a144684b766e03a3">clearFolder</a></div><div class="ttdeci">void clearFolder(File fldr)</div><div class="ttdef"><b>Definition:</b> <a href="swap_8cpp_source.html#l00043">swap.cpp:43</a></div></div>
-<div class="ttc" id="swap_8h_html_a72bda546746635db7784b5a35ab43bc0"><div class="ttname"><a href="swap_8h.html#a72bda546746635db7784b5a35ab43bc0">swapinit</a></div><div class="ttdeci">void swapinit()</div><div class="ttdef"><b>Definition:</b> <a href="swap_8cpp_source.html#l00017">swap.cpp:17</a></div></div>
-<div class="ttc" id="swap_8h_html_a41c753b32ab7020ae342d860efa8272a"><div class="ttname"><a href="swap_8h.html#a41c753b32ab7020ae342d860efa8272a">swapupdate</a></div><div class="ttdeci">void swapupdate(String name, String value)</div><div class="ttdef"><b>Definition:</b> <a href="swap_8cpp_source.html#l00150">swap.cpp:150</a></div></div>
-<div class="ttc" id="swap_8h_html_adce7139a01989006748bfdffdd1232ef"><div class="ttname"><a href="swap_8h.html#adce7139a01989006748bfdffdd1232ef">swapcrash</a></div><div class="ttdeci">void swapcrash()</div><div class="ttdef"><b>Definition:</b> <a href="swap_8cpp_source.html#l00180">swap.cpp:180</a></div></div>
-<div class="ttc" id="swap_8h_html_ad92323b56dc289cdf90d435c78337479"><div class="ttname"><a href="swap_8h.html#ad92323b56dc289cdf90d435c78337479">swapread</a></div><div class="ttdeci">String swapread(String name)</div><div class="ttdef"><b>Definition:</b> <a href="swap_8cpp_source.html#l00110">swap.cpp:110</a></div></div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="preprocessor"></span>  </div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;  <span class="keyword">class </span><a class="code" href="classSwap.html">Swap</a></div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;  {</div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;    <span class="keyword">static</span> <span class="keywordtype">void</span> Swap::init();</div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;    <span class="keyword">static</span> <span class="keywordtype">void</span> Swap::clearFolder(File fldr);</div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;    <span class="keyword">static</span> String Swap::GetPath(String name);</div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;    <span class="keyword">static</span> <span class="keywordtype">void</span> Swap::create(String name, String value);</div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;    <span class="keyword">static</span> String Swap::read(String name);</div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;    <span class="keyword">static</span> <span class="keywordtype">void</span> Swap::update(String name, String value);</div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;    <span class="keyword">static</span> <span class="keywordtype">void</span> Swap::sdelete(String name);</div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;    <span class="keyword">static</span> <span class="keywordtype">void</span> Swap::ready();</div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;  }</div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;</div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="ttc" id="classSwap_html"><div class="ttname"><a href="classSwap.html">Swap</a></div><div class="ttdef"><b>Definition:</b> <a href="swap_8cpp_source.html#l00014">swap.cpp:14</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Tue Aug 11 2015 20:54:32 for Octoduino by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Wed Aug 12 2015 16:36:55 for Octoduino by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.6
 </small></address>

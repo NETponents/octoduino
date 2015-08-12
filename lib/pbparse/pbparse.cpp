@@ -9,10 +9,10 @@
 #include <SD.h>
 #include <SPI.h> // Required for PlatformIO
 #include "pbparse.h"
-#include <swap.h>
-#include <output.h>
-#include <tokenizer.h>
-#include <stack.h>
+#include "swap.h"
+#include "output.h"
+#include "tokenizer.h"
+#include "stack.h"
 
 class Parse
 {
@@ -30,7 +30,7 @@ class Parse
         
       }
     }
-    stackpush(filename);
+    Stack::push(filename);
     char terminator = ";";
     while(source.available())
     {
@@ -40,10 +40,10 @@ class Parse
         cmd += char(source.read());
       }
       source.read();
-      Parse.run(cmd);
+      Parse::run(cmd);
     }
     source.close();
-    stackpop(filename);
+    Stack::pop(filename);
   }
   /**
    * Parses one line of trimmed PB code.
@@ -57,18 +57,24 @@ class Parse
     }
     else
     {
-      String opcode = TKgetToken(line, 0);
-      if(opcode == "PRINT") Opcode.IO.PRINT(TKgetToken(line, 1));
-      else if(opcode == "PRINTV") Opcode.IO.PRINTV(TKgetToken(line, 1));
-      else if(opcode == "ADDS") Opcode.Var.String.ADDS(TKgetToken(line, 1), TKgetToken(line, 2), TKgetToken(line, 3));
-      else if(opcode == "GETC") Opcode.Var.String.GETC();
-      else if(opcode == "NEWPRINT") Opcode.IO.NEWPRINT();
-      else if(opcode == "WAIT") Opcode.System.WAIT(TKgetToken(line, 1));
-      else if(opcode == "IFE") Opcode.Logic.IFE(TKgetToken(line, 1), TKgetToken(line, 2), TKgetToken(line, 3));
-      else if(opcode == "IFNE") Opcode.Logic.IFNE(TKgetToken(line, 1), TKgetToken(line, 2), TKgetToken(line, 3));
-      else if(opcode == "CREATESWAP") Opcode.System.SWAP.CREATESWAP();
-      else if(opcode == "IO") Opcode.IO.Ports.IO(TKgetToken(line, 1), TKgetToken(linem 2));
-      else if(opcode == "NEW") Opcode.System.SWAP.NEW(TKgetToken(line, 1), TKgetToken(line, 2));
+      String opcode = Tokenizer::TKgetToken(line, 0);
+      if(opcode == "PRINT") Parse::Opcode::IO::PRINT(Tokenizer::TKgetToken(line, 1));
+      else if(opcode == "PRINTV") Parse::Opcode::IO::PRINTV(Tokenizer::TKgetToken(line, 1));
+      else if(opcode == "ADDS") Parse::Opcode::Var::String::ADDS(Tokenizer::TKgetToken(line, 1), Tokenizer::TKgetToken(line, 2), Tokenizer::TKgetToken(line, 3));
+      else if(opcode == "GETC") Parse::Opcode::Var::String::GETC();
+      else if(opcode == "NEWPRINT") Parse::Opcode::IO::NEWPRINT();
+      else if(opcode == "WAIT") Parse::Opcode::System::WAIT(Tokenizer::TKgetToken(line, 1));
+      else if(opcode == "IFE") Parse::Opcode::Logic::IFE(Tokenizer::TKgetToken(line, 1), Tokenizer::TKgetToken(line, 2), Tokenizer::TKgetToken(line, 3));
+      else if(opcode == "IFNE") Parse::Opcode::Logic::IFNE(Tokenizer::TKgetToken(line, 1), Tokenizer::TKgetToken(line, 2), Tokenizer::TKgetToken(line, 3));
+      else if(opcode == "CREATESWAP") Parse::Opcode::System::SWAP::CREATESWAP();
+      else if(opcode == "IO") Parse::Opcode::IO::Ports::IO(Tokenizer::TKgetToken(line, 1), Tokenizer::TKgetToken(linem 2));
+      else if(opcode == "NEW") Parse::Opcode::System::SWAP::NEW(Tokenizer::TKgetToken(line, 1), Tokenizer::TKgetToken(line, 2));
+      else if(opcode == "DELETE") Parse::Opcode::System::SWAP::DELETE(Tokenizer::TKgetToken(line, 1));
+      else if(opcode == "SET") Parse::Opcode::System::SWAP::SET(Tokenizer::TKgetToken(line, 1), Tokenizer::TKgetToken(line, 2));
+      else if(opcode == "EXTLOAD") Parse::Opcode::System::EXTLOAD(Tokenizer::TKgetToken(line, 1));
+      else if(opcode == "FILEWRITE") Parse::Opcode::IO::File::FILEWRITE(Tokenizer::TKgetToken(line, 1), Tokenizer::TKgetToken(line, 2));
+      else if(opcode == "FILEREAD") Parse::Opcode::IO::File::FILEREAD(Tokenizer::TKgetToken(line, 1), Tokenizer::TKgetToken(line, 2));
+      else if(opcode == "END") Parse::Opcode::System::END();
       else
       {
         // TODO: crash program
@@ -83,33 +89,81 @@ class Parse
   {
     class IO
     {
-      static void PRINT(String msg)
+      static void Parse::Opcode::IO::PRINT(String _msg)
       {
-        Output.write(msg);
+        Output::write(_msg);
       }
-      static void PRINTV(String var)
+      static void Parse::Opcode::IO::PRINTV(String _var)
       {
-        Output.write(swapread(var));
+        Output::write(Swap::read(_var));
       }
-      static void NEWPRINT()
+      static void Parse::Opcode::IO::NEWPRINT()
       {
-        Output.write("\n");
+        Output::write("\n");
       }
       class Ports
       {
-        static void IO(String port, String state)
+        static void Parse::Opcode::IO::Ports::IO(String _port, String _state)
         {
-          int nPort = int(port.c_str());
-          int nState = int(state.c_str());
-          pinMode(nPort, OUTPUT);
-          if(state == 0)
+          int _nPort = int(_port.c_str());
+          int _nState = int(_state.c_str());
+          pinMode(_nPort, OUTPUT);
+          if(_state == 0)
           {
-            digitalWrite(nPort, LOW);
+            digitalWrite(_nPort, LOW);
           }
           else
           {
-            digitalWrite(nPort, HIGH);
+            digitalWrite(_nPort, HIGH);
           }
+        }
+      }
+      class File
+      {
+        static void Parse::Opcode::IO::File::FILEWRITE(String _filepath, String _var)
+        {
+          File _file = SD.open(_filepath, FILE_WRITE);
+          if(_file)
+          {
+            _file.println(Swap::read(_var).c_str());
+          }
+          else
+          {
+            // TODO: crash system
+            while(true)
+            {
+              
+            }
+          }
+          _file.flush();
+          _file.close();
+        }
+        static void Parse::Opcode::IO::File::FILEREAD(String _filepath, String _var)
+        {
+          if(!SD.exists(_filepath))
+          {
+            // TODO: crash system
+            while(true)
+            {
+              
+            }
+          }
+          String _readbuf = "";
+          File _file = SD.open(_filepath, FILE_WRITE);
+          if(!_file)
+          {
+            // TODO: crash system
+            while(true)
+            {
+              
+            }
+          }
+          while(_file.available())
+          {
+            _readbuf = _readbuf + _file.read();
+          }
+          Swap::update(_var, _readbuf);
+          _file.close();
         }
       }
     }
@@ -117,147 +171,72 @@ class Parse
     {
       class String
       {
-        static void ADDS(String s1, String s2, String store)
+        static void Parse::Opcode::Var::String::ADDS(String _s1, String _s2, String _store)
         {
-          swapupdate(store, s1 + s2);
+          Swap::update(_store, _s1 + _s2);
         }
-        static void GETC(String srg, String rchar, String store)
+        static void Parse::Opcode::String::ADDS::GETC(String _srg, String _rchar, String _store)
         {
-          int cindex = rchar.toInt();
-          swapupdate(store, String(srg.charAt(cindex)));
+          int _cindex = _rchar.toInt();
+          Swap::update(_store, String(_srg.charAt(_cindex)));
         }
       }
     }
     class System
     {
-      static void WAIT(String pTime)
+      static void Parse::Opcode::System::WAIT(String _pTime)
       {
-        delay(int(pTime.c_str()));
+        delay(int(_pTime.c_str()));
+      }
+      static void Parse::Opcode::System::EXTLOAD(String _filepath)
+      {
+        Parse::start(_filepath);
+      }
+      static void Parse::Opcode::System::END()
+      {
+        // TODO: halt system
+        while(true)
+        {
+          
+        }
       }
       class SWAP
       {
-        static void CREATESWAP()
+        static void Parse::Opcode::System::SWAP::CREATESWAP()
         {
-          swapinit();
+          // Do nothing since this is handled by Core::
+          //swapinit();
         }
-        static void NEW(String name, String value)
+        static void Parse::Opcode::System::SWAP::NEW(String _name, String _value)
         {
-          swapcreate(name, value);
+          Swap::create(_name, _value);
+        }
+        static void Parse::Opcode::System::SWAP::DELETE(_name)
+        {
+          Swap::sdelete(_name);
+        }
+        static void Parse::Opcode::System::SWAP::SET(_name, _value)
+        {
+          Swap::update(_name, _value);
         }
       }
     }
     class Logic
     {
-      static void IFE(String op1, String op2, String sFile)
+      static void Parse::Opcode::Logic::IFE(String _op1, String _op2, String _sFile)
       {
-        if(swapread(op1) == swapreaad(op2))
+        if(Swap::read(_op1) == Swap::read(_op2))
         {
-          Parse.start(sFile);
+          Parse::start(_sFile);
         }
       }
-       static void IFNE(String op1, String op2, String sFile)
+      static void Parse::Opcode::Logic::IFNE(String _op1, String _op2, String _sFile)
       {
-        if(swapread(op1) != swapreaad(op2))
+        if(Swap::read(_op1) != Swap::read(_op2))
         {
-          Parse.start(sFile);
+          Parse::start(_sFile);
         }
       }
     }
-  }
-}
-
-    else if(opcode == "NEW")
-    {
-      String value = TKgetToken(line, 2);
-      if(value == "TKERROR")
-      {
-        value = "";
-      }
-      swapcreate(TKgetToken(line, 1), value);
-    }
-    else if(opcode == "DELETE")
-    {
-      swapdelete(TKgetToken(line, 1));
-    }
-    else if(opcode == "SET")
-    {
-      swapupdate(TKgetToken(line, 1), TKgetToken(line, 2));
-    }
-    else if(opcode == "EXTLOAD")
-    {
-      PBstart(TKgetToken(line, 1).c_str());
-    }
-    else if(opcode == "FILEWRITE")
-    {
-      File extfile = SD.open(TKgetToken(line, 1), FILE_WRITE);
-      if(extfile)
-      {
-        extfile.println(swapread(TKgetToken(line, 2)).c_str());
-      }
-      else
-      {
-        PBcrash();
-      }
-      extfile.close();
-    }
-    else if(opcode == "FILEREAD")
-    {
-      if (SD.exists(TKgetToken(line, 1)))
-      {
-        File extfile = SD.open(TKgetToken(line, 1), FILE_WRITE);
-        if(extfile)
-        {
-          String readvar = "";
-          while (extfile.available())
-          {
-            readvar = readvar + extfile.read();
-          }
-          swapupdate(TKgetToken(line, 2), readvar);
-        }
-        else
-        {
-          PBcrash();
-        }
-        extfile.close();
-      }
-      else
-      {
-        PBcrash();
-      }
-    }
-    else if(opcode == "END")
-    {
-      // Program has requested that execution end
-      PBstop();
-    }
-    else
-    {
-      PBcrash();
-    }
-  }
-}
-/**
- * Halts the system safely by request of the program.
- */
-void PBstop()
-{
-  // Halt the program
-  outwrite("Program has finished. Terminating.");
-  while(true)
-  {
-    // Loop until power is reset
-  }
-}
-/**
- * Halts the system forcefully due to a software or hardware error.
- */
-void PBcrash()
-{
-  // System has crashed
-  // Notify user
-  outwrite("ParseBasic parser has encountered an error. Terminating.");
-  while(true)
-  {
-    // Loop until power is reset
   }
 }

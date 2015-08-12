@@ -10,45 +10,48 @@
 #include <SPI.h> // Required for PlatformIO
 #include "swap.h" 
 
-/**
- * Initializes the stack object within the SWAP storage area.
- */
-void stackinit()
+class Stack
 {
-  #ifdef CORE_STACK
-    swapcreate("OCTSTACK","");
-  #endif
-}
-/**
- * Pushes a new layer onto the stack.
- */
-void stackpush(String filepath)
-{
-  #ifdef CORE_STACK
-    String result = " -> ";
-    result = swapread("OCTSTACK") + result + filepath;
-    swapupdate("OCTSTACK", result);
-  #endif
-}
-/**
- * Removes the highest instance of thee requested program from the stack object.
- */
-void stackpop(String filepath)
-{
-  #ifdef CORE_STACK
-    String stackvar = swapread("OCTSTACK");
-    stackvar.remove(stackvar.lastIndexOf(filepath), filepath.length());
-    swapupdate("OCTSTACK", stackvar);
-  #endif
-}
-/**
- * Returns a dump of the stack.
- */
-String stackdump()
-{
-  String dump = "";
-  #ifdef CORE_STACK
-    dump = "";
-  #endif
-  return dump;
+  /**
+   * Initializes the stack object within the SWAP storage area.
+   */
+  void Stack::init()
+  {
+    #ifdef CORE_STACK
+      swapcreate("OCTSTACK","");
+    #endif
+  }
+  /**
+   * Pushes a new layer onto the stack.
+   */
+  void Stack::push(String filepath)
+  {
+    #ifdef CORE_STACK
+      String result = " -> ";
+      result = swapread("OCTSTACK") + result + filepath;
+      swapupdate("OCTSTACK", result);
+    #endif
+  }
+  /**
+   * Removes the highest instance of the requested program from the stack object.
+   */
+  void Stack::pop(String filepath)
+  {
+    #ifdef CORE_STACK
+      String stackvar = swapread("OCTSTACK");
+      stackvar.remove(stackvar.lastIndexOf(filepath), filepath.length());
+      swapupdate("OCTSTACK", stackvar);
+    #endif
+  }
+  /**
+   * Returns a dump of the stack.
+   */
+  String Stack::dump()
+  {
+    String dump = "";
+    #ifdef CORE_STACK
+      dump = swapread("OCTOSTACK");
+    #endif
+    return dump;
+  }
 }

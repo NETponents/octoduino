@@ -21,12 +21,12 @@ class Output
   static void Output::init()
   {
     // Initialize channels
-    ch_Serial.init();
+    ch_Serial::init();
     #ifdef IO_LOG_SD
-      ch_SD.init();
+      ch_SD::init();
     #endif
     #ifdef IO_LOG_LCD
-      ch_LCD.init();
+      ch_LCD::init();
     #endif
   }
   /**
@@ -41,13 +41,12 @@ class Output
     unsigned long hr = mi / 60;
     mi = mi % 60;
     msg = "[" + hr + ":" + mi + ":" + ms + "] " + msg;
-    ch_Serial.write(msg);
-    // Also print message to logger
+    ch_Serial::write(msg);
     #ifdef IO_LOG_SD
-      ch_SD.write(msg);
+      ch_SD::write(msg);
     #endif
     #ifdef IO_LOG_LCD
-      ch_LCD.write(msg);
+      ch_LCD::write(msg);
     #endif
   }
 }

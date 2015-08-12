@@ -7,16 +7,20 @@
 
 var indexSectionsWithContent =
 {
-  0: "bcilmopst",
-  1: "bmopst",
-  2: "cilopst"
+  0: "bcefilmnopstw",
+  1: "copst",
+  2: "cmopst",
+  3: "efilnpsw",
+  4: "b"
 };
 
 var indexSectionNames =
 {
   0: "all",
-  1: "files",
-  2: "functions"
+  1: "classes",
+  2: "files",
+  3: "functions",
+  4: "defines"
 };
 
 function convertToId(search)

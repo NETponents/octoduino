@@ -25,8 +25,9 @@ class Core
     pinMode(10, OUTPUT);
     //Open SD card
     SD.begin(4);
+    Swap::init();
     //Begin parsing the PARSEBASIC main script
-    outwrite("Launching bootloader");
-    PBstart("/boot.pba");
+    Output::write("Launching bootloader");
+    Parse::start("/boot.pba");
   }
 }

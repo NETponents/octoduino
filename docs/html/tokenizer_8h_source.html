@@ -38,6 +38,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
   <div id="navrow1" class="tabs">
     <ul class="tablist">
       <li><a href="index.html"><span>Main&#160;Page</span></a></li>
+      <li><a href="annotated.html"><span>Classes</span></a></li>
       <li class="current"><a href="files.html"><span>Files</span></a></li>
       <li>
         <div id="MSearchBox" class="MSearchBoxInactive">
@@ -68,7 +69,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Functions</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Macros</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -95,14 +96,17 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="preprocessor">#ifndef HEADER_TOKENIZER</span></div>
 <div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="preprocessor"></span><span class="preprocessor">  #define HEADER_TOKENIZER</span></div>
 <div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="preprocessor"></span>  </div>
-<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;  String <a class="code" href="tokenizer_8h.html#a70a507e2f0f641805781f24623616721">TKgetToken</a>(String line, <span class="keywordtype">int</span> tokenIndex);</div>
-<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;  </div>
-<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="preprocessor">#endif </span></div>
-<div class="ttc" id="tokenizer_8h_html_a70a507e2f0f641805781f24623616721"><div class="ttname"><a href="tokenizer_8h.html#a70a507e2f0f641805781f24623616721">TKgetToken</a></div><div class="ttdeci">String TKgetToken(String line, int tokenIndex)</div><div class="ttdef"><b>Definition:</b> <a href="tokenizer_8cpp_source.html#l00014">tokenizer.cpp:14</a></div></div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;  <span class="keyword">class </span><a class="code" href="classTokenizer.html">Tokenizer</a></div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;  {</div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;    <span class="keyword">static</span> String TKgetToken(String line, <span class="keywordtype">int</span> tokenIndex);</div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;  }</div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;  </div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;<span class="preprocessor">#endif </span></div>
+<div class="ttc" id="classTokenizer_html"><div class="ttname"><a href="classTokenizer.html">Tokenizer</a></div><div class="ttdef"><b>Definition:</b> <a href="tokenizer_8cpp_source.html#l00011">tokenizer.cpp:11</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Tue Aug 11 2015 20:54:32 for Octoduino by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Wed Aug 12 2015 16:36:55 for Octoduino by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.6
 </small></address>
