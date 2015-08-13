@@ -1,3 +1,11 @@
+.pioenvs/
+.vs/
+*.suo
+*.opensdf
+*.sdf
+Debug/
+*.dblite
+
 # Compiled Object files
 *.slo
 *.lo
