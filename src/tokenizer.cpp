@@ -79,6 +79,12 @@
             // Check current token against desired token index
             if(tcounter == tokenIndex)
             {
+                // Check to see if it is a var reference
+                if(resultToken.startsWith("*"))
+                {
+                    resultToken.replace("*","");
+                    resultToken = Swap::read(resultToken);
+                }
                 return resultToken;
             }
             // Check if end of string
