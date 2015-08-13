@@ -6,6 +6,8 @@
 /////////////////////////////////////////////////
 
 #include <Arduino.h>
+#include <SD.h>
+#include <SPI.h> // Required for PlatformIO
 #include "output.h"
 #include "tokenizer.h"
 #include "swap.h"
