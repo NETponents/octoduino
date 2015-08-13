@@ -8,6 +8,7 @@
 #include <Arduino.h>
 #include "output.h"
 #include "tokenizer.h"
+#include "swap.h"
 
     /**
      * Parses a given PB line and returns the token found at the given token index.
