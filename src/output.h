@@ -33,9 +33,9 @@
     {
       public:
         static int init();
-		static int write(String timestamp, String msg);
+	static int write(String timestamp, String msg);
       private:
-        Liquidcrystal lcd(12, 11, 5, 4, 3, 2);
+        LiquidCrystal lcd(12, 11, 5, 4, 3, 2);
 	};
   #endif
 #endif
