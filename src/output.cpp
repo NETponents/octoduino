@@ -42,13 +42,12 @@
     sprintf(buffer, "[%ld:%ld:%ld] ", hr, mi, ms);
     String timestamp = buffer;
     timestamp.trim();
-    msg = timestamp + msg;
-    ch_Serial::write(msg);
+    ch_Serial::write(timestamp, msg);
     #ifdef IO_LOG_SD
-      ch_SD::write(msg);
+      ch_SD::write(timestamp, msg);
     #endif
     #ifdef IO_LOG_LCD
-      ch_LCD::write(msg);
+      ch_LCD::write(timestamp, msg);
     #endif
   }
 /**
@@ -73,8 +72,9 @@
   /**
    * Writes given String object to Serial output.
    */
-  int ch_Serial::write(String msg)
+  int ch_Serial::write(String timestamp, String msg)
   {
+    Serial.print(timestamp);
     Serial.println(msg);
   }
 #ifdef IO_LOG_SD
@@ -99,13 +99,14 @@
     /**
      * Opens log file and writes buffer string.
      */
-    int ch_SD::write(String msg)
+    int ch_SD::write(String timestamp, String msg)
     {
       File logger = SD.open("/log.txt");
       if(!logger)
       {
         return 1;
       }
+      logger.write(timestamp);
       logger.writeln(msg);
       logger.flush();
       logger.close();
@@ -130,10 +131,12 @@
     /**
      * Clears the screen, then writes output to the screen.
      */
-    int ch_LCD::write(String msg)
+    int ch_LCD::write(String timestamp, String msg)
     {
       lcd.clear();
       lcd.home();
+      lcd.print(timestamp);
+      lcd.setCursor(0, 1);
       lcd.print(msg);
     }
 
