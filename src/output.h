@@ -18,14 +18,14 @@
   {
     public:
       static int init();
-      static int write(String msg);
+	  static int write(String timestamp, String msg);
   };
   #ifdef IO_LOG_SD
     class ch_SD
     {
       public:
         static int init();
-        static int write(String msg);
+        static int write(String timestamp, String msg);
 	};
   #endif
   #ifdef IO_LOG_LCD
@@ -33,7 +33,7 @@
     {
       public:
         static int init();
-        static int write(String msg);
+		static int write(String timestamp, String msg);
       private:
         Liquidcrystal lcd(12, 11, 5, 4, 3, 2);
 	};

@@ -27,7 +27,7 @@
 		public:
           static void IO(String _port, String _state);
 		};
-        class File
+        class Files
         {
 		public:
           static void FILEWRITE(String _filepath, String _var);

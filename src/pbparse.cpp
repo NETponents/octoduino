@@ -29,7 +29,7 @@
       }
     }
     Stack::push(filename);
-    char terminator = ";";
+    const char terminator = ';';
     while(source.available())
     {
       String cmd = "";
@@ -59,7 +59,7 @@
       if(opcode == "PRINT") Parse::Opcode::IO::PRINT(Tokenizer::TKgetToken(line, 1));
       else if(opcode == "PRINTV") Parse::Opcode::IO::PRINTV(Tokenizer::TKgetToken(line, 1));
       else if(opcode == "ADDS") Parse::Opcode::Var::String::ADDS(Tokenizer::TKgetToken(line, 1), Tokenizer::TKgetToken(line, 2), Tokenizer::TKgetToken(line, 3));
-      else if(opcode == "GETC") Parse::Opcode::Var::String::GETC();
+	  else if (opcode == "GETC") Parse::Opcode::Var::String::GETC(Tokenizer::TKgetToken(line, 1), Tokenizer::TKgetToken(line, 2), Tokenizer::TKgetToken(line, 3));
       else if(opcode == "NEWPRINT") Parse::Opcode::IO::NEWPRINT();
       else if(opcode == "WAIT") Parse::Opcode::System::WAIT(Tokenizer::TKgetToken(line, 1));
       else if(opcode == "IFE") Parse::Opcode::Logic::IFE(Tokenizer::TKgetToken(line, 1), Tokenizer::TKgetToken(line, 2), Tokenizer::TKgetToken(line, 3));
@@ -70,8 +70,8 @@
       else if(opcode == "DELETE") Parse::Opcode::System::SWAP::DELETE(Tokenizer::TKgetToken(line, 1));
       else if(opcode == "SET") Parse::Opcode::System::SWAP::SET(Tokenizer::TKgetToken(line, 1), Tokenizer::TKgetToken(line, 2));
       else if(opcode == "EXTLOAD") Parse::Opcode::System::EXTLOAD(Tokenizer::TKgetToken(line, 1));
-      else if(opcode == "FILEWRITE") Parse::Opcode::IO::File::FILEWRITE(Tokenizer::TKgetToken(line, 1), Tokenizer::TKgetToken(line, 2));
-      else if(opcode == "FILEREAD") Parse::Opcode::IO::File::FILEREAD(Tokenizer::TKgetToken(line, 1), Tokenizer::TKgetToken(line, 2));
+      else if(opcode == "FILEWRITE") Parse::Opcode::IO::Files::FILEWRITE(Tokenizer::TKgetToken(line, 1), Tokenizer::TKgetToken(line, 2));
+      else if(opcode == "FILEREAD") Parse::Opcode::IO::Files::FILEREAD(Tokenizer::TKgetToken(line, 1), Tokenizer::TKgetToken(line, 2));
       else if(opcode == "END") Parse::Opcode::System::END();
       else
       {
@@ -112,7 +112,7 @@
           }
         }
         
-		void Parse::Opcode::IO::File::FILEWRITE(String _filepath, String _var)
+		void Parse::Opcode::IO::Files::FILEWRITE(String _filepath, String _var)
         {
           File _file = SD.open(_filepath, FILE_WRITE);
           if(_file)
@@ -130,7 +130,7 @@
           _file.flush();
           _file.close();
         }
-        void Parse::Opcode::IO::File::FILEREAD(String _filepath, String _var)
+        void Parse::Opcode::IO::Files::FILEREAD(String _filepath, String _var)
         {
           if(!SD.exists(_filepath))
           {
