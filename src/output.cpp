@@ -106,7 +106,7 @@
       {
         return 1;
       }
-      logger.write(timestamp);
+      msg = timestamp + msg;
       logger.writeln(msg);
       logger.flush();
       logger.close();
