@@ -8,17 +8,16 @@
 #include <Arduino.h> 
 #include <SD.h> 
 #include <SPI.h> // Required for PlatformIO
-#include "swap.h" 
+#include "swap.h"
+#include "stack.h"
 
-class Stack
-{
   /**
    * Initializes the stack object within the SWAP storage area.
    */
   void Stack::init()
   {
     #ifdef CORE_STACK
-      swapcreate("OCTSTACK","");
+      Swap::create("OCTSTACK","");
     #endif
   }
   /**
@@ -28,8 +27,8 @@ class Stack
   {
     #ifdef CORE_STACK
       String result = " -> ";
-      result = swapread("OCTSTACK") + result + filepath;
-      swapupdate("OCTSTACK", result);
+      result = Swap::read("OCTSTACK") + result + filepath;
+      Swap::update("OCTSTACK", result);
     #endif
   }
   /**
@@ -38,9 +37,9 @@ class Stack
   void Stack::pop(String filepath)
   {
     #ifdef CORE_STACK
-      String stackvar = swapread("OCTSTACK");
+      String stackvar = Swap::read("OCTSTACK");
       stackvar.remove(stackvar.lastIndexOf(filepath), filepath.length());
-      swapupdate("OCTSTACK", stackvar);
+      Swap::update("OCTSTACK", stackvar);
     #endif
   }
   /**
@@ -50,8 +49,7 @@ class Stack
   {
     String dump = "";
     #ifdef CORE_STACK
-      dump = swapread("OCTOSTACK");
+      dump = Swap::read("OCTOSTACK");
     #endif
     return dump;
   }
-}

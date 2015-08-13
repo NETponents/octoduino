@@ -12,6 +12,6 @@
   {
     public:
       static void init();
-  }
+  };
    
 #endif

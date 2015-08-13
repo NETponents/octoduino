@@ -10,16 +10,14 @@
 #include <SPI.h> //Required for PlatformIO
 #include "pbparse.h"
 #include "output.h"
+#include "swap.h"
+#include "core.h"
 
-/**
- * Class that contains the core functions for controling threads on the system.
- */
-class Core
-{
+
   /**
   * Initializes the system to execute the main PB file
   */
-  static void Core::init()
+  void Core::init()
   {
     // Pre-req for SD class
     pinMode(10, OUTPUT);
@@ -30,4 +28,4 @@ class Core
     Output::write("Launching bootloader");
     Parse::start("/boot.pba");
   }
-}
+
