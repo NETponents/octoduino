@@ -38,10 +38,10 @@
     ms = ms % 1000;
     unsigned long hr = mi / 60;
     mi = mi % 60;
-    char[12] buffer = "";
+    char buffer[12] = "";
     sprintf(buffer, "[%ld:%ld:%ld] ", hr, mi, ms);
     String timestamp = buffer;
-    timestamp.trim()
+    timestamp.trim();
     msg = timestamp + msg;
     ch_Serial::write(msg);
     #ifdef IO_LOG_SD
