@@ -9,7 +9,6 @@ env:
   global: 
     - PLATFORMIO_CI_SRC=src/ 
   matrix:
-    fast_finish: false
     - PLATFORMIO_SRC_BUILD_FLAGS="-DBUILDPIPE_BNUM=$TRAVIS_BUILD_NUMBER"
     allow_failures:
       - PLATFORMIO_SRC_BUILD_FLAGS="-DBUILDPIPE_BNUM=$TRAVIS_BUILD_NUMBER -DIO_LOG_SD"
