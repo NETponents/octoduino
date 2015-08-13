@@ -106,9 +106,8 @@
       {
         return 1;
       }
-      String nl = "\n";
-      msg = timestamp + msg + nl;
-      logger.write(msg);
+      msg = timestamp + msg;
+      logger.println(msg);
       logger.flush();
       logger.close();
       return 0;
