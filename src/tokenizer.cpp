@@ -6,8 +6,11 @@
 /////////////////////////////////////////////////
 
 #include <Arduino.h>
+#include <SD.h>
+#include <SPI.h> // Required for PlatformIO
 #include "output.h"
 #include "tokenizer.h"
+#include "swap.h"
 
     /**
      * Parses a given PB line and returns the token found at the given token index.
@@ -79,6 +82,12 @@
             // Check current token against desired token index
             if(tcounter == tokenIndex)
             {
+                // Check to see if it is a var reference
+                if(resultToken.startsWith("*"))
+                {
+                    resultToken.replace("*","");
+                    resultToken = Swap::read(resultToken);
+                }
                 return resultToken;
             }
             // Check if end of string
