@@ -58,14 +58,14 @@
       String opcode = Tokenizer::TKgetToken(line, 0);
       if(opcode == "PRINT") Parse::Opcode::IO::PRINT(Tokenizer::TKgetToken(line, 1));
       else if(opcode == "PRINTV") Parse::Opcode::IO::PRINTV(Tokenizer::TKgetToken(line, 1));
-      else if(opcode == "ADDS") Parse::Opcode::Var::String::ADDS(Tokenizer::TKgetToken(line, 1), Tokenizer::TKgetToken(line, 2), Tokenizer::TKgetToken(line, 3));
-	  else if (opcode == "GETC") Parse::Opcode::Var::String::GETC(Tokenizer::TKgetToken(line, 1), Tokenizer::TKgetToken(line, 2), Tokenizer::TKgetToken(line, 3));
+      else if(opcode == "ADDS") Parse::Opcode::Var::Strings::ADDS(Tokenizer::TKgetToken(line, 1), Tokenizer::TKgetToken(line, 2), Tokenizer::TKgetToken(line, 3));
+	  else if (opcode == "GETC") Parse::Opcode::Var::Strings::GETC(Tokenizer::TKgetToken(line, 1), Tokenizer::TKgetToken(line, 2), Tokenizer::TKgetToken(line, 3));
       else if(opcode == "NEWPRINT") Parse::Opcode::IO::NEWPRINT();
       else if(opcode == "WAIT") Parse::Opcode::System::WAIT(Tokenizer::TKgetToken(line, 1));
       else if(opcode == "IFE") Parse::Opcode::Logic::IFE(Tokenizer::TKgetToken(line, 1), Tokenizer::TKgetToken(line, 2), Tokenizer::TKgetToken(line, 3));
       else if(opcode == "IFNE") Parse::Opcode::Logic::IFNE(Tokenizer::TKgetToken(line, 1), Tokenizer::TKgetToken(line, 2), Tokenizer::TKgetToken(line, 3));
       else if(opcode == "CREATESWAP") Parse::Opcode::System::SWAP::CREATESWAP();
-      else if(opcode == "IO") Parse::Opcode::IO::Ports::IO(Tokenizer::TKgetToken(line, 1), Tokenizer::TKgetToken(linem 2));
+      else if(opcode == "IO") Parse::Opcode::IO::Ports::IO(Tokenizer::TKgetToken(line, 1), Tokenizer::TKgetToken(line, 2));
       else if(opcode == "NEW") Parse::Opcode::System::SWAP::NEW(Tokenizer::TKgetToken(line, 1), Tokenizer::TKgetToken(line, 2));
       else if(opcode == "DELETE") Parse::Opcode::System::SWAP::DELETE(Tokenizer::TKgetToken(line, 1));
       else if(opcode == "SET") Parse::Opcode::System::SWAP::SET(Tokenizer::TKgetToken(line, 1), Tokenizer::TKgetToken(line, 2));
@@ -102,7 +102,7 @@
           int _nPort = int(_port.c_str());
           int _nState = int(_state.c_str());
           pinMode(_nPort, OUTPUT);
-          if(_state == 0)
+          if(_nState == 0)
           {
             digitalWrite(_nPort, LOW);
           }
@@ -158,11 +158,11 @@
           _file.close();
         }
 
-        void Parse::Opcode::Var::String::ADDS(String _s1, String _s2, String _store)
+        void Parse::Opcode::Var::Strings::ADDS(String _s1, String _s2, String _store)
         {
           Swap::update(_store, _s1 + _s2);
         }
-        void Parse::Opcode::Var::String::GETC(String _srg, String _rchar, String _store)
+        void Parse::Opcode::Var::Strings::GETC(String _srg, String _rchar, String _store)
         {
           int _cindex = _rchar.toInt();
           Swap::update(_store, String(_srg.charAt(_cindex)));
@@ -210,10 +210,10 @@
           Parse::start(_sFile);
         }
       }
-      void Parse::Opcode::Logic::IFNE(String _op1, String _op2, String _sFile)
-      {
-        if(Swap::read(_op1) != Swap::read(_op2))
-        {
-          Parse::start(_sFile);
-        }
-
+	  void Parse::Opcode::Logic::IFNE(String _op1, String _op2, String _sFile)
+	  {
+		  if (Swap::read(_op1) != Swap::read(_op2))
+		  {
+			  Parse::start(_sFile);
+		  }
+	  }

@@ -37,7 +37,7 @@
       class Var
       {
 	  public:
-        class String
+        class Strings
         {
 		public:
           static void ADDS(String _s1, String _s2, String _store);
