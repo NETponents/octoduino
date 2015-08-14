@@ -24,7 +24,7 @@
     if(!source)
     {
       #ifdef CRASH_MSG_DETAIL
-        Crash::forceHalt("PB runner could not open" + filename.c_str());
+        Crash::forceHalt("PB runner could not open file.");
       #else
         Crash::forceHalt("Ex006");
       #endif
@@ -77,7 +77,7 @@
       else
       {
         #ifdef CRASH_MSG_DETAIL
-          Crash::forceHalt("Error, unrecognized command " + line.c_str());
+          Crash::forceHalt("Error, unrecognized command.");
         #else
           Crash::forceHalt("Ex007");
         #endif
@@ -123,7 +123,7 @@
           else
           {
             #ifdef CRASH_MSG_DETAIL
-              Crash::forceHalt("Error writing to file " + _filepath.c_str() + " on SD card.")
+              Crash::forceHalt("Error writing to file on SD card.");
             #else
           		Crash::forceHalt("Ex008");
         		#endif
@@ -136,7 +136,7 @@
           if(!SD.exists(_filepath))
           {
             #ifdef CRASH_MSG_DETAIL
-          		Crash::forceHalt("File " + _filepath.c_str() + " does not exist on SD card.")
+          		Crash::forceHalt("File does not exist on SD card.");
         		#else
           		Crash::forceHalt("Ex009");
         		#endif
@@ -146,7 +146,7 @@
           if(!_file)
           {
             #ifdef CRASH_MSG_DETAIL
-          		Crash::forceHalt("Error reading from file " + _filepath.c_str() + " on SD card.")
+          		Crash::forceHalt("Error reading from file on SD card.");
         		#else
           		Crash::forceHalt("Ex010");
         		#endif
@@ -180,7 +180,7 @@
       void Parse::Opcode::System::END()
       {
         #ifdef CRASH_MSG_DETAIL
-          Crash::forceHalt("Program has been terminated by the script file.")
+          Crash::forceHalt("Program has been terminated by the script file.");
         #else
           Crash::forceHalt("Ex000");
         #endif
