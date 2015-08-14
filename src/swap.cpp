@@ -128,6 +128,14 @@
     {
       return "v0.1.3";
     }
+    else if(name.startsWith("$PIN"))
+    {
+      int nPin = 0;
+      sscanf(name.c_str(), "$PIN%02d", &nPin);
+      pinMode(nPin, INPUT);
+      String result = String(digitalRead(nPin));
+      return result;
+    }
     // Check to see if variable exists
     if(!SD.exists(Swap::GetPath(name)))
     {
