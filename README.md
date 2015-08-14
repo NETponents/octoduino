@@ -14,7 +14,7 @@
 [![Gratipay](https://img.shields.io/gratipay/ARMmaster17.svg)](http://gratipay.com/~ARMmaster17)
 
 ## What is it?
-Octoduino was created to allow novice programmers create programs for the Arduino using any language they want. It also makes use of external SWAP space, so if you decide to do something extremely complex, you aren't limited by the Arduinos small RAM space.
+Octoduino was created to allow novice programmers to create programs for the Arduino using any language they want. It also makes use of external SWAP space, so if you decide to do something extremely complex, you aren't limited by the Arduinos small RAM space.
 
 ## Documentation
 All documentation, along with a change log and known bugs list, is located in the `~/docs` directory and on the GitHub Wiki. All items on the Github wiki reflect the latest source on the master branch, not the latest release.
