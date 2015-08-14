@@ -13,6 +13,7 @@
 #include "output.h"
 #include "tokenizer.h"
 #include "stack.h"
+#include "crash.h"
 
   /**
    * Creates a runner to begin execution of a new source file.
@@ -22,11 +23,11 @@
     File source = SD.open(filename.c_str());
     if(!source)
     {
-      // TODO: crash the system
-      while(true)
-      {
-        
-      }
+      #ifdef CRASH_MSG_DETAIL
+        Crash::forceHalt("PB runner could not open" + filename.c_str());
+      #else
+        Crash::forceHalt("Ex006");
+      #endif
     }
     Stack::push(filename);
     const char terminator = ';';
@@ -75,11 +76,11 @@
       else if(opcode == "END") Parse::Opcode::System::END();
       else
       {
-        // TODO: crash program
-        while(true)
-        {
-          
-        }
+        #ifdef CRASH_MSG_DETAIL
+          Crash::forceHalt("Error, unrecognized command " + line.c_str());
+        #else
+          Crash::forceHalt("Ex007");
+        #endif
       }
     }
   };
@@ -121,11 +122,11 @@
           }
           else
           {
-            // TODO: crash system
-            while(true)
-            {
-              
-            }
+            #ifdef CRASH_MSG_DETAIL
+              Crash::forceHalt("Error writing to file " + _filepath.c_str() + " on SD card.")
+            #else
+          		Crash::forceHalt("Ex008");
+        		#endif
           }
           _file.flush();
           _file.close();
@@ -134,21 +135,21 @@
         {
           if(!SD.exists(_filepath))
           {
-            // TODO: crash system
-            while(true)
-            {
-              
-            }
+            #ifdef CRASH_MSG_DETAIL
+          		Crash::forceHalt("File " + _filepath.c_str() + " does not exist on SD card.")
+        		#else
+          		Crash::forceHalt("Ex009");
+        		#endif
           }
           String _readbuf = "";
           File _file = SD.open(_filepath, FILE_WRITE);
           if(!_file)
           {
-            // TODO: crash system
-            while(true)
-            {
-              
-            }
+            #ifdef CRASH_MSG_DETAIL
+          		Crash::forceHalt("Error reading from file " + _filepath.c_str() + " on SD card.")
+        		#else
+          		Crash::forceHalt("Ex010");
+        		#endif
           }
           while(_file.available())
           {
@@ -178,11 +179,11 @@
       }
       void Parse::Opcode::System::END()
       {
-        // TODO: halt system
-        while(true)
-        {
-          
-        }
+        #ifdef CRASH_MSG_DETAIL
+          Crash::forceHalt("Program has been terminated by the script file.")
+        #else
+          Crash::forceHalt("Ex000");
+        #endif
       }
 
         void Parse::Opcode::System::SWAP::CREATESWAP()
