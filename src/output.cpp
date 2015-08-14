@@ -9,6 +9,7 @@
 #include <SD.h>
 #include <SPI.h> // Required for PlatformIO
 #include "output.h"
+#include "crash.h"
 #ifdef IO_LOG_LCD
   #include <LiquidCrystal.h>
 #endif
@@ -19,12 +20,33 @@
   void Output::init()
   {
     // Initialize channels
-    ch_Serial::init();
+    if(ch_Serial::init() != 0)
+    {
+      #ifdef CRASH_MSG_DETAIL
+        Crash::forceHalt("Error initializing Serial output channel.");
+      #else
+        Crash::forceHalt("Ex001");
+      #endif
+    }
     #ifdef IO_LOG_SD
-      ch_SD::init();
+      if(ch_SD::init() != 0)
+      {
+        #ifdef CRASH_MSG_DETAIL
+          Crash::forceHalt("Error initializing SD log output channel.");
+        #else
+          Crash::forceHalt("Ex002");
+        #endif
+      }
     #endif
     #ifdef IO_LOG_LCD
-      ch_LCD::init();
+      if(ch_LCD::init() != 0)
+      {
+        #ifdef CRASH_MSG_DETAIL
+          Crash::forceHalt("Error initializing LCD output channel.");
+        #else
+          Crash::forceHalt("Ex003");
+        #endif
+      }
     #endif
   }
   /**
@@ -76,6 +98,7 @@
   {
     Serial.print(timestamp);
     Serial.println(msg);
+    return 0;
   }
 #ifdef IO_LOG_SD
   /**
