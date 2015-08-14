@@ -126,7 +126,35 @@
     // Check for special compile-time variables
     if(name == "$bootver")
     {
-      return "v0.1.3";
+      return "v0.2.0a";
+    }
+    else if(name == "$FEAT_IO_Serial")
+    {
+      #ifdef IO_LOG_SERIAL
+        return "true";
+      #endif
+      return "false";
+    }
+    else if(name == "$FEAT_IO_SD")
+    {
+      #ifdef IO_LOG_SD
+        return "true";
+      #endif
+      return "false";
+    }
+    else if(name == "$FEAT_IO_LCD")
+    {
+      #ifdef IO_LOG_LCD
+        return "true";
+      #endif
+      return "false";
+    }
+    else if(name == "$FEAT_CORE_STACK")
+    {
+      #ifdef CORE_STACK
+        return "true";
+      #endif
+      return "false";
     }
     else if(name.startsWith("$PIN"))
     {
