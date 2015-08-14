@@ -7,6 +7,7 @@
 
 #include <Arduino.h>
 #include "stack.h"
+#include "crash.h"
 
   void Crash::forceHalt(String msg)
   {
