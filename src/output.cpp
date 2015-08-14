@@ -66,10 +66,24 @@
     timestamp.trim();
     ch_Serial::write(timestamp, msg);
     #ifdef IO_LOG_SD
-      ch_SD::write(timestamp, msg);
+      if(ch_SD::write(timestamp, msg) != 0)
+      {
+        #ifdef CRASH_MSG_DETAIL
+          Crash::forceHalt("Error writing to log on SD card.");
+        #else
+          Crash::forceHalt("Ex004");
+        #endif
+      }
     #endif
     #ifdef IO_LOG_LCD
-      ch_LCD::write(timestamp, msg);
+      if(ch_LCD::write(timestamp, msg) != 0)
+      {
+        #ifdef CRASH_MSG_DETAIL
+          Crash::forceHalt("Error outputting to LCD screen");
+        #else
+          Crash::forceHalt("Ex005");
+        #endif
+      }
     #endif
   }
 /**
@@ -150,6 +164,7 @@
     {
       lcd.begin(16, 2);
       lcd.noCursor();
+      return 0;
     }
     /**
      * Clears the screen, then writes output to the screen.
@@ -161,6 +176,7 @@
       lcd.print(timestamp);
       lcd.setCursor(0, 1);
       lcd.print(msg);
+      return 0;
     }
 
 #endif
