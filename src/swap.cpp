@@ -10,6 +10,7 @@
 #include <SPI.h> // Required for PlatformIO
 #include "swap.h"
 #include "output.h"
+#include "crash.h"
 
   /**
    * Initializes the SWAP area on the SD card.
@@ -27,12 +28,11 @@
         Swap::clearFolder(root);
         if(SD.exists("/swap"))
         {
-          Output::write("Error in SWAP: working directory not cleared.");
-          // TODO: crash system
-          while(true)
-          {
-            
-          }
+          #ifdef CRASH_MSG_DETAIL
+            Crash::forceHalt("Swap folder is not empty.");
+          #else
+            Crash::forceHalt("Ex011");
+          #endif
         }
       }
     }
@@ -88,12 +88,11 @@
     if(SD.exists(Swap::GetPath(name)))
     {
       // It does, so crash system
-      Output::write("Error in SWAP: Tried to create a variable that already exists");
-      // TODO: crash system
-      while(true)
-      {
-        
-      }
+      #ifdef CRASH_MSG_DETAIL
+        Crash::forceHalt("Tried to create a variable that already exists in swap.");
+      #else
+        Crash::forceHalt("Ex012");
+      #endif
     }
     // Create new file handle for new swap file
     File newSwap = SD.open(Swap::GetPath(name), FILE_WRITE);
@@ -107,12 +106,11 @@
     else
     {
       // IO error, crash the system
-      Output::write("Error in SWAP: Could not open variable SWAP file. Check the medium for storage corruption");
-      // TODO: crash system
-      while(true)
-      {
-        
-      }
+      #ifdef CRASH_MSG_DETAIL
+        Crash::forceHalt("Error writing new swap variable to SD card.");
+      #else
+        Crash::forceHalt("Ex013");
+      #endif
     }
     
   }
@@ -229,12 +227,11 @@
     if(!SD.exists(Swap::GetPath(name)))
     {
       // It doesn't, so crash the system
-      Output::write("ERR: 0x7");
-      // TODO: crash system
-      while(true)
-      {
-        
-      }
+      #ifdef CRASH_MSG_DETAIL
+        Crash::forceHalt("Swap variable " + name.c_str() + " already exists in swap space.");
+      #else
+        Crash::forceHalt("Ex014");
+      #endif
     }
     // Create IO handle
     File readSwap = SD.open(Swap::GetPath(name));
@@ -254,12 +251,11 @@
       return result;
     }
     // IO error, crash system
-    Output::write("ERR: 0x8");
-    // TODO: crash system
-    while(true)
-    {
-      
-    }
+    #ifdef CRASH_MSG_DETAIL
+      Crash::forceHalt("Error opening swapfile on SD card.");
+    #else
+      Crash::forceHalt("Ex015");
+    #endif
   }
   /**
    * Replaces the requested SWAP object with the given value.
@@ -288,12 +284,11 @@
       return;
     }
     // IO error, crash the system
-    Output::write("ERR: 0x9");
-    // TODO: crash system
-    while(true)
-    {
-      
-    }
+    #ifdef CRASH_MSG_DETAIL
+      Crash::forceHalt("Error deleting swap file on SD card.");
+    #else
+      Crash::forceHalt("Ex016");
+    #endif
   }
   /**
    * Checks to see if the SWAP has been initialized. If not, it forces a system crash with swapcrash().
@@ -306,6 +301,9 @@
       return;
     }
     // Swap not found, crash system
-    Output::write("ERR: 0x6");
-    // TODO: crash system
+    #ifdef CRASH_MSG_DETAIL
+          Crash::forceHalt("Swap directory not found.");
+        #else
+          Crash::forceHalt("Ex017");
+        #endif
   }
