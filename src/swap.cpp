@@ -126,7 +126,104 @@
     // Check for special compile-time variables
     if(name == "$bootver")
     {
-      return "v0.1.3";
+      return "v0.2.0a";
+    }
+    #ifdef SWAP_CONST_BOOL
+      else if(name == "$CONST_true")
+      {
+        return "true";
+      }
+      else if(name == "$CONST_false")
+      {
+        return "false";
+      }
+    #endif
+    #ifdef SWAP_CONST_NUM
+      else if(name == "$CONST_1")
+      {
+        return "1";
+      }
+      else if(name == "$CONST_2")
+      {
+        return "2";
+      }
+      else if(name == "$CONST_3")
+      {
+        return "3";
+      }
+      else if(name == "$CONST_4")
+      {
+        return "4";
+      }
+      else if(name == "$CONST_5")
+      {
+        return "5";
+      }
+      else if(name == "$CONST_6")
+      {
+        return "6";
+      }
+      else if(name == "$CONST_7")
+      {
+        return "7";
+      }
+      else if(name == "$CONST_8")
+      {
+        return "8";
+      }
+      else if(name == "$CONST_9")
+      {
+        return "9";
+      }
+      else if(name == "$CONST_0")
+      {
+        return "0";
+      }
+    #endif
+    else if(name == "$FEAT_SWAP_CONST")
+    {
+      #ifdef SWAP_CONST_BOOL
+        #ifdef SWAP_CONST_NUM
+          return "true";
+        #endif
+      #endif
+      return "false";
+    }
+    else if(name == "$FEAT_IO_Serial")
+    {
+      #ifdef IO_LOG_SERIAL
+        return "true";
+      #endif
+      return "false";
+    }
+    else if(name == "$FEAT_IO_SD")
+    {
+      #ifdef IO_LOG_SD
+        return "true";
+      #endif
+      return "false";
+    }
+    else if(name == "$FEAT_IO_LCD")
+    {
+      #ifdef IO_LOG_LCD
+        return "true";
+      #endif
+      return "false";
+    }
+    else if(name == "$FEAT_CORE_STACK")
+    {
+      #ifdef CORE_STACK
+        return "true";
+      #endif
+      return "false";
+    }
+    else if(name.startsWith("$PIN"))
+    {
+      int nPin = 0;
+      sscanf(name.c_str(), "$PIN%02d", &nPin);
+      pinMode(nPin, INPUT);
+      String result = String(digitalRead(nPin));
+      return result;
     }
     // Check to see if variable exists
     if(!SD.exists(Swap::GetPath(name)))
