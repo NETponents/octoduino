@@ -187,7 +187,7 @@
           return "true";
         #endif
       #endif
-      return false;
+      return "false";
     }
     else if(name == "$FEAT_IO_Serial")
     {
