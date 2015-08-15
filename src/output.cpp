@@ -9,22 +9,46 @@
 #include <SD.h>
 #include <SPI.h> // Required for PlatformIO
 #include "output.h"
+#include "crash.h"
 #ifdef IO_LOG_LCD
   #include <LiquidCrystal.h>
 #endif
 
   /**
-  * Initializes the output stream(s). The included streams are determined at compile-time to minimize memory use.
+  * Initializes the output stream(s).
+  * The included streams are determined at compile-time to minimize memory use.
+  * See *build options* docs page.
   */
   void Output::init()
   {
     // Initialize channels
-    ch_Serial::init();
+    if(ch_Serial::init() != 0)
+    {
+      #ifdef CRASH_MSG_DETAIL
+        Crash::forceHalt("Error initializing Serial output channel.");
+      #else
+        Crash::forceHalt("Ex001");
+      #endif
+    }
     #ifdef IO_LOG_SD
-      ch_SD::init();
+      if(ch_SD::init() != 0)
+      {
+        #ifdef CRASH_MSG_DETAIL
+          Crash::forceHalt("Error initializing SD log output channel.");
+        #else
+          Crash::forceHalt("Ex002");
+        #endif
+      }
     #endif
     #ifdef IO_LOG_LCD
-      ch_LCD::init();
+      if(ch_LCD::init() != 0)
+      {
+        #ifdef CRASH_MSG_DETAIL
+          Crash::forceHalt("Error initializing LCD output channel.");
+        #else
+          Crash::forceHalt("Ex003");
+        #endif
+      }
     #endif
   }
   /**
@@ -44,10 +68,24 @@
     timestamp.trim();
     ch_Serial::write(timestamp, msg);
     #ifdef IO_LOG_SD
-      ch_SD::write(timestamp, msg);
+      if(ch_SD::write(timestamp, msg) != 0)
+      {
+        #ifdef CRASH_MSG_DETAIL
+          Crash::forceHalt("Error writing to log on SD card.");
+        #else
+          Crash::forceHalt("Ex004");
+        #endif
+      }
     #endif
     #ifdef IO_LOG_LCD
-      ch_LCD::write(timestamp, msg);
+      if(ch_LCD::write(timestamp, msg) != 0)
+      {
+        #ifdef CRASH_MSG_DETAIL
+          Crash::forceHalt("Error outputting to LCD screen");
+        #else
+          Crash::forceHalt("Ex005");
+        #endif
+      }
     #endif
   }
 /**
@@ -76,6 +114,7 @@
   {
     Serial.print(timestamp);
     Serial.println(msg);
+    return 0;
   }
 #ifdef IO_LOG_SD
   /**
@@ -127,6 +166,7 @@
     {
       lcd.begin(16, 2);
       lcd.noCursor();
+      return 0;
     }
     /**
      * Clears the screen, then writes output to the screen.
@@ -138,6 +178,7 @@
       lcd.print(timestamp);
       lcd.setCursor(0, 1);
       lcd.print(msg);
+      return 0;
     }
 
 #endif
