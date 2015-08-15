@@ -228,7 +228,7 @@
     {
       // It doesn't, so crash the system
       #ifdef CRASH_MSG_DETAIL
-        Crash::forceHalt("Swap variable " + name.c_str() + " already exists in swap space.");
+        Crash::forceHalt("Swap variable already exists in swap space.");
       #else
         Crash::forceHalt("Ex014");
       #endif
