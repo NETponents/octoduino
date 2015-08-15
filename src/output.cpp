@@ -15,7 +15,9 @@
 #endif
 
   /**
-  * Initializes the output stream(s). The included streams are determined at compile-time to minimize memory use.
+  * Initializes the output stream(s).
+  * The included streams are determined at compile-time to minimize memory use.
+  * See *build options* docs page.
   */
   void Output::init()
   {
