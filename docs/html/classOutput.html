@@ -93,16 +93,16 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-static-methods"></a>
 Static Public Member Functions</h2></td></tr>
-<tr class="memitem:abe2c802965ff1847e0478ffb168caf7b"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classOutput.html#abe2c802965ff1847e0478ffb168caf7b">init</a> ()</td></tr>
-<tr class="separator:abe2c802965ff1847e0478ffb168caf7b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a7a3a896d43c09bb49bead0e2f58ab464"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classOutput.html#a7a3a896d43c09bb49bead0e2f58ab464">write</a> (String msg)</td></tr>
-<tr class="separator:a7a3a896d43c09bb49bead0e2f58ab464"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abc5908ae5ec5de765d0f92433472e505"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classOutput.html#abc5908ae5ec5de765d0f92433472e505">init</a> ()</td></tr>
+<tr class="separator:abc5908ae5ec5de765d0f92433472e505"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a181cb63da3f2e530a5d790cfb018c81b"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classOutput.html#a181cb63da3f2e530a5d790cfb018c81b">write</a> (String msg)</td></tr>
+<tr class="separator:a181cb63da3f2e530a5d790cfb018c81b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock">
-<p>Definition at line <a class="el" href="output_8cpp_source.html#l00016">16</a> of file <a class="el" href="output_8cpp_source.html">output.cpp</a>.</p>
+<p>Definition at line <a class="el" href="output_8h_source.html#l00011">11</a> of file <a class="el" href="output_8h_source.html">output.h</a>.</p>
 </div><h2 class="groupheader">Member Function Documentation</h2>
-<a class="anchor" id="abe2c802965ff1847e0478ffb168caf7b"></a>
+<a class="anchor" id="abc5908ae5ec5de765d0f92433472e505"></a>
 <div class="memitem">
 <div class="memproto">
 <table class="mlabels">
@@ -110,7 +110,7 @@ Static Public Member Functions</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">static void Output::init </td>
+          <td class="memname">void Output::init </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td></td>
@@ -122,10 +122,50 @@ Static Public Member Functions</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+<p>Initializes the output stream(s). The included streams are determined at compile-time to minimize memory use. See <em>build options</em> docs page. </p>
 
+<p>Definition at line <a class="el" href="output_8cpp_source.html#l00022">22</a> of file <a class="el" href="output_8cpp_source.html">output.cpp</a>.</p>
+
+<p>References <a class="el" href="crash_8cpp_source.html#l00015">Crash::forceHalt()</a>, and <a class="el" href="output_8cpp_source.html#l00098">ch_Serial::init()</a>.</p>
+
+<p>Referenced by <a class="el" href="main_8ino_source.html#l00021">setup()</a>.</p>
+<div class="fragment"><div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;  {</div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;    <span class="comment">// Initialize channels</span></div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;    <span class="keywordflow">if</span>(<a class="code" href="classch__Serial.html#adadadc8d994bd34980000cb09b2d1d6e">ch_Serial::init</a>() != 0)</div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;    {</div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;<span class="preprocessor">      #ifdef CRASH_MSG_DETAIL</span></div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;<span class="preprocessor"></span>        <a class="code" href="classCrash.html#a5e49d00985759d6c02688c3266570548">Crash::forceHalt</a>(<span class="stringliteral">&quot;Error initializing Serial output channel.&quot;</span>);</div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;<span class="preprocessor">      #else</span></div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;<span class="preprocessor"></span>        <a class="code" href="classCrash.html#a5e49d00985759d6c02688c3266570548">Crash::forceHalt</a>(<span class="stringliteral">&quot;Ex001&quot;</span>);</div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;<span class="preprocessor">      #endif</span></div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;<span class="preprocessor"></span>    }</div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;<span class="preprocessor">    #ifdef IO_LOG_SD</span></div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;<span class="preprocessor"></span>      <span class="keywordflow">if</span>(ch_SD::init() != 0)</div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;      {</div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;<span class="preprocessor">        #ifdef CRASH_MSG_DETAIL</span></div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;<span class="preprocessor"></span>          <a class="code" href="classCrash.html#a5e49d00985759d6c02688c3266570548">Crash::forceHalt</a>(<span class="stringliteral">&quot;Error initializing SD log output channel.&quot;</span>);</div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;<span class="preprocessor">        #else</span></div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;<span class="preprocessor"></span>          <a class="code" href="classCrash.html#a5e49d00985759d6c02688c3266570548">Crash::forceHalt</a>(<span class="stringliteral">&quot;Ex002&quot;</span>);</div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;<span class="preprocessor">        #endif</span></div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;<span class="preprocessor"></span>      }</div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;<span class="preprocessor">    #endif</span></div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;<span class="preprocessor"></span><span class="preprocessor">    #ifdef IO_LOG_LCD</span></div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;<span class="preprocessor"></span>      <span class="keywordflow">if</span>(ch_LCD::init() != 0)</div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;      {</div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;<span class="preprocessor">        #ifdef CRASH_MSG_DETAIL</span></div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;<span class="preprocessor"></span>          <a class="code" href="classCrash.html#a5e49d00985759d6c02688c3266570548">Crash::forceHalt</a>(<span class="stringliteral">&quot;Error initializing LCD output channel.&quot;</span>);</div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;<span class="preprocessor">        #else</span></div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;<span class="preprocessor"></span>          <a class="code" href="classCrash.html#a5e49d00985759d6c02688c3266570548">Crash::forceHalt</a>(<span class="stringliteral">&quot;Ex003&quot;</span>);</div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;<span class="preprocessor">        #endif</span></div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;<span class="preprocessor"></span>      }</div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;<span class="preprocessor">    #endif</span></div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;<span class="preprocessor"></span>  }</div>
+<div class="ttc" id="classch__Serial_html_adadadc8d994bd34980000cb09b2d1d6e"><div class="ttname"><a href="classch__Serial.html#adadadc8d994bd34980000cb09b2d1d6e">ch_Serial::init</a></div><div class="ttdeci">static int init()</div><div class="ttdef"><b>Definition:</b> <a href="output_8cpp_source.html#l00098">output.cpp:98</a></div></div>
+<div class="ttc" id="classCrash_html_a5e49d00985759d6c02688c3266570548"><div class="ttname"><a href="classCrash.html#a5e49d00985759d6c02688c3266570548">Crash::forceHalt</a></div><div class="ttdeci">static void forceHalt(String msg)</div><div class="ttdef"><b>Definition:</b> <a href="crash_8cpp_source.html#l00015">crash.cpp:15</a></div></div>
+</div><!-- fragment -->
 </div>
 </div>
-<a class="anchor" id="a7a3a896d43c09bb49bead0e2f58ab464"></a>
+<a class="anchor" id="a181cb63da3f2e530a5d790cfb018c81b"></a>
 <div class="memitem">
 <div class="memproto">
 <table class="mlabels">
@@ -133,7 +173,7 @@ Static Public Member Functions</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">static void Output::write </td>
+          <td class="memname">void Output::write </td>
           <td>(</td>
           <td class="paramtype">String&#160;</td>
           <td class="paramname"><em>msg</em></td><td>)</td>
@@ -146,17 +186,59 @@ Static Public Member Functions</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+<p>Writes a String to all initialized output streams. </p>
 
+<p>Definition at line <a class="el" href="output_8cpp_source.html#l00057">57</a> of file <a class="el" href="output_8cpp_source.html">output.cpp</a>.</p>
+
+<p>References <a class="el" href="crash_8cpp_source.html#l00015">Crash::forceHalt()</a>, and <a class="el" href="output_8cpp_source.html#l00113">ch_Serial::write()</a>.</p>
+
+<p>Referenced by <a class="el" href="core_8cpp_source.html#l00020">Core::init()</a>, <a class="el" href="pbparse_8cpp_source.html#l00105">Parse::Opcode::IO::NEWPRINT()</a>, <a class="el" href="pbparse_8cpp_source.html#l00091">Parse::Opcode::IO::PRINT()</a>, <a class="el" href="pbparse_8cpp_source.html#l00098">Parse::Opcode::IO::PRINTV()</a>, <a class="el" href="main_8ino_source.html#l00021">setup()</a>, and <a class="el" href="tokenizer_8cpp_source.html#l00018">Tokenizer::TKgetToken()</a>.</p>
+<div class="fragment"><div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;  {</div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;    <span class="comment">// Get time (HH:MM:SS)</span></div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;    <span class="keywordtype">unsigned</span> <span class="keywordtype">long</span> ms = millis();</div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;    <span class="keywordtype">unsigned</span> <span class="keywordtype">long</span> mi = ms / 1000;</div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;    ms = ms % 1000;</div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;    <span class="keywordtype">unsigned</span> <span class="keywordtype">long</span> hr = mi / 60;</div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;    mi = mi % 60;</div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;    <span class="keywordtype">char</span> buffer[12] = <span class="stringliteral">&quot;&quot;</span>;</div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;    sprintf(buffer, <span class="stringliteral">&quot;[%ld:%ld:%ld] &quot;</span>, hr, mi, ms);</div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;    String timestamp = buffer;</div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;    timestamp.trim();</div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;    <a class="code" href="classch__Serial.html#a60d0cbb4cda46b135599418d9780d95e">ch_Serial::write</a>(timestamp, msg);</div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;<span class="preprocessor">    #ifdef IO_LOG_SD</span></div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;<span class="preprocessor"></span>      <span class="keywordflow">if</span>(ch_SD::write(timestamp, msg) != 0)</div>
+<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;      {</div>
+<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;<span class="preprocessor">        #ifdef CRASH_MSG_DETAIL</span></div>
+<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;<span class="preprocessor"></span>          <a class="code" href="classCrash.html#a5e49d00985759d6c02688c3266570548">Crash::forceHalt</a>(<span class="stringliteral">&quot;Error writing to log on SD card.&quot;</span>);</div>
+<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;<span class="preprocessor">        #else</span></div>
+<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;<span class="preprocessor"></span>          <a class="code" href="classCrash.html#a5e49d00985759d6c02688c3266570548">Crash::forceHalt</a>(<span class="stringliteral">&quot;Ex004&quot;</span>);</div>
+<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;<span class="preprocessor">        #endif</span></div>
+<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;<span class="preprocessor"></span>      }</div>
+<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;<span class="preprocessor">    #endif</span></div>
+<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;<span class="preprocessor"></span><span class="preprocessor">    #ifdef IO_LOG_LCD</span></div>
+<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;<span class="preprocessor"></span>      <span class="keywordflow">if</span>(ch_LCD::write(timestamp, msg) != 0)</div>
+<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;      {</div>
+<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;<span class="preprocessor">        #ifdef CRASH_MSG_DETAIL</span></div>
+<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;<span class="preprocessor"></span>          <a class="code" href="classCrash.html#a5e49d00985759d6c02688c3266570548">Crash::forceHalt</a>(<span class="stringliteral">&quot;Error outputting to LCD screen&quot;</span>);</div>
+<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;<span class="preprocessor">        #else</span></div>
+<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;<span class="preprocessor"></span>          <a class="code" href="classCrash.html#a5e49d00985759d6c02688c3266570548">Crash::forceHalt</a>(<span class="stringliteral">&quot;Ex005&quot;</span>);</div>
+<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;<span class="preprocessor">        #endif</span></div>
+<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;<span class="preprocessor"></span>      }</div>
+<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;<span class="preprocessor">    #endif</span></div>
+<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;<span class="preprocessor"></span>  }</div>
+<div class="ttc" id="classch__Serial_html_a60d0cbb4cda46b135599418d9780d95e"><div class="ttname"><a href="classch__Serial.html#a60d0cbb4cda46b135599418d9780d95e">ch_Serial::write</a></div><div class="ttdeci">static int write(String timestamp, String msg)</div><div class="ttdef"><b>Definition:</b> <a href="output_8cpp_source.html#l00113">output.cpp:113</a></div></div>
+<div class="ttc" id="classCrash_html_a5e49d00985759d6c02688c3266570548"><div class="ttname"><a href="classCrash.html#a5e49d00985759d6c02688c3266570548">Crash::forceHalt</a></div><div class="ttdeci">static void forceHalt(String msg)</div><div class="ttdef"><b>Definition:</b> <a href="crash_8cpp_source.html#l00015">crash.cpp:15</a></div></div>
+</div><!-- fragment -->
 </div>
 </div>
 <hr/>The documentation for this class was generated from the following files:<ul>
-<li>src/<a class="el" href="output_8cpp_source.html">output.cpp</a></li>
 <li>src/<a class="el" href="output_8h_source.html">output.h</a></li>
+<li>src/<a class="el" href="output_8cpp_source.html">output.cpp</a></li>
 </ul>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Wed Aug 12 2015 17:11:43 for Octoduino by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Mon Aug 17 2015 15:52:39 for Octoduino by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.6
 </small></address>

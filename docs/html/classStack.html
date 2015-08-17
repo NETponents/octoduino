@@ -82,6 +82,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </div><!-- top -->
 <div class="header">
   <div class="summary">
+<a href="#pub-static-methods">Static Public Member Functions</a> &#124;
 <a href="classStack-members.html">List of all members</a>  </div>
   <div class="headertitle">
 <div class="title">Stack Class Reference</div>  </div>
@@ -89,17 +90,181 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="contents">
 
 <p><code>#include &lt;<a class="el" href="stack_8h_source.html">stack.h</a>&gt;</code></p>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-static-methods"></a>
+Static Public Member Functions</h2></td></tr>
+<tr class="memitem:a218a6993e765716ecd622390bf430266"><td class="memItemLeft" align="right" valign="top">static String&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classStack.html#a218a6993e765716ecd622390bf430266">dump</a> ()</td></tr>
+<tr class="separator:a218a6993e765716ecd622390bf430266"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a891e74e94124bd2f19d94b8cd0c0ddc8"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classStack.html#a891e74e94124bd2f19d94b8cd0c0ddc8">init</a> ()</td></tr>
+<tr class="separator:a891e74e94124bd2f19d94b8cd0c0ddc8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac790203cfffb6e322b19967a29613b9b"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classStack.html#ac790203cfffb6e322b19967a29613b9b">pop</a> (String filepath)</td></tr>
+<tr class="separator:ac790203cfffb6e322b19967a29613b9b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af6c82c8ce0d969a430ca0a21e2ae9078"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classStack.html#af6c82c8ce0d969a430ca0a21e2ae9078">push</a> (String filepath)</td></tr>
+<tr class="separator:af6c82c8ce0d969a430ca0a21e2ae9078"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock">
-<p>Definition at line <a class="el" href="stack_8cpp_source.html#l00013">13</a> of file <a class="el" href="stack_8cpp_source.html">stack.cpp</a>.</p>
-</div><hr/>The documentation for this class was generated from the following files:<ul>
-<li>src/<a class="el" href="stack_8cpp_source.html">stack.cpp</a></li>
+<p>Definition at line <a class="el" href="stack_8h_source.html#l00011">11</a> of file <a class="el" href="stack_8h_source.html">stack.h</a>.</p>
+</div><h2 class="groupheader">Member Function Documentation</h2>
+<a class="anchor" id="a218a6993e765716ecd622390bf430266"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">String Stack::dump </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Returns a dump of the stack. </p>
+
+<p>Definition at line <a class="el" href="stack_8cpp_source.html#l00048">48</a> of file <a class="el" href="stack_8cpp_source.html">stack.cpp</a>.</p>
+
+<p>References <a class="el" href="swap_8cpp_source.html#l00120">Swap::read()</a>.</p>
+<div class="fragment"><div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;  {</div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;    String <a class="code" href="classStack.html#a218a6993e765716ecd622390bf430266">dump</a> = <span class="stringliteral">&quot;&quot;</span>;</div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;<span class="preprocessor">    #ifdef CORE_STACK</span></div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;<span class="preprocessor"></span>      dump = <a class="code" href="classSwap.html#a7dabb45b6cef4b4461b6757268aab48e">Swap::read</a>(<span class="stringliteral">&quot;OCTOSTACK&quot;</span>);</div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;<span class="preprocessor">    #endif</span></div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;<span class="preprocessor"></span>    <span class="keywordflow">return</span> <a class="code" href="classStack.html#a218a6993e765716ecd622390bf430266">dump</a>;</div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;  }</div>
+<div class="ttc" id="classStack_html_a218a6993e765716ecd622390bf430266"><div class="ttname"><a href="classStack.html#a218a6993e765716ecd622390bf430266">Stack::dump</a></div><div class="ttdeci">static String dump()</div><div class="ttdef"><b>Definition:</b> <a href="stack_8cpp_source.html#l00048">stack.cpp:48</a></div></div>
+<div class="ttc" id="classSwap_html_a7dabb45b6cef4b4461b6757268aab48e"><div class="ttname"><a href="classSwap.html#a7dabb45b6cef4b4461b6757268aab48e">Swap::read</a></div><div class="ttdeci">static String read(String name)</div><div class="ttdef"><b>Definition:</b> <a href="swap_8cpp_source.html#l00120">swap.cpp:120</a></div></div>
+</div><!-- fragment -->
+</div>
+</div>
+<a class="anchor" id="a891e74e94124bd2f19d94b8cd0c0ddc8"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Stack::init </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Initializes the stack object within the SWAP storage area. </p>
+
+<p>Definition at line <a class="el" href="stack_8cpp_source.html#l00017">17</a> of file <a class="el" href="stack_8cpp_source.html">stack.cpp</a>.</p>
+
+<p>References <a class="el" href="swap_8cpp_source.html#l00083">Swap::create()</a>.</p>
+<div class="fragment"><div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;  {</div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;<span class="preprocessor">    #ifdef CORE_STACK</span></div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;<span class="preprocessor"></span>      <a class="code" href="classSwap.html#ae32b0594f504b1290f172739dad96bcb">Swap::create</a>(<span class="stringliteral">&quot;OCTSTACK&quot;</span>,<span class="stringliteral">&quot;&quot;</span>);</div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;<span class="preprocessor">    #endif</span></div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;<span class="preprocessor"></span>  }</div>
+<div class="ttc" id="classSwap_html_ae32b0594f504b1290f172739dad96bcb"><div class="ttname"><a href="classSwap.html#ae32b0594f504b1290f172739dad96bcb">Swap::create</a></div><div class="ttdeci">static void create(String name, String value)</div><div class="ttdef"><b>Definition:</b> <a href="swap_8cpp_source.html#l00083">swap.cpp:83</a></div></div>
+</div><!-- fragment -->
+</div>
+</div>
+<a class="anchor" id="ac790203cfffb6e322b19967a29613b9b"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Stack::pop </td>
+          <td>(</td>
+          <td class="paramtype">String&#160;</td>
+          <td class="paramname"><em>filepath</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Removes the highest instance of the requested program from the stack object. </p>
+
+<p>Definition at line <a class="el" href="stack_8cpp_source.html#l00037">37</a> of file <a class="el" href="stack_8cpp_source.html">stack.cpp</a>.</p>
+
+<p>References <a class="el" href="swap_8cpp_source.html#l00120">Swap::read()</a>, and <a class="el" href="swap_8cpp_source.html#l00263">Swap::update()</a>.</p>
+
+<p>Referenced by <a class="el" href="pbparse_8cpp_source.html#l00021">Parse::start()</a>.</p>
+<div class="fragment"><div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;  {</div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;<span class="preprocessor">    #ifdef CORE_STACK</span></div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;<span class="preprocessor"></span>      String stackvar = <a class="code" href="classSwap.html#a7dabb45b6cef4b4461b6757268aab48e">Swap::read</a>(<span class="stringliteral">&quot;OCTSTACK&quot;</span>);</div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;      stackvar.remove(stackvar.lastIndexOf(filepath), filepath.length());</div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;      <a class="code" href="classSwap.html#a47d3cb82d24e3fb4a301aa0abb1ce280">Swap::update</a>(<span class="stringliteral">&quot;OCTSTACK&quot;</span>, stackvar);</div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;<span class="preprocessor">    #endif</span></div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;<span class="preprocessor"></span>  }</div>
+<div class="ttc" id="classSwap_html_a47d3cb82d24e3fb4a301aa0abb1ce280"><div class="ttname"><a href="classSwap.html#a47d3cb82d24e3fb4a301aa0abb1ce280">Swap::update</a></div><div class="ttdeci">static void update(String name, String value)</div><div class="ttdef"><b>Definition:</b> <a href="swap_8cpp_source.html#l00263">swap.cpp:263</a></div></div>
+<div class="ttc" id="classSwap_html_a7dabb45b6cef4b4461b6757268aab48e"><div class="ttname"><a href="classSwap.html#a7dabb45b6cef4b4461b6757268aab48e">Swap::read</a></div><div class="ttdeci">static String read(String name)</div><div class="ttdef"><b>Definition:</b> <a href="swap_8cpp_source.html#l00120">swap.cpp:120</a></div></div>
+</div><!-- fragment -->
+</div>
+</div>
+<a class="anchor" id="af6c82c8ce0d969a430ca0a21e2ae9078"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Stack::push </td>
+          <td>(</td>
+          <td class="paramtype">String&#160;</td>
+          <td class="paramname"><em>filepath</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Pushes a new layer onto the stack. </p>
+
+<p>Definition at line <a class="el" href="stack_8cpp_source.html#l00026">26</a> of file <a class="el" href="stack_8cpp_source.html">stack.cpp</a>.</p>
+
+<p>References <a class="el" href="swap_8cpp_source.html#l00120">Swap::read()</a>, and <a class="el" href="swap_8cpp_source.html#l00263">Swap::update()</a>.</p>
+
+<p>Referenced by <a class="el" href="pbparse_8cpp_source.html#l00021">Parse::start()</a>.</p>
+<div class="fragment"><div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;  {</div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;<span class="preprocessor">    #ifdef CORE_STACK</span></div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;<span class="preprocessor"></span>      String result = <span class="stringliteral">&quot; -&gt; &quot;</span>;</div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;      result = <a class="code" href="classSwap.html#a7dabb45b6cef4b4461b6757268aab48e">Swap::read</a>(<span class="stringliteral">&quot;OCTSTACK&quot;</span>) + result + filepath;</div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;      <a class="code" href="classSwap.html#a47d3cb82d24e3fb4a301aa0abb1ce280">Swap::update</a>(<span class="stringliteral">&quot;OCTSTACK&quot;</span>, result);</div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;<span class="preprocessor">    #endif</span></div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;<span class="preprocessor"></span>  }</div>
+<div class="ttc" id="classSwap_html_a47d3cb82d24e3fb4a301aa0abb1ce280"><div class="ttname"><a href="classSwap.html#a47d3cb82d24e3fb4a301aa0abb1ce280">Swap::update</a></div><div class="ttdeci">static void update(String name, String value)</div><div class="ttdef"><b>Definition:</b> <a href="swap_8cpp_source.html#l00263">swap.cpp:263</a></div></div>
+<div class="ttc" id="classSwap_html_a7dabb45b6cef4b4461b6757268aab48e"><div class="ttname"><a href="classSwap.html#a7dabb45b6cef4b4461b6757268aab48e">Swap::read</a></div><div class="ttdeci">static String read(String name)</div><div class="ttdef"><b>Definition:</b> <a href="swap_8cpp_source.html#l00120">swap.cpp:120</a></div></div>
+</div><!-- fragment -->
+</div>
+</div>
+<hr/>The documentation for this class was generated from the following files:<ul>
 <li>src/<a class="el" href="stack_8h_source.html">stack.h</a></li>
+<li>src/<a class="el" href="stack_8cpp_source.html">stack.cpp</a></li>
 </ul>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Wed Aug 12 2015 17:11:43 for Octoduino by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Mon Aug 17 2015 15:52:40 for Octoduino by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.6
 </small></address>

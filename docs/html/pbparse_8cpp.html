@@ -84,9 +84,6 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </div>
 </div><!-- top -->
 <div class="header">
-  <div class="summary">
-<a href="#nested-classes">Classes</a> &#124;
-<a href="#func-members">Functions</a>  </div>
   <div class="headertitle">
 <div class="title">pbparse.cpp File Reference</div>  </div>
 </div><!--header-->
@@ -99,72 +96,13 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <code>#include &quot;<a class="el" href="output_8h_source.html">output.h</a>&quot;</code><br/>
 <code>#include &quot;<a class="el" href="tokenizer_8h_source.html">tokenizer.h</a>&quot;</code><br/>
 <code>#include &quot;<a class="el" href="stack_8h_source.html">stack.h</a>&quot;</code><br/>
+<code>#include &quot;<a class="el" href="crash_8h_source.html">crash.h</a>&quot;</code><br/>
 </div>
 <p><a href="pbparse_8cpp_source.html">Go to the source code of this file.</a></p>
-<table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
-Classes</h2></td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classParse.html">Parse</a></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classPorts.html">Ports</a></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classSWAP.html">SWAP</a></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
-Functions</h2></td></tr>
-<tr class="memitem:aeb40d97a79b98b9be1aa5bddb7392eec"><td class="memItemLeft" align="right" valign="top">class <a class="el" href="classPorts.html">Ports</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="pbparse_8cpp.html#aeb40d97a79b98b9be1aa5bddb7392eec">FILEWRITE</a> (String _filepath, String _var)</td></tr>
-<tr class="separator:aeb40d97a79b98b9be1aa5bddb7392eec"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table>
-<h2 class="groupheader">Function Documentation</h2>
-<a class="anchor" id="aeb40d97a79b98b9be1aa5bddb7392eec"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">class <a class="el" href="classPorts.html">Ports</a> ADDS::FILEWRITE </td>
-          <td>(</td>
-          <td class="paramtype">String&#160;</td>
-          <td class="paramname"><em>_filepath</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">String&#160;</td>
-          <td class="paramname"><em>_var</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Definition at line <a class="el" href="pbparse_8cpp_source.html#l00083">83</a> of file <a class="el" href="pbparse_8cpp_source.html">pbparse.cpp</a>.</p>
-<div class="fragment"><div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;  {</div>
-<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;    <span class="keyword">class </span><a class="code" href="pbparse_8h.html#a852e3e235292700a0d0b9a0b12c8c31c">IO</a></div>
-<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;    {</div>
-<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;      <span class="keyword">static</span> <span class="keywordtype">void</span> <a class="code" href="pbparse_8h.html#a2eb40526057f27714a9654158fc86c03">Parse::Opcode::IO::PRINT</a>(String _msg)</div>
-<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;      {</div>
-<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;        Output::write(_msg);</div>
-<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;      }</div>
-<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;      <span class="keyword">static</span> <span class="keywordtype">void</span> <a class="code" href="pbparse_8h.html#a48b8166b2e99f40f3e3a95bcbeb9d2f9">Parse::Opcode::IO::PRINTV</a>(String _var)</div>
-<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;      {</div>
-<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;        Output::write(Swap::read(_var));</div>
-<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;      }</div>
-<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;      <span class="keyword">static</span> <span class="keywordtype">void</span> <a class="code" href="pbparse_8h.html#af572de972e1c53c27d355d44ced47a05">Parse::Opcode::IO::NEWPRINT</a>()</div>
-<div class="ttc" id="pbparse_8h_html_af572de972e1c53c27d355d44ced47a05"><div class="ttname"><a href="pbparse_8h.html#af572de972e1c53c27d355d44ced47a05">NEWPRINT</a></div><div class="ttdeci">static void NEWPRINT()</div></div>
-<div class="ttc" id="pbparse_8h_html_a852e3e235292700a0d0b9a0b12c8c31c"><div class="ttname"><a href="pbparse_8h.html#a852e3e235292700a0d0b9a0b12c8c31c">IO</a></div><div class="ttdeci">static void IO(String _port, String _state)</div></div>
-<div class="ttc" id="pbparse_8h_html_a48b8166b2e99f40f3e3a95bcbeb9d2f9"><div class="ttname"><a href="pbparse_8h.html#a48b8166b2e99f40f3e3a95bcbeb9d2f9">PRINTV</a></div><div class="ttdeci">static void PRINTV(String _var)</div></div>
-<div class="ttc" id="pbparse_8h_html_a2eb40526057f27714a9654158fc86c03"><div class="ttname"><a href="pbparse_8h.html#a2eb40526057f27714a9654158fc86c03">PRINT</a></div><div class="ttdeci">static void PRINT(String _msg)</div></div>
-</div><!-- fragment -->
-</div>
-</div>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Wed Aug 12 2015 17:11:43 for Octoduino by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Mon Aug 17 2015 15:52:39 for Octoduino by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.6
 </small></address>

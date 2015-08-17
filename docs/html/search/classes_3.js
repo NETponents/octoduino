@@ -1,5 +1,4 @@
 var searchData=
 [
-  ['stack',['Stack',['../classStack.html',1,'']]],
-  ['swap',['Swap',['../classSwap.html',1,'Swap'],['../classSWAP.html',1,'SWAP']]]
+  ['logic',['Logic',['../classParse_1_1Opcode_1_1Logic.html',1,'Parse::Opcode']]]
 ];

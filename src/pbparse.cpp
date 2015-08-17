@@ -85,19 +85,31 @@
     }
   };
 
+      /**
+       * Prints a string to all configured output buffers.
+       */
       void Parse::Opcode::IO::PRINT(String _msg)
       {
         Output::write(_msg);
       }
+      /**
+       * Prints a SWAP variable to all configured output buffers.
+       */
       void Parse::Opcode::IO::PRINTV(String _var)
       {
         Output::write(Swap::read(_var));
       }
+      /**
+       * Prints a new line to the output stream.
+       */
       void Parse::Opcode::IO::NEWPRINT()
       {
         Output::write("\n");
       }
 
+        /**
+         * Sets the requested pin to the specified state.
+         */
         void Parse::Opcode::IO::Ports::IO(String _port, String _state)
         {
           int _nPort = int(_port.c_str());
@@ -113,6 +125,9 @@
           }
         }
         
+		/**
+		 * Writes the requested string to an open file on SD card.
+		 */
 		void Parse::Opcode::IO::Files::FILEWRITE(String _filepath, String _var)
         {
           File _file = SD.open(_filepath, FILE_WRITE);
@@ -131,6 +146,9 @@
           _file.flush();
           _file.close();
         }
+        /**
+         * Reads the requested file into SWAP buffer.
+         */
         void Parse::Opcode::IO::Files::FILEREAD(String _filepath, String _var)
         {
           if(!SD.exists(_filepath))
@@ -159,24 +177,39 @@
           _file.close();
         }
 
+        /**
+         * Adds two strings together and stores them in a new variable.
+         */
         void Parse::Opcode::Var::Strings::ADDS(String _s1, String _s2, String _store)
         {
           Swap::update(_store, _s1 + _s2);
         }
+        /**
+         * Gets the character from a string at specified index and stores it in SWAP.
+         */
         void Parse::Opcode::Var::Strings::GETC(String _srg, String _rchar, String _store)
         {
           int _cindex = _rchar.toInt();
           Swap::update(_store, String(_srg.charAt(_cindex)));
         }
 
+      /**
+       * Pauses the system for a specified amount of time.
+       */
       void Parse::Opcode::System::WAIT(String _pTime)
       {
         delay(int(_pTime.c_str()));
       }
+      /**
+       * Spawns a new runner task from the specified PB script file.
+       */
       void Parse::Opcode::System::EXTLOAD(String _filepath)
       {
         Parse::start(_filepath);
       }
+      /**
+       * Halts the system in a clean manner.
+       */
       void Parse::Opcode::System::END()
       {
         #ifdef CRASH_MSG_DETAIL
@@ -186,24 +219,41 @@
         #endif
       }
 
+        /**
+         * DEPRECIATED: creates the swap directory.
+         */
         void Parse::Opcode::System::SWAP::CREATESWAP()
         {
           // Do nothing since this is handled by Core::
           //swapinit();
         }
+        /**
+         * Creates a new SWAP variable.
+         */
         void Parse::Opcode::System::SWAP::NEW(String _name, String _value)
         {
           Swap::create(_name, _value);
         }
+        /**
+         * Deletes a SWAP variable.
+         */
         void Parse::Opcode::System::SWAP::DELETE(String _name)
         {
           Swap::sdelete(_name);
         }
+        /**
+         * Assigns a SWAP variable a new value.
+         */
         void Parse::Opcode::System::SWAP::SET(String _name, String _value)
         {
           Swap::update(_name, _value);
         }
 
+      /**
+       * Checks if the given arguments are equal.
+       * If they are, run `EXTLOAD` on the given script file.
+       * If not, ignore and continue.
+       */
       void Parse::Opcode::Logic::IFE(String _op1, String _op2, String _sFile)
       {
         if(Swap::read(_op1) == Swap::read(_op2))
@@ -211,10 +261,15 @@
           Parse::start(_sFile);
         }
       }
-	  void Parse::Opcode::Logic::IFNE(String _op1, String _op2, String _sFile)
-	  {
-		  if (Swap::read(_op1) != Swap::read(_op2))
-		  {
-			  Parse::start(_sFile);
-		  }
-	  }
+      /**
+       * Checks if the given arguments are not equal.
+       * If they are not equal, run `EXTLOAD` on the given script file.
+       * If they are equal, ignore and continue.
+       */
+	    void Parse::Opcode::Logic::IFNE(String _op1, String _op2, String _sFile)
+	    {
+		    if (Swap::read(_op1) != Swap::read(_op2))
+		    {
+			    Parse::start(_sFile);
+		    }
+	    }

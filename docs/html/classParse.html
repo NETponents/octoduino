@@ -83,6 +83,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="header">
   <div class="summary">
 <a href="#nested-classes">Classes</a> &#124;
+<a href="#pub-static-methods">Static Public Member Functions</a> &#124;
 <a href="classParse-members.html">List of all members</a>  </div>
   <div class="headertitle">
 <div class="title">Parse Class Reference</div>  </div>
@@ -90,17 +91,177 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="contents">
 
 <p><code>#include &lt;<a class="el" href="pbparse_8h_source.html">pbparse.h</a>&gt;</code></p>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
+Classes</h2></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classParse_1_1Opcode.html">Opcode</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-static-methods"></a>
+Static Public Member Functions</h2></td></tr>
+<tr class="memitem:a46ca93e1f3511933c6ea861b33a07c24"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classParse.html#a46ca93e1f3511933c6ea861b33a07c24">run</a> (String line)</td></tr>
+<tr class="separator:a46ca93e1f3511933c6ea861b33a07c24"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae73e1fb22bfa0c83240eb954bcce7282"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classParse.html#ae73e1fb22bfa0c83240eb954bcce7282">start</a> (String filename)</td></tr>
+<tr class="separator:ae73e1fb22bfa0c83240eb954bcce7282"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock">
-<p>Definition at line <a class="el" href="pbparse_8cpp_source.html#l00017">17</a> of file <a class="el" href="pbparse_8cpp_source.html">pbparse.cpp</a>.</p>
-</div><hr/>The documentation for this class was generated from the following files:<ul>
-<li>src/<a class="el" href="pbparse_8cpp_source.html">pbparse.cpp</a></li>
+<p>Definition at line <a class="el" href="pbparse_8h_source.html#l00011">11</a> of file <a class="el" href="pbparse_8h_source.html">pbparse.h</a>.</p>
+</div><h2 class="groupheader">Member Function Documentation</h2>
+<a class="anchor" id="a46ca93e1f3511933c6ea861b33a07c24"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Parse::run </td>
+          <td>(</td>
+          <td class="paramtype">String&#160;</td>
+          <td class="paramname"><em>line</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Parses one line of trimmed PB code. </p>
+
+<p>Definition at line <a class="el" href="pbparse_8cpp_source.html#l00050">50</a> of file <a class="el" href="pbparse_8cpp_source.html">pbparse.cpp</a>.</p>
+
+<p>References <a class="el" href="pbparse_8cpp_source.html#l00183">Parse::Opcode::Var::Strings::ADDS()</a>, <a class="el" href="pbparse_8cpp_source.html#l00225">Parse::Opcode::System::SWAP::CREATESWAP()</a>, <a class="el" href="pbparse_8cpp_source.html#l00240">Parse::Opcode::System::SWAP::DELETE()</a>, <a class="el" href="pbparse_8cpp_source.html#l00213">Parse::Opcode::System::END()</a>, <a class="el" href="pbparse_8cpp_source.html#l00206">Parse::Opcode::System::EXTLOAD()</a>, <a class="el" href="pbparse_8cpp_source.html#l00152">Parse::Opcode::IO::Files::FILEREAD()</a>, <a class="el" href="pbparse_8cpp_source.html#l00131">Parse::Opcode::IO::Files::FILEWRITE()</a>, <a class="el" href="crash_8cpp_source.html#l00015">Crash::forceHalt()</a>, <a class="el" href="pbparse_8cpp_source.html#l00190">Parse::Opcode::Var::Strings::GETC()</a>, <a class="el" href="pbparse_8cpp_source.html#l00257">Parse::Opcode::Logic::IFE()</a>, <a class="el" href="pbparse_8cpp_source.html#l00269">Parse::Opcode::Logic::IFNE()</a>, <a class="el" href="pbparse_8cpp_source.html#l00113">Parse::Opcode::IO::Ports::IO()</a>, <a class="el" href="pbparse_8cpp_source.html#l00233">Parse::Opcode::System::SWAP::NEW()</a>, <a class="el" href="pbparse_8cpp_source.html#l00105">Parse::Opcode::IO::NEWPRINT()</a>, <a class="el" href="pbparse_8cpp_source.html#l00091">Parse::Opcode::IO::PRINT()</a>, <a class="el" href="pbparse_8cpp_source.html#l00098">Parse::Opcode::IO::PRINTV()</a>, <a class="el" href="pbparse_8cpp_source.html#l00247">Parse::Opcode::System::SWAP::SET()</a>, <a class="el" href="tokenizer_8cpp_source.html#l00018">Tokenizer::TKgetToken()</a>, and <a class="el" href="pbparse_8cpp_source.html#l00199">Parse::Opcode::System::WAIT()</a>.</p>
+
+<p>Referenced by <a class="el" href="pbparse_8cpp_source.html#l00021">start()</a>.</p>
+<div class="fragment"><div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;  {</div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;    line.trim();</div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;    <span class="keywordflow">if</span>(line.startsWith(<span class="stringliteral">&quot;//&quot;</span>))</div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;    {</div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;      <span class="comment">// Do nothing, this is a comment</span></div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;    }</div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;    <span class="keywordflow">else</span></div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;    {</div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;      String opcode = <a class="code" href="classTokenizer.html#a32c975ca895390ceed6844cf348b1a25">Tokenizer::TKgetToken</a>(line, 0);</div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;      <span class="keywordflow">if</span>(opcode == <span class="stringliteral">&quot;PRINT&quot;</span>) <a class="code" href="classParse_1_1Opcode_1_1IO.html#a9424edf598cb68b1734e69e5a0e3fd7d">Parse::Opcode::IO::PRINT</a>(<a class="code" href="classTokenizer.html#a32c975ca895390ceed6844cf348b1a25">Tokenizer::TKgetToken</a>(line, 1));</div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;      <span class="keywordflow">else</span> <span class="keywordflow">if</span>(opcode == <span class="stringliteral">&quot;PRINTV&quot;</span>) <a class="code" href="classParse_1_1Opcode_1_1IO.html#a808e4dc78a4e9a5387d7e317503e2349">Parse::Opcode::IO::PRINTV</a>(<a class="code" href="classTokenizer.html#a32c975ca895390ceed6844cf348b1a25">Tokenizer::TKgetToken</a>(line, 1));</div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;      <span class="keywordflow">else</span> <span class="keywordflow">if</span>(opcode == <span class="stringliteral">&quot;ADDS&quot;</span>) <a class="code" href="classParse_1_1Opcode_1_1Var_1_1Strings.html#a23dc8f7b7e19f792160df37d125f2ddb">Parse::Opcode::Var::Strings::ADDS</a>(<a class="code" href="classTokenizer.html#a32c975ca895390ceed6844cf348b1a25">Tokenizer::TKgetToken</a>(line, 1), <a class="code" href="classTokenizer.html#a32c975ca895390ceed6844cf348b1a25">Tokenizer::TKgetToken</a>(line, 2), <a class="code" href="classTokenizer.html#a32c975ca895390ceed6844cf348b1a25">Tokenizer::TKgetToken</a>(line, 3));</div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;      <span class="keywordflow">else</span> <span class="keywordflow">if</span> (opcode == <span class="stringliteral">&quot;GETC&quot;</span>) <a class="code" href="classParse_1_1Opcode_1_1Var_1_1Strings.html#a41ec30c14846c5e3d0aeb671c418231a">Parse::Opcode::Var::Strings::GETC</a>(<a class="code" href="classTokenizer.html#a32c975ca895390ceed6844cf348b1a25">Tokenizer::TKgetToken</a>(line, 1), <a class="code" href="classTokenizer.html#a32c975ca895390ceed6844cf348b1a25">Tokenizer::TKgetToken</a>(line, 2), <a class="code" href="classTokenizer.html#a32c975ca895390ceed6844cf348b1a25">Tokenizer::TKgetToken</a>(line, 3));</div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;      <span class="keywordflow">else</span> <span class="keywordflow">if</span>(opcode == <span class="stringliteral">&quot;NEWPRINT&quot;</span>) <a class="code" href="classParse_1_1Opcode_1_1IO.html#ae0049bb72051a8b2f5f8c324ea7e8119">Parse::Opcode::IO::NEWPRINT</a>();</div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;      <span class="keywordflow">else</span> <span class="keywordflow">if</span>(opcode == <span class="stringliteral">&quot;WAIT&quot;</span>) <a class="code" href="classParse_1_1Opcode_1_1System.html#a69cd5723875b78e16da55efd3592345e">Parse::Opcode::System::WAIT</a>(<a class="code" href="classTokenizer.html#a32c975ca895390ceed6844cf348b1a25">Tokenizer::TKgetToken</a>(line, 1));</div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;      <span class="keywordflow">else</span> <span class="keywordflow">if</span>(opcode == <span class="stringliteral">&quot;IFE&quot;</span>) <a class="code" href="classParse_1_1Opcode_1_1Logic.html#a55c7595b827372fa6f2ebf0dc9a74348">Parse::Opcode::Logic::IFE</a>(<a class="code" href="classTokenizer.html#a32c975ca895390ceed6844cf348b1a25">Tokenizer::TKgetToken</a>(line, 1), <a class="code" href="classTokenizer.html#a32c975ca895390ceed6844cf348b1a25">Tokenizer::TKgetToken</a>(line, 2), <a class="code" href="classTokenizer.html#a32c975ca895390ceed6844cf348b1a25">Tokenizer::TKgetToken</a>(line, 3));</div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;      <span class="keywordflow">else</span> <span class="keywordflow">if</span>(opcode == <span class="stringliteral">&quot;IFNE&quot;</span>) <a class="code" href="classParse_1_1Opcode_1_1Logic.html#a4e16cd68fed54692079829e19d1da493">Parse::Opcode::Logic::IFNE</a>(<a class="code" href="classTokenizer.html#a32c975ca895390ceed6844cf348b1a25">Tokenizer::TKgetToken</a>(line, 1), <a class="code" href="classTokenizer.html#a32c975ca895390ceed6844cf348b1a25">Tokenizer::TKgetToken</a>(line, 2), <a class="code" href="classTokenizer.html#a32c975ca895390ceed6844cf348b1a25">Tokenizer::TKgetToken</a>(line, 3));</div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;      <span class="keywordflow">else</span> <span class="keywordflow">if</span>(opcode == <span class="stringliteral">&quot;CREATESWAP&quot;</span>) <a class="code" href="classParse_1_1Opcode_1_1System_1_1SWAP.html#a696c524fb0ab84de7cd6ec4db5b92a61">Parse::Opcode::System::SWAP::CREATESWAP</a>();</div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;      <span class="keywordflow">else</span> <span class="keywordflow">if</span>(opcode == <span class="stringliteral">&quot;IO&quot;</span>) <a class="code" href="classParse_1_1Opcode_1_1IO_1_1Ports.html#abee3d45ee647776012f19d5ff2095bdb">Parse::Opcode::IO::Ports::IO</a>(<a class="code" href="classTokenizer.html#a32c975ca895390ceed6844cf348b1a25">Tokenizer::TKgetToken</a>(line, 1), <a class="code" href="classTokenizer.html#a32c975ca895390ceed6844cf348b1a25">Tokenizer::TKgetToken</a>(line, 2));</div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;      <span class="keywordflow">else</span> <span class="keywordflow">if</span>(opcode == <span class="stringliteral">&quot;NEW&quot;</span>) <a class="code" href="classParse_1_1Opcode_1_1System_1_1SWAP.html#a604e9ac7c9f6ac122e00582c1418c280">Parse::Opcode::System::SWAP::NEW</a>(<a class="code" href="classTokenizer.html#a32c975ca895390ceed6844cf348b1a25">Tokenizer::TKgetToken</a>(line, 1), <a class="code" href="classTokenizer.html#a32c975ca895390ceed6844cf348b1a25">Tokenizer::TKgetToken</a>(line, 2));</div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;      <span class="keywordflow">else</span> <span class="keywordflow">if</span>(opcode == <span class="stringliteral">&quot;DELETE&quot;</span>) <a class="code" href="classParse_1_1Opcode_1_1System_1_1SWAP.html#a1bc06409ebee0f742dba68fce64bf809">Parse::Opcode::System::SWAP::DELETE</a>(<a class="code" href="classTokenizer.html#a32c975ca895390ceed6844cf348b1a25">Tokenizer::TKgetToken</a>(line, 1));</div>
+<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;      <span class="keywordflow">else</span> <span class="keywordflow">if</span>(opcode == <span class="stringliteral">&quot;SET&quot;</span>) <a class="code" href="classParse_1_1Opcode_1_1System_1_1SWAP.html#afc9d773c6755e9bd2cf34b8715f0d8d2">Parse::Opcode::System::SWAP::SET</a>(<a class="code" href="classTokenizer.html#a32c975ca895390ceed6844cf348b1a25">Tokenizer::TKgetToken</a>(line, 1), <a class="code" href="classTokenizer.html#a32c975ca895390ceed6844cf348b1a25">Tokenizer::TKgetToken</a>(line, 2));</div>
+<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;      <span class="keywordflow">else</span> <span class="keywordflow">if</span>(opcode == <span class="stringliteral">&quot;EXTLOAD&quot;</span>) <a class="code" href="classParse_1_1Opcode_1_1System.html#a61b14251559bcd18e18b6a53ff1d50e4">Parse::Opcode::System::EXTLOAD</a>(<a class="code" href="classTokenizer.html#a32c975ca895390ceed6844cf348b1a25">Tokenizer::TKgetToken</a>(line, 1));</div>
+<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;      <span class="keywordflow">else</span> <span class="keywordflow">if</span>(opcode == <span class="stringliteral">&quot;FILEWRITE&quot;</span>) <a class="code" href="classParse_1_1Opcode_1_1IO_1_1Files.html#a0f4e5e3ddc1fb6a03ea78b1bf3c5bd88">Parse::Opcode::IO::Files::FILEWRITE</a>(<a class="code" href="classTokenizer.html#a32c975ca895390ceed6844cf348b1a25">Tokenizer::TKgetToken</a>(line, 1), <a class="code" href="classTokenizer.html#a32c975ca895390ceed6844cf348b1a25">Tokenizer::TKgetToken</a>(line, 2));</div>
+<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;      <span class="keywordflow">else</span> <span class="keywordflow">if</span>(opcode == <span class="stringliteral">&quot;FILEREAD&quot;</span>) <a class="code" href="classParse_1_1Opcode_1_1IO_1_1Files.html#a5db4cf52489b08eb0e090915a756d9fe">Parse::Opcode::IO::Files::FILEREAD</a>(<a class="code" href="classTokenizer.html#a32c975ca895390ceed6844cf348b1a25">Tokenizer::TKgetToken</a>(line, 1), <a class="code" href="classTokenizer.html#a32c975ca895390ceed6844cf348b1a25">Tokenizer::TKgetToken</a>(line, 2));</div>
+<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;      <span class="keywordflow">else</span> <span class="keywordflow">if</span>(opcode == <span class="stringliteral">&quot;END&quot;</span>) <a class="code" href="classParse_1_1Opcode_1_1System.html#aabc666f686624ef2b5c76eab75487094">Parse::Opcode::System::END</a>();</div>
+<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;      <span class="keywordflow">else</span></div>
+<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;      {</div>
+<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;<span class="preprocessor">        #ifdef CRASH_MSG_DETAIL</span></div>
+<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;<span class="preprocessor"></span>          <a class="code" href="classCrash.html#a5e49d00985759d6c02688c3266570548">Crash::forceHalt</a>(<span class="stringliteral">&quot;Error, unrecognized command.&quot;</span>);</div>
+<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;<span class="preprocessor">        #else</span></div>
+<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;<span class="preprocessor"></span>          <a class="code" href="classCrash.html#a5e49d00985759d6c02688c3266570548">Crash::forceHalt</a>(<span class="stringliteral">&quot;Ex007&quot;</span>);</div>
+<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;<span class="preprocessor">        #endif</span></div>
+<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;<span class="preprocessor"></span>      }</div>
+<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;    }</div>
+<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;  };</div>
+<div class="ttc" id="classParse_1_1Opcode_1_1IO_html_a9424edf598cb68b1734e69e5a0e3fd7d"><div class="ttname"><a href="classParse_1_1Opcode_1_1IO.html#a9424edf598cb68b1734e69e5a0e3fd7d">Parse::Opcode::IO::PRINT</a></div><div class="ttdeci">static void PRINT(String _msg)</div><div class="ttdef"><b>Definition:</b> <a href="pbparse_8cpp_source.html#l00091">pbparse.cpp:91</a></div></div>
+<div class="ttc" id="classParse_1_1Opcode_1_1Logic_html_a55c7595b827372fa6f2ebf0dc9a74348"><div class="ttname"><a href="classParse_1_1Opcode_1_1Logic.html#a55c7595b827372fa6f2ebf0dc9a74348">Parse::Opcode::Logic::IFE</a></div><div class="ttdeci">static void IFE(String _op1, String _op2, String _sFile)</div><div class="ttdef"><b>Definition:</b> <a href="pbparse_8cpp_source.html#l00257">pbparse.cpp:257</a></div></div>
+<div class="ttc" id="classParse_1_1Opcode_1_1Logic_html_a4e16cd68fed54692079829e19d1da493"><div class="ttname"><a href="classParse_1_1Opcode_1_1Logic.html#a4e16cd68fed54692079829e19d1da493">Parse::Opcode::Logic::IFNE</a></div><div class="ttdeci">static void IFNE(String _op1, String _op2, String _sFile)</div><div class="ttdef"><b>Definition:</b> <a href="pbparse_8cpp_source.html#l00269">pbparse.cpp:269</a></div></div>
+<div class="ttc" id="classParse_1_1Opcode_1_1IO_1_1Files_html_a0f4e5e3ddc1fb6a03ea78b1bf3c5bd88"><div class="ttname"><a href="classParse_1_1Opcode_1_1IO_1_1Files.html#a0f4e5e3ddc1fb6a03ea78b1bf3c5bd88">Parse::Opcode::IO::Files::FILEWRITE</a></div><div class="ttdeci">static void FILEWRITE(String _filepath, String _var)</div><div class="ttdef"><b>Definition:</b> <a href="pbparse_8cpp_source.html#l00131">pbparse.cpp:131</a></div></div>
+<div class="ttc" id="classParse_1_1Opcode_1_1IO_1_1Ports_html_abee3d45ee647776012f19d5ff2095bdb"><div class="ttname"><a href="classParse_1_1Opcode_1_1IO_1_1Ports.html#abee3d45ee647776012f19d5ff2095bdb">Parse::Opcode::IO::Ports::IO</a></div><div class="ttdeci">static void IO(String _port, String _state)</div><div class="ttdef"><b>Definition:</b> <a href="pbparse_8cpp_source.html#l00113">pbparse.cpp:113</a></div></div>
+<div class="ttc" id="classParse_1_1Opcode_1_1IO_html_ae0049bb72051a8b2f5f8c324ea7e8119"><div class="ttname"><a href="classParse_1_1Opcode_1_1IO.html#ae0049bb72051a8b2f5f8c324ea7e8119">Parse::Opcode::IO::NEWPRINT</a></div><div class="ttdeci">static void NEWPRINT()</div><div class="ttdef"><b>Definition:</b> <a href="pbparse_8cpp_source.html#l00105">pbparse.cpp:105</a></div></div>
+<div class="ttc" id="classParse_1_1Opcode_1_1System_html_a69cd5723875b78e16da55efd3592345e"><div class="ttname"><a href="classParse_1_1Opcode_1_1System.html#a69cd5723875b78e16da55efd3592345e">Parse::Opcode::System::WAIT</a></div><div class="ttdeci">static void WAIT(String _pTime)</div><div class="ttdef"><b>Definition:</b> <a href="pbparse_8cpp_source.html#l00199">pbparse.cpp:199</a></div></div>
+<div class="ttc" id="classParse_1_1Opcode_1_1Var_1_1Strings_html_a41ec30c14846c5e3d0aeb671c418231a"><div class="ttname"><a href="classParse_1_1Opcode_1_1Var_1_1Strings.html#a41ec30c14846c5e3d0aeb671c418231a">Parse::Opcode::Var::Strings::GETC</a></div><div class="ttdeci">static void GETC(String _srg, String _rchar, String _store)</div><div class="ttdef"><b>Definition:</b> <a href="pbparse_8cpp_source.html#l00190">pbparse.cpp:190</a></div></div>
+<div class="ttc" id="classParse_1_1Opcode_1_1System_1_1SWAP_html_a604e9ac7c9f6ac122e00582c1418c280"><div class="ttname"><a href="classParse_1_1Opcode_1_1System_1_1SWAP.html#a604e9ac7c9f6ac122e00582c1418c280">Parse::Opcode::System::SWAP::NEW</a></div><div class="ttdeci">static void NEW(String _name, String _value)</div><div class="ttdef"><b>Definition:</b> <a href="pbparse_8cpp_source.html#l00233">pbparse.cpp:233</a></div></div>
+<div class="ttc" id="classParse_1_1Opcode_1_1Var_1_1Strings_html_a23dc8f7b7e19f792160df37d125f2ddb"><div class="ttname"><a href="classParse_1_1Opcode_1_1Var_1_1Strings.html#a23dc8f7b7e19f792160df37d125f2ddb">Parse::Opcode::Var::Strings::ADDS</a></div><div class="ttdeci">static void ADDS(String _s1, String _s2, String _store)</div><div class="ttdef"><b>Definition:</b> <a href="pbparse_8cpp_source.html#l00183">pbparse.cpp:183</a></div></div>
+<div class="ttc" id="classParse_1_1Opcode_1_1IO_1_1Files_html_a5db4cf52489b08eb0e090915a756d9fe"><div class="ttname"><a href="classParse_1_1Opcode_1_1IO_1_1Files.html#a5db4cf52489b08eb0e090915a756d9fe">Parse::Opcode::IO::Files::FILEREAD</a></div><div class="ttdeci">static void FILEREAD(String _filepath, String _var)</div><div class="ttdef"><b>Definition:</b> <a href="pbparse_8cpp_source.html#l00152">pbparse.cpp:152</a></div></div>
+<div class="ttc" id="classTokenizer_html_a32c975ca895390ceed6844cf348b1a25"><div class="ttname"><a href="classTokenizer.html#a32c975ca895390ceed6844cf348b1a25">Tokenizer::TKgetToken</a></div><div class="ttdeci">static String TKgetToken(String line, int tokenIndex)</div><div class="ttdef"><b>Definition:</b> <a href="tokenizer_8cpp_source.html#l00018">tokenizer.cpp:18</a></div></div>
+<div class="ttc" id="classParse_1_1Opcode_1_1IO_html_a808e4dc78a4e9a5387d7e317503e2349"><div class="ttname"><a href="classParse_1_1Opcode_1_1IO.html#a808e4dc78a4e9a5387d7e317503e2349">Parse::Opcode::IO::PRINTV</a></div><div class="ttdeci">static void PRINTV(String _var)</div><div class="ttdef"><b>Definition:</b> <a href="pbparse_8cpp_source.html#l00098">pbparse.cpp:98</a></div></div>
+<div class="ttc" id="classParse_1_1Opcode_1_1System_1_1SWAP_html_afc9d773c6755e9bd2cf34b8715f0d8d2"><div class="ttname"><a href="classParse_1_1Opcode_1_1System_1_1SWAP.html#afc9d773c6755e9bd2cf34b8715f0d8d2">Parse::Opcode::System::SWAP::SET</a></div><div class="ttdeci">static void SET(String name, String _value)</div><div class="ttdef"><b>Definition:</b> <a href="pbparse_8cpp_source.html#l00247">pbparse.cpp:247</a></div></div>
+<div class="ttc" id="classParse_1_1Opcode_1_1System_1_1SWAP_html_a1bc06409ebee0f742dba68fce64bf809"><div class="ttname"><a href="classParse_1_1Opcode_1_1System_1_1SWAP.html#a1bc06409ebee0f742dba68fce64bf809">Parse::Opcode::System::SWAP::DELETE</a></div><div class="ttdeci">static void DELETE(String _name)</div><div class="ttdef"><b>Definition:</b> <a href="pbparse_8cpp_source.html#l00240">pbparse.cpp:240</a></div></div>
+<div class="ttc" id="classParse_1_1Opcode_1_1System_html_aabc666f686624ef2b5c76eab75487094"><div class="ttname"><a href="classParse_1_1Opcode_1_1System.html#aabc666f686624ef2b5c76eab75487094">Parse::Opcode::System::END</a></div><div class="ttdeci">static void END()</div><div class="ttdef"><b>Definition:</b> <a href="pbparse_8cpp_source.html#l00213">pbparse.cpp:213</a></div></div>
+<div class="ttc" id="classParse_1_1Opcode_1_1System_1_1SWAP_html_a696c524fb0ab84de7cd6ec4db5b92a61"><div class="ttname"><a href="classParse_1_1Opcode_1_1System_1_1SWAP.html#a696c524fb0ab84de7cd6ec4db5b92a61">Parse::Opcode::System::SWAP::CREATESWAP</a></div><div class="ttdeci">static void CREATESWAP()</div><div class="ttdef"><b>Definition:</b> <a href="pbparse_8cpp_source.html#l00225">pbparse.cpp:225</a></div></div>
+<div class="ttc" id="classCrash_html_a5e49d00985759d6c02688c3266570548"><div class="ttname"><a href="classCrash.html#a5e49d00985759d6c02688c3266570548">Crash::forceHalt</a></div><div class="ttdeci">static void forceHalt(String msg)</div><div class="ttdef"><b>Definition:</b> <a href="crash_8cpp_source.html#l00015">crash.cpp:15</a></div></div>
+<div class="ttc" id="classParse_1_1Opcode_1_1System_html_a61b14251559bcd18e18b6a53ff1d50e4"><div class="ttname"><a href="classParse_1_1Opcode_1_1System.html#a61b14251559bcd18e18b6a53ff1d50e4">Parse::Opcode::System::EXTLOAD</a></div><div class="ttdeci">static void EXTLOAD(String _filepath)</div><div class="ttdef"><b>Definition:</b> <a href="pbparse_8cpp_source.html#l00206">pbparse.cpp:206</a></div></div>
+</div><!-- fragment -->
+</div>
+</div>
+<a class="anchor" id="ae73e1fb22bfa0c83240eb954bcce7282"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Parse::start </td>
+          <td>(</td>
+          <td class="paramtype">String&#160;</td>
+          <td class="paramname"><em>filename</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Creates a runner to begin execution of a new source file. </p>
+
+<p>Definition at line <a class="el" href="pbparse_8cpp_source.html#l00021">21</a> of file <a class="el" href="pbparse_8cpp_source.html">pbparse.cpp</a>.</p>
+
+<p>References <a class="el" href="crash_8cpp_source.html#l00015">Crash::forceHalt()</a>, <a class="el" href="stack_8cpp_source.html#l00037">Stack::pop()</a>, <a class="el" href="stack_8cpp_source.html#l00026">Stack::push()</a>, and <a class="el" href="pbparse_8cpp_source.html#l00050">run()</a>.</p>
+
+<p>Referenced by <a class="el" href="pbparse_8cpp_source.html#l00206">Parse::Opcode::System::EXTLOAD()</a>, <a class="el" href="pbparse_8cpp_source.html#l00257">Parse::Opcode::Logic::IFE()</a>, <a class="el" href="pbparse_8cpp_source.html#l00269">Parse::Opcode::Logic::IFNE()</a>, and <a class="el" href="core_8cpp_source.html#l00020">Core::init()</a>.</p>
+<div class="fragment"><div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;  {</div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;    File source = SD.open(filename.c_str());</div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;    <span class="keywordflow">if</span>(!source)</div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;    {</div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;<span class="preprocessor">      #ifdef CRASH_MSG_DETAIL</span></div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;<span class="preprocessor"></span>        <a class="code" href="classCrash.html#a5e49d00985759d6c02688c3266570548">Crash::forceHalt</a>(<span class="stringliteral">&quot;PB runner could not open file.&quot;</span>);</div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;<span class="preprocessor">      #else</span></div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;<span class="preprocessor"></span>        <a class="code" href="classCrash.html#a5e49d00985759d6c02688c3266570548">Crash::forceHalt</a>(<span class="stringliteral">&quot;Ex006&quot;</span>);</div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;<span class="preprocessor">      #endif</span></div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;<span class="preprocessor"></span>    }</div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;    <a class="code" href="classStack.html#af6c82c8ce0d969a430ca0a21e2ae9078">Stack::push</a>(filename);</div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;    <span class="keyword">const</span> <span class="keywordtype">char</span> terminator = <span class="charliteral">&#39;;&#39;</span>;</div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;    <span class="keywordflow">while</span>(source.available())</div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;    {</div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;      String cmd = <span class="stringliteral">&quot;&quot;</span>;</div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;      <span class="keywordflow">while</span>(<span class="keywordtype">char</span>(source.peek()) != terminator)</div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;      {</div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;        cmd += char(source.read());</div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;      }</div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;      source.read();</div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;      <a class="code" href="classParse.html#a46ca93e1f3511933c6ea861b33a07c24">Parse::run</a>(cmd);</div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;    }</div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;    source.close();</div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;    <a class="code" href="classStack.html#ac790203cfffb6e322b19967a29613b9b">Stack::pop</a>(filename);</div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;  }</div>
+<div class="ttc" id="classStack_html_af6c82c8ce0d969a430ca0a21e2ae9078"><div class="ttname"><a href="classStack.html#af6c82c8ce0d969a430ca0a21e2ae9078">Stack::push</a></div><div class="ttdeci">static void push(String filepath)</div><div class="ttdef"><b>Definition:</b> <a href="stack_8cpp_source.html#l00026">stack.cpp:26</a></div></div>
+<div class="ttc" id="classStack_html_ac790203cfffb6e322b19967a29613b9b"><div class="ttname"><a href="classStack.html#ac790203cfffb6e322b19967a29613b9b">Stack::pop</a></div><div class="ttdeci">static void pop(String filepath)</div><div class="ttdef"><b>Definition:</b> <a href="stack_8cpp_source.html#l00037">stack.cpp:37</a></div></div>
+<div class="ttc" id="classParse_html_a46ca93e1f3511933c6ea861b33a07c24"><div class="ttname"><a href="classParse.html#a46ca93e1f3511933c6ea861b33a07c24">Parse::run</a></div><div class="ttdeci">static void run(String line)</div><div class="ttdef"><b>Definition:</b> <a href="pbparse_8cpp_source.html#l00050">pbparse.cpp:50</a></div></div>
+<div class="ttc" id="classCrash_html_a5e49d00985759d6c02688c3266570548"><div class="ttname"><a href="classCrash.html#a5e49d00985759d6c02688c3266570548">Crash::forceHalt</a></div><div class="ttdeci">static void forceHalt(String msg)</div><div class="ttdef"><b>Definition:</b> <a href="crash_8cpp_source.html#l00015">crash.cpp:15</a></div></div>
+</div><!-- fragment -->
+</div>
+</div>
+<hr/>The documentation for this class was generated from the following files:<ul>
 <li>src/<a class="el" href="pbparse_8h_source.html">pbparse.h</a></li>
+<li>src/<a class="el" href="pbparse_8cpp_source.html">pbparse.cpp</a></li>
 </ul>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Wed Aug 12 2015 17:11:43 for Octoduino by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Mon Aug 17 2015 15:52:40 for Octoduino by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.6
 </small></address>

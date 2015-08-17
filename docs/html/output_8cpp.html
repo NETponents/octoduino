@@ -84,9 +84,6 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </div>
 </div><!-- top -->
 <div class="header">
-  <div class="summary">
-<a href="#nested-classes">Classes</a> &#124;
-<a href="#func-members">Functions</a>  </div>
   <div class="headertitle">
 <div class="title">output.cpp File Reference</div>  </div>
 </div><!--header-->
@@ -95,53 +92,13 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <code>#include &lt;SD.h&gt;</code><br/>
 <code>#include &lt;SPI.h&gt;</code><br/>
 <code>#include &quot;<a class="el" href="output_8h_source.html">output.h</a>&quot;</code><br/>
+<code>#include &quot;<a class="el" href="crash_8h_source.html">crash.h</a>&quot;</code><br/>
 </div>
 <p><a href="output_8cpp_source.html">Go to the source code of this file.</a></p>
-<table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
-Classes</h2></td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classOutput.html">Output</a></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
-Functions</h2></td></tr>
-<tr class="memitem:aedc913c139bb562646d3459b0ca28997"><td class="memItemLeft" align="right" valign="top">class <a class="el" href="classOutput.html">Output</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="output_8cpp.html#aedc913c139bb562646d3459b0ca28997">init</a> ()</td></tr>
-<tr class="separator:aedc913c139bb562646d3459b0ca28997"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table>
-<h2 class="groupheader">Function Documentation</h2>
-<a class="anchor" id="aedc913c139bb562646d3459b0ca28997"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">static void init </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<p><a class="el" href="classOutput.html">Output</a> stream wrapper for Serial class provided by Wiring Waits for serial connection (if set through build args) </p>
-
-<p>Definition at line <a class="el" href="output_8cpp_source.html#l00061">61</a> of file <a class="el" href="output_8cpp_source.html">output.cpp</a>.</p>
-<div class="fragment"><div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;  {</div>
-<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;    <span class="comment">// Open serial</span></div>
-<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;    Serial.begin(9600);</div>
-<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;<span class="preprocessor">    #ifdef IO_LOG_SERIAL</span></div>
-<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;<span class="preprocessor"></span>      <span class="keywordflow">while</span>(!Serial)</div>
-<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;      {</div>
-<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;        ; <span class="comment">// Wait for serial to connect (required for Leonardo)</span></div>
-<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;      }</div>
-<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;<span class="preprocessor">    #endif</span></div>
-<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;<span class="preprocessor"></span>    <span class="keywordflow">return</span> 0;</div>
-<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;  }</div>
-</div><!-- fragment -->
-</div>
-</div>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Wed Aug 12 2015 17:11:43 for Octoduino by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Mon Aug 17 2015 15:52:39 for Octoduino by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.6
 </small></address>

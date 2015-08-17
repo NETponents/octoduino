@@ -96,20 +96,25 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="preprocessor">#ifndef HEADER_STACK</span></div>
 <div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="preprocessor"></span><span class="preprocessor">  #define HEADER_STACK</span></div>
 <div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="preprocessor"></span>   </div>
-<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;  <span class="keyword">class </span><a class="code" href="classStack.html">Stack</a></div>
+<div class="line"><a name="l00011"></a><span class="lineno"><a class="line" href="classStack.html">   11</a></span>&#160;  <span class="keyword">class </span><a class="code" href="classStack.html">Stack</a></div>
 <div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;  {</div>
-<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;    <span class="keywordtype">void</span> stackinit();</div>
-<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;    <span class="keywordtype">void</span> stackpush(String filepath);</div>
-<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;    <span class="keywordtype">void</span> stackpop(String filepath);</div>
-<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;    String stackdump();</div>
-<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;  }</div>
-<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;</div>
-<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;<span class="preprocessor">#endif</span></div>
-<div class="ttc" id="classStack_html"><div class="ttname"><a href="classStack.html">Stack</a></div><div class="ttdef"><b>Definition:</b> <a href="stack_8cpp_source.html#l00013">stack.cpp:13</a></div></div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;  <span class="keyword">public</span>:</div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;    <span class="keyword">static</span> <span class="keywordtype">void</span> <a class="code" href="classStack.html#a891e74e94124bd2f19d94b8cd0c0ddc8">init</a>();</div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;    <span class="keyword">static</span> <span class="keywordtype">void</span> <a class="code" href="classStack.html#af6c82c8ce0d969a430ca0a21e2ae9078">push</a>(String filepath);</div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;    <span class="keyword">static</span> <span class="keywordtype">void</span> <a class="code" href="classStack.html#ac790203cfffb6e322b19967a29613b9b">pop</a>(String filepath);</div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;    <span class="keyword">static</span> String <a class="code" href="classStack.html#a218a6993e765716ecd622390bf430266">dump</a>();</div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;  };</div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;</div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="ttc" id="classStack_html_a891e74e94124bd2f19d94b8cd0c0ddc8"><div class="ttname"><a href="classStack.html#a891e74e94124bd2f19d94b8cd0c0ddc8">Stack::init</a></div><div class="ttdeci">static void init()</div><div class="ttdef"><b>Definition:</b> <a href="stack_8cpp_source.html#l00017">stack.cpp:17</a></div></div>
+<div class="ttc" id="classStack_html"><div class="ttname"><a href="classStack.html">Stack</a></div><div class="ttdef"><b>Definition:</b> <a href="stack_8h_source.html#l00011">stack.h:11</a></div></div>
+<div class="ttc" id="classStack_html_af6c82c8ce0d969a430ca0a21e2ae9078"><div class="ttname"><a href="classStack.html#af6c82c8ce0d969a430ca0a21e2ae9078">Stack::push</a></div><div class="ttdeci">static void push(String filepath)</div><div class="ttdef"><b>Definition:</b> <a href="stack_8cpp_source.html#l00026">stack.cpp:26</a></div></div>
+<div class="ttc" id="classStack_html_a218a6993e765716ecd622390bf430266"><div class="ttname"><a href="classStack.html#a218a6993e765716ecd622390bf430266">Stack::dump</a></div><div class="ttdeci">static String dump()</div><div class="ttdef"><b>Definition:</b> <a href="stack_8cpp_source.html#l00048">stack.cpp:48</a></div></div>
+<div class="ttc" id="classStack_html_ac790203cfffb6e322b19967a29613b9b"><div class="ttname"><a href="classStack.html#ac790203cfffb6e322b19967a29613b9b">Stack::pop</a></div><div class="ttdeci">static void pop(String filepath)</div><div class="ttdef"><b>Definition:</b> <a href="stack_8cpp_source.html#l00037">stack.cpp:37</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Wed Aug 12 2015 17:11:43 for Octoduino by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Mon Aug 17 2015 15:52:39 for Octoduino by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.6
 </small></address>
