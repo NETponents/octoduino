@@ -1,5 +1,4 @@
 var searchData=
 [
-  ['end',['END',['../pbparse_8h.html#a02c639bdb5cbd5009be4e88968538eac',1,'pbparse.h']]],
-  ['extload',['EXTLOAD',['../pbparse_8h.html#abecb13e9eeeef405c4b552f37f1078d0',1,'pbparse.h']]]
+  ['adds',['ADDS',['../classParse_1_1Opcode_1_1Var_1_1Strings.html#a23dc8f7b7e19f792160df37d125f2ddb',1,'Parse::Opcode::Var::Strings']]]
 ];

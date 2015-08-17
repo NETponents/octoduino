@@ -9,6 +9,9 @@
 #include "stack.h"
 #include "crash.h"
 
+  /**
+   * Forces a system halt (or reset if defined by compiler).
+   */
   void Crash::forceHalt(String msg)
   {
     // Bad idea, may cause crash loop

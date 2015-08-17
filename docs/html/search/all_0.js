@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['buildpipe_5fbnum',['BUILDPIPE_BNUM',['../main_8ino.html#a00ff863bbb1af3cf947e92adf1aa9966',1,'main.ino']]]
+  ['adds',['ADDS',['../classParse_1_1Opcode_1_1Var_1_1Strings.html#a23dc8f7b7e19f792160df37d125f2ddb',1,'Parse::Opcode::Var::Strings']]]
 ];
