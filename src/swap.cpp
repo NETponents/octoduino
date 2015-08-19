@@ -83,7 +83,7 @@
   void Swap::create(String name, String value)
   {
     // Make sure that the var name is 8.3 compliant
-    if(name.length > 8)
+    if(name.length() > 8)
     {
       #ifdef CRASH_MSG_DETAIL
         Crash::forceHalt("Variable is not 8.0 compliant.");
