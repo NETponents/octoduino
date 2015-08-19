@@ -31,7 +31,7 @@ Next, you'll need to grab a copy of our code from GitHub:
  
 ## Building
 
-***As of version 0.1.4, the Arduino IDE cannot be used to build Octoduino***. Instead, we have provided multiple build options.
+***As of version 0.1.4, we do not reccommend building using the Arduino IDE (Wiring-based). See the Wiki for more information***. Instead, we have provided multiple build options.
 
 ### All platforms
 You will need to download [PlatformIO](http://github.com/platformio/platformio) for your platform. If you don't already have it, you will need Python to install PlatformIO.
