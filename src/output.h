@@ -5,6 +5,10 @@
 // MIT license. Copyright 2015 Joshua Zenn.    //
 /////////////////////////////////////////////////
 
+#ifdef IO_LOG_LCD
+  #include <LiquidCrystal.h>
+#endif
+
 #ifndef HEADER_OSTREAM
   #define HEADER_OSTREAM
    
