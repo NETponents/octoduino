@@ -192,7 +192,7 @@
     {
       char cnst;
       sscanf(name.c_str(), "$CONST_CHAR_%c", &cnst);
-      String result = cnst;
+      String result = String(cnst);
       return result;
     }
     #endif
