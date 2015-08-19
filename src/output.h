@@ -39,7 +39,7 @@
         static int init();
 	static int write(String timestamp, String msg);
       private:
-        LiquidCrystal lcd;
+        static LiquidCrystal lcd;
 	};
   #endif
 #endif
