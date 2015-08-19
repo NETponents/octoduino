@@ -187,6 +187,15 @@
         return "0";
       }
     #endif
+    #ifdef SWAP_CONST_CHAR
+      else if(name.startsWith("$CONST_CHAR_"))
+    {
+      char cnst;
+      sscanf(name.c_str(), "$CONST_CHAR_%c", &cnst);
+      String result = cnst.c_str();
+      return result;
+    }
+    #endif
     else if(name == "$FEAT_SWAP_CONST")
     {
       #ifdef SWAP_CONST_BOOL
