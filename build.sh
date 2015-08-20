@@ -11,3 +11,8 @@ read -e -p "BUILD_TARGET: " -i "upload" BTARGET
 read -e -p "BUILD_ENV: " -i "uno" BTARGET
 echo "Starting build..."
 platformio --SRC="/src" --BUILD_FLAGS=$BARGS --target=$BTARGET -- environment=$BENV -vvv
+echo "Generating documentation..."
+sudo apt-get install doxygen
+doxygen Doxyfile
+echo "Build complete"
+return 0
