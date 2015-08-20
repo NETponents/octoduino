@@ -24,7 +24,7 @@ void setup()
   pinMode(13, OUTPUT);
   // Initialize output class
   Output::init();
-  Output::write("Octoduino v0.1.3. Build: " + BUILDPIPE_BNUM);
+  Output::write("Octoduino v0.2.0. Build: " + BUILDPIPE_BNUM);
   Output::write("Copyright 2015 - NETponents");
   Output::write("Distributed under the GNU GPL v2.0 license");
   Output::write("Commercial use with this build of Octoduino is prohibited");
