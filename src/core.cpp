@@ -23,9 +23,25 @@
     pinMode(10, OUTPUT);
     //Open SD card
     SD.begin(4);
+    // Initialize SWAP
     Swap::init();
     //Begin parsing the PARSEBASIC main script
-    Output::write("Launching bootloader");
+    Output::write("Starting task manager...");
+    #ifndef CORE_STACKSIZE
+      #define CORE_STACKSIZE = 10
+    #endif
+    Task stack[CORE_STACKSIZE]
+    // Included for debugging purposes
     Parse::start("/boot.pba");
+  }
+  void Task::init()
+  {
+    
+  }
+  void Task::step()
+  {
+    
+  }
+  }
   }
 
