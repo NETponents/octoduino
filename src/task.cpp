@@ -6,12 +6,16 @@
 /////////////////////////////////////////////////
 
 #include <Arduino.h>
-#include <Task.h>
+#include "task.h"
   
-int Task::taskID;
+int taskID;
 Task::Task(int _ID)
 {
-  taskID = _ID;
+  this->taskID = _ID;
+}
+Task::Task()
+{
+  this->taskID = 0;
 }
 void Task::init()
 {

@@ -17,7 +17,7 @@ int MEMCHECK::freeRam()
   int v;
   return (int) &v - (__brkval == 0 ? (int) &__heap_start : (int) __brkval);
 }
-MEMCHECK(int _ID) : Task(_ID)
+MEMCHECK::MEMCHECK(int _ID) : Task(_ID)
 {
     // Don't do anything since this is the universal initializer
 }
