@@ -9,7 +9,7 @@
 #include <Task.h>
   
 int Task::taskID;
-void Task::Task(int _ID)
+Task::Task(int _ID)
 {
   taskID = _ID;
 }
@@ -19,7 +19,7 @@ void Task::init()
 }
 void Task::step()
 {
-  
+    
 }
 int Task::getID()
 {

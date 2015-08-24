@@ -11,11 +11,13 @@
   class Task
   {
     public:
-      void Task(int);
+      Task();
+      Task(int _ID);
       virtual void init();
       virtual void step();
       int getID();
     protected:
-      extern int taskID;
-  }
+      //extern int taskID;
+      int taskID;
+  };
 #endif

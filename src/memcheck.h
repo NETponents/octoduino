@@ -7,14 +7,17 @@
 // Copyright 2015 NETponents.                            //
 ///////////////////////////////////////////////////////////
 
+#include "task.h"
+
 #ifndef HEADER_MEMCHECK
   #define HEADER_MEMCHECK
   
   class MEMCHECK : public Task
   {
       public:
-        void MEMCHECK(int _ID) : Task(_ID);
-        void virtual step();
+        MEMCHECK(int _ID);
+        void init();
+        void step();
       private:
         int freeRam();
   };

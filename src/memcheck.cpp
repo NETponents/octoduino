@@ -9,6 +9,7 @@
 
 #include <Arduino.h>
 #include "crash.h"
+#include "memcheck.h"
 
 int MEMCHECK::freeRam()
 {
@@ -16,7 +17,11 @@ int MEMCHECK::freeRam()
   int v;
   return (int) &v - (__brkval == 0 ? (int) &__heap_start : (int) __brkval);
 }
-void MEMCHECK::MEMCHECK(int _ID) : Task(_ID)
+MEMCHECK(int _ID) : Task(_ID)
+{
+    // Don't do anything since this is the universal initializer
+}
+void MEMCHECK::init()
 {
     // Nothing to initialize here
 }

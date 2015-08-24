@@ -12,6 +12,7 @@
 #include "output.h"
 #include "swap.h"
 #include "core.h"
+#include "task.h"
 
 
   /**
@@ -28,9 +29,10 @@
     //Begin parsing the PARSEBASIC main script
     Output::write("Starting task manager...");
     #ifndef CORE_STACKSIZE
-      #define CORE_STACKSIZE = 10
+      Task stack[10];
+    #else
+      Task stack[CORE_STACKSIZE];
     #endif
-    Task stack[CORE_STACKSIZE]
     // Included for debugging purposes
     Parse::start("/boot.pba");
   }
