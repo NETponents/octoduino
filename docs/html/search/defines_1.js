@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['header_5fostream',['HEADER_OSTREAM',['../output_8h.html#a2e0400b17cd0e33ce88b6880c3f4956c',1,'output.h']]]
+  ['core_5fstacksize',['CORE_STACKSIZE',['../core_8cpp.html#a63feb8eb5b1d860d18a4b31ec29d580f',1,'core.cpp']]]
 ];

@@ -5,6 +5,7 @@ var searchData=
   ['core',['Core',['../classCore.html',1,'']]],
   ['core_2ecpp',['core.cpp',['../core_8cpp.html',1,'']]],
   ['core_2eh',['core.h',['../core_8h.html',1,'']]],
+  ['core_5fstacksize',['CORE_STACKSIZE',['../core_8cpp.html#a63feb8eb5b1d860d18a4b31ec29d580f',1,'core.cpp']]],
   ['crash',['Crash',['../classCrash.html',1,'']]],
   ['crash_2ecpp',['crash.cpp',['../crash_8cpp.html',1,'']]],
   ['crash_2eh',['crash.h',['../crash_8h.html',1,'']]],

@@ -34,14 +34,4 @@
     // Included for debugging purposes
     Parse::start("/boot.pba");
   }
-  void Task::init()
-  {
-    
-  }
-  void Task::step()
-  {
-    
-  }
-  }
-  }
 
