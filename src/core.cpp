@@ -14,6 +14,7 @@
 #include "core.h"
 #include "task.h"
 #include "memcheck.h"
+#include "oethernet.h"
 
 
   /**
@@ -41,8 +42,8 @@
     stack[_stackcounter] = MEMCHECK(_stackcounter);
     _stackcounter++;
     stack[_stackcounter] = Parser(_stackcounter);
-    //_stackcounter++;
-    //stack[_stackcounter] = new Ethernet(_stackcounter);
+    _stackcounter++;
+    stack[_stackcounter] = oEthernet(_stackcounter);
     //_stackcounter++;
     //stack[_stackcounter] = new Firmata(_stackcounter);
     

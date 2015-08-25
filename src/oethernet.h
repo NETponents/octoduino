@@ -6,15 +6,19 @@
 /////////////////////////////////////////////////
 
 #include "task.h"
+#include <Ethernet.h>
+#include <Arduino.h>
 
-#ifndef HEADER_ETHERNET
-  #define HEADER_ETHERNET
+#ifndef HEADER_OETHERNET
+  #define HEADER_OETHERNET
   
-  class Ethernet : public Task
+  class oEthernet : public Task
   {
       public:
-        Ethernet(int _ID);
+        oEthernet(int _ID);
         void init();
         void step();
+      private:
+        EthernetServer esvr = new EthernetServer(80);
   };
 #endif
