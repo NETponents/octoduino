@@ -20,32 +20,18 @@
       <li><a href="/int/swap.html">SWAP</a></li>
     </ul>
     <hr />
-    <h3>What's new in this version (v0.2.0)</h3>
+    <h3>What's new in this version (v0.x.x)</h3>
     <ul>
-      <li>Shows timestamp both in serial output and logs.</li>
-      <li>String addition and retrieving characters.</li>
-      <li>Updated error messages to make them more human-readable.</li>
-      <li>Critical bug fixes.</li>
-      <li>Fixed the manually-cleared swap bug</li>
-      <li>Customized build process (lowers memory usage for features you don't need).</li>
-      <li>LCD support (for components based on the Hitachi HD44780).</li>
-      <li>Allowed building using Visual Studio.</li>
-      <li>Added call stack for easier debugging.</li>
-      <li>Added generated documentation.</li>
-      <li>Allowed variable refs.</li>
-      <li>Reading pin states.</li>
-      <li>Included constants to reduce SWAP load.</li>
-      <li>Added build option for detailed error messages at run-time.</li>
-      <li>Guided shell build process (Linux only).</li>
-      <li>Fixed bug where PB scripts were using syntax-illegal names.</li>
-      <li>Added runtime checks for 8.0 compliance on variable names.</li>
+      <li>Multithreading with process management</li>
+      <li>RAM usage monitoring with safe halts.</li>
     </ul>
     <h5>Known bugs</h5>
     <ul>
-      <li>Arduino does not handle running out of space on SD card or RAM.</li>
+      <li>Arduino does not handle running out of space on SD.</li>
       <li>Using the same variable name twice from different script files will cause a crash.</li>
       <li>Build option IO_LOG_LCD will not build.</li>
       <li>Project no longer builds using the Arduino IDE, only PlatformIO is supported with special build arguments.</li>
+      <li><code>EXTLOAD</code> has been temporarily disabled.</li>
     </ul>
     <p>If you find a bug that is not listed above, please report it in our issue tracker on GitHub at <a href="http://github.com/NETponents/octoduino/issues">http://github.com/NETponents/octoduino/issues</a>.</p>
     <hr />
