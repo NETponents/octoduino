@@ -14,7 +14,45 @@
 #include "tokenizer.h"
 #include "stack.h"
 #include "crash.h"
-
+  
+  File source;
+  Parser::Parser(int _ID) : Task(_ID)
+  {
+    // Nothing to instance here
+  }
+  void Parser::init()
+  {
+    this->source = SD.open(F("/boot.pba"));
+    if(!source)
+    {
+      #ifdef CRASH_MSG_DETAIL
+        Crash::forceHalt("PB runner could not open file.");
+      #else
+        Crash::forceHalt("Ex006");
+      #endif
+    }
+    Stack::push(F("/boot.pba"));
+  }
+  void Parser::step()
+  {
+    if(!this->source.available())
+    {
+      #ifdef CRASH_MSG_DETAIL
+        Crash::forceHalt("End of script file.");
+      #else
+        Crash::forceHalt("Ex000");
+      #endif
+    }
+    String cmd = "";
+    const char terminator = ';';
+    while(char(this->source.peek()) != terminator)
+    {
+      cmd += char(source.read());
+    }
+    this->source.read();
+    Parse::run(cmd);
+  }
+  
   /**
    * Creates a runner to begin execution of a new source file.
    */
@@ -205,7 +243,8 @@
        */
       void Parse::Opcode::System::EXTLOAD(String _filepath)
       {
-        Parse::start(_filepath);
+        //Parse::start(_filepath);
+        Crash::forceHalt(F("EXTLOAD has been temporarily disabled."));
       }
       /**
        * Halts the system in a clean manner.
@@ -258,7 +297,8 @@
       {
         if(Swap::read(_op1) == Swap::read(_op2))
         {
-          Parse::start(_sFile);
+          //Parse::start(_sFile);
+          Crash::forceHalt(F("EXTLOAD has been temporarily disabled."));
         }
       }
       /**
@@ -270,6 +310,7 @@
 	    {
 		    if (Swap::read(_op1) != Swap::read(_op2))
 		    {
-			    Parse::start(_sFile);
+			    //Parse::start(_sFile);
+			    Crash::forceHalt(F("EXTLOAD has been temporarily disabled."));
 		    }
 	    }

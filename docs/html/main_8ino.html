@@ -69,7 +69,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Macros</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Macros</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -85,7 +85,6 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </div><!-- top -->
 <div class="header">
   <div class="summary">
-<a href="#define-members">Macros</a> &#124;
 <a href="#func-members">Functions</a>  </div>
   <div class="headertitle">
 <div class="title">main.ino File Reference</div>  </div>
@@ -98,11 +97,6 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </div>
 <p><a href="main_8ino_source.html">Go to the source code of this file.</a></p>
 <table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="define-members"></a>
-Macros</h2></td></tr>
-<tr class="memitem:a00ff863bbb1af3cf947e92adf1aa9966"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="main_8ino.html#a00ff863bbb1af3cf947e92adf1aa9966">BUILDPIPE_BNUM</a>&#160;&#160;&#160;&quot;local&quot;</td></tr>
-<tr class="separator:a00ff863bbb1af3cf947e92adf1aa9966"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
 <tr class="memitem:afe461d27b9c48d5921c00d521181f12f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="main_8ino.html#afe461d27b9c48d5921c00d521181f12f">loop</a> ()</td></tr>
@@ -110,23 +104,6 @@ Functions</h2></td></tr>
 <tr class="memitem:a4fc01d736fe50cf5b977f755b675f11d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="main_8ino.html#a4fc01d736fe50cf5b977f755b675f11d">setup</a> ()</td></tr>
 <tr class="separator:a4fc01d736fe50cf5b977f755b675f11d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<h2 class="groupheader">Macro Definition Documentation</h2>
-<a class="anchor" id="a00ff863bbb1af3cf947e92adf1aa9966"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">#define BUILDPIPE_BNUM&#160;&#160;&#160;&quot;local&quot;</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Definition at line <a class="el" href="main_8ino_source.html#l00015">15</a> of file <a class="el" href="main_8ino_source.html">main.ino</a>.</p>
-
-<p>Referenced by <a class="el" href="main_8ino_source.html#l00021">setup()</a>.</p>
-
-</div>
-</div>
 <h2 class="groupheader">Function Documentation</h2>
 <a class="anchor" id="afe461d27b9c48d5921c00d521181f12f"></a>
 <div class="memitem">
@@ -163,32 +140,34 @@ Functions</h2></td></tr>
 </div><div class="memdoc">
 <p>Set up the system (required by Arduino). </p>
 
-<p>Definition at line <a class="el" href="main_8ino_source.html#l00021">21</a> of file <a class="el" href="main_8ino_source.html">main.ino</a>.</p>
+<p>Definition at line <a class="el" href="main_8ino_source.html#l00017">17</a> of file <a class="el" href="main_8ino_source.html">main.ino</a>.</p>
 
-<p>References <a class="el" href="main_8ino_source.html#l00015">BUILDPIPE_BNUM</a>, <a class="el" href="core_8cpp_source.html#l00020">Core::init()</a>, <a class="el" href="output_8cpp_source.html#l00022">Output::init()</a>, and <a class="el" href="output_8cpp_source.html#l00057">Output::write()</a>.</p>
-<div class="fragment"><div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;{</div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;  <span class="comment">// Status LED</span></div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;  pinMode(13, OUTPUT);</div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;  <span class="comment">// Initialize output class</span></div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;  <a class="code" href="classOutput.html#abc5908ae5ec5de765d0f92433472e505">Output::init</a>();</div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;  <a class="code" href="classOutput.html#a181cb63da3f2e530a5d790cfb018c81b">Output::write</a>(<span class="stringliteral">&quot;Octoduino v0.2.0. Build: &quot;</span> + <a class="code" href="main_8ino.html#a00ff863bbb1af3cf947e92adf1aa9966">BUILDPIPE_BNUM</a>);</div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;  <a class="code" href="classOutput.html#a181cb63da3f2e530a5d790cfb018c81b">Output::write</a>(<span class="stringliteral">&quot;Copyright 2015 - NETponents&quot;</span>);</div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;  <a class="code" href="classOutput.html#a181cb63da3f2e530a5d790cfb018c81b">Output::write</a>(<span class="stringliteral">&quot;Distributed under the GNU GPL v2.0 license&quot;</span>);</div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;  <a class="code" href="classOutput.html#a181cb63da3f2e530a5d790cfb018c81b">Output::write</a>(<span class="stringliteral">&quot;Commercial use with this build of Octoduino is prohibited&quot;</span>);</div>
+<p>References <a class="el" href="core_8cpp_source.html#l00022">Core::init()</a>, and <a class="el" href="output_8cpp_source.html#l00022">Output::init()</a>.</p>
+<div class="fragment"><div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;{</div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;  <span class="comment">// Status LED</span></div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;  pinMode(13, OUTPUT);</div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;  <span class="comment">// Initialize output class</span></div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;  <a class="code" href="classOutput.html#abc5908ae5ec5de765d0f92433472e505">Output::init</a>();</div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;<span class="preprocessor">  #ifdef BUILDPIPE_BNUM</span></div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;<span class="preprocessor"></span>    Serial.println(<span class="stringliteral">&quot;Octoduino v0.2.0. Build: &quot;</span> + BUILDPIPE_BNUM);</div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;<span class="preprocessor">  #else</span></div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;<span class="preprocessor"></span>    Serial.println(<span class="stringliteral">&quot;Octoduino v0.2.0. Build: local&quot;</span>);</div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;<span class="preprocessor">  #endif</span></div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;<span class="preprocessor"></span>  Serial.println(<span class="stringliteral">&quot;Copyright 2015 - NETponents&quot;</span>);</div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;  Serial.println(<span class="stringliteral">&quot;Distributed under the GNU GPL v2.0 license&quot;</span>);</div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;  Serial.println(<span class="stringliteral">&quot;Commercial use with this build of Octoduino is prohibited&quot;</span>);</div>
 <div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;  <span class="comment">// Start the bootloader</span></div>
 <div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;  <a class="code" href="classCore.html#a95b5c90a86bd4f1dec37edb1f32a6406">Core::init</a>();</div>
 <div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;}</div>
 <div class="ttc" id="classOutput_html_abc5908ae5ec5de765d0f92433472e505"><div class="ttname"><a href="classOutput.html#abc5908ae5ec5de765d0f92433472e505">Output::init</a></div><div class="ttdeci">static void init()</div><div class="ttdef"><b>Definition:</b> <a href="output_8cpp_source.html#l00022">output.cpp:22</a></div></div>
-<div class="ttc" id="main_8ino_html_a00ff863bbb1af3cf947e92adf1aa9966"><div class="ttname"><a href="main_8ino.html#a00ff863bbb1af3cf947e92adf1aa9966">BUILDPIPE_BNUM</a></div><div class="ttdeci">#define BUILDPIPE_BNUM</div><div class="ttdef"><b>Definition:</b> <a href="main_8ino_source.html#l00015">main.ino:15</a></div></div>
-<div class="ttc" id="classOutput_html_a181cb63da3f2e530a5d790cfb018c81b"><div class="ttname"><a href="classOutput.html#a181cb63da3f2e530a5d790cfb018c81b">Output::write</a></div><div class="ttdeci">static void write(String msg)</div><div class="ttdef"><b>Definition:</b> <a href="output_8cpp_source.html#l00057">output.cpp:57</a></div></div>
-<div class="ttc" id="classCore_html_a95b5c90a86bd4f1dec37edb1f32a6406"><div class="ttname"><a href="classCore.html#a95b5c90a86bd4f1dec37edb1f32a6406">Core::init</a></div><div class="ttdeci">static void init()</div><div class="ttdef"><b>Definition:</b> <a href="core_8cpp_source.html#l00020">core.cpp:20</a></div></div>
+<div class="ttc" id="classCore_html_a95b5c90a86bd4f1dec37edb1f32a6406"><div class="ttname"><a href="classCore.html#a95b5c90a86bd4f1dec37edb1f32a6406">Core::init</a></div><div class="ttdeci">static void init()</div><div class="ttdef"><b>Definition:</b> <a href="core_8cpp_source.html#l00022">core.cpp:22</a></div></div>
 </div><!-- fragment -->
 </div>
 </div>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Thu Aug 20 2015 13:54:48 for Octoduino by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Tue Aug 25 2015 14:17:04 for Octoduino by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.6
 </small></address>

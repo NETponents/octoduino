@@ -11,10 +11,6 @@
 #include "core.h"
 #include "output.h"
 
-#ifndef BUILDPIPE_BNUM
-  #define BUILDPIPE_BNUM "local"
-#endif
-
 /**
  * Set up the system (required by Arduino).
  */
@@ -24,10 +20,14 @@ void setup()
   pinMode(13, OUTPUT);
   // Initialize output class
   Output::init();
-  Output::write("Octoduino v0.2.0. Build: " + BUILDPIPE_BNUM);
-  Output::write("Copyright 2015 - NETponents");
-  Output::write("Distributed under the GNU GPL v2.0 license");
-  Output::write("Commercial use with this build of Octoduino is prohibited");
+  #ifdef BUILDPIPE_BNUM
+    Serial.println("Octoduino v0.2.0. Build: " + BUILDPIPE_BNUM);
+  #else
+    Serial.println("Octoduino v0.2.0. Build: local");
+  #endif
+  Serial.println("Copyright 2015 - NETponents");
+  Serial.println("Distributed under the GNU GPL v2.0 license");
+  Serial.println("Commercial use with this build of Octoduino is prohibited");
   // Start the bootloader
   Core::init();
 }

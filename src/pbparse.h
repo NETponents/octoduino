@@ -5,8 +5,21 @@
 // v2.0 license. Copyright 2015 NETponents.    //
 /////////////////////////////////////////////////
 
+#include "task.h"
+#include <SD.h>
+
 #ifndef HEADER_PBPARSE 
   #define HEADER_PBPARSE
+  
+  class Parser : public Task
+  {
+    public:
+      Parser(int _ID);
+      void init();
+      void step();
+    private:
+      File source;
+  };
   
   class Parse
   {
