@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.6"/>
-<title>Octoduino: src/core.h Source File</title>
+<title>Octoduino: src/oethernet.h Source File</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -85,26 +85,37 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </div><!-- top -->
 <div class="header">
   <div class="headertitle">
-<div class="title">core.h</div>  </div>
+<div class="title">oethernet.h</div>  </div>
 </div><!--header-->
 <div class="contents">
-<a href="core_8h.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="comment">// This software is provided &quot;as is&quot; with      //</span></div>
+<a href="oethernet_8h.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="comment">// This software is provided &quot;as is&quot; with      //</span></div>
 <div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="comment">// no warranty of any kind. Use this software  //</span></div>
 <div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="comment">// at your own risk. Protected under the GPL   //</span></div>
 <div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="comment">// v2.0 license. Copyright 2015 NETponents.    //</span></div>
 <div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="comment"></span></div>
-<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="preprocessor">#ifndef HEADER_CORE</span></div>
-<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="preprocessor"></span><span class="preprocessor">  #define HEADER_CORE</span></div>
-<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="preprocessor"></span>   </div>
-<div class="line"><a name="l00011"></a><span class="lineno"><a class="line" href="classCore.html">   11</a></span>&#160;  <span class="keyword">class </span><a class="code" href="classCore.html">Core</a></div>
-<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;  {</div>
-<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;    <span class="keyword">public</span>:</div>
-<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;      <span class="keyword">static</span> <span class="keywordtype">void</span> <a class="code" href="classCore.html#a95b5c90a86bd4f1dec37edb1f32a6406">init</a>();</div>
-<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;  };</div>
-<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;   </div>
-<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;<span class="preprocessor">#endif</span></div>
-<div class="ttc" id="classCore_html"><div class="ttname"><a href="classCore.html">Core</a></div><div class="ttdef"><b>Definition:</b> <a href="core_8h_source.html#l00011">core.h:11</a></div></div>
-<div class="ttc" id="classCore_html_a95b5c90a86bd4f1dec37edb1f32a6406"><div class="ttname"><a href="classCore.html#a95b5c90a86bd4f1dec37edb1f32a6406">Core::init</a></div><div class="ttdeci">static void init()</div><div class="ttdef"><b>Definition:</b> <a href="core_8cpp_source.html#l00023">core.cpp:23</a></div></div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="task_8h.html">task.h</a>&quot;</span></div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="preprocessor">#include &lt;Ethernet.h&gt;</span></div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="preprocessor">#include &lt;Arduino.h&gt;</span></div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;</div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="preprocessor">#ifndef HEADER_OETHERNET</span></div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="preprocessor"></span><span class="preprocessor">  #define HEADER_OETHERNET</span></div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="preprocessor"></span>  </div>
+<div class="line"><a name="l00015"></a><span class="lineno"><a class="line" href="classoEthernet.html">   15</a></span>&#160;  <span class="keyword">class </span><a class="code" href="classoEthernet.html">oEthernet</a> : <span class="keyword">public</span> <a class="code" href="classTask.html">Task</a></div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;  {</div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;      <span class="keyword">public</span>:</div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;        <a class="code" href="classoEthernet.html#a2214b6802e2592cfa2eb2e8c6184d27e">oEthernet</a>(<span class="keywordtype">int</span> _ID);</div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;        <span class="keywordtype">void</span> <a class="code" href="classoEthernet.html#a65f577f9d0da5b68db71763f7c5cf67b">init</a>();</div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;        <span class="keywordtype">void</span> <a class="code" href="classoEthernet.html#a6d93bb9488e3961de7c2ee24a791b456">step</a>();</div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;      <span class="keyword">private</span>:</div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;        EthernetServer esvr = <span class="keyword">new</span> EthernetServer(80);</div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;  };</div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="ttc" id="classoEthernet_html_a65f577f9d0da5b68db71763f7c5cf67b"><div class="ttname"><a href="classoEthernet.html#a65f577f9d0da5b68db71763f7c5cf67b">oEthernet::init</a></div><div class="ttdeci">void init()</div><div class="ttdef"><b>Definition:</b> <a href="oethernet_8cpp_source.html#l00015">oethernet.cpp:15</a></div></div>
+<div class="ttc" id="classoEthernet_html_a2214b6802e2592cfa2eb2e8c6184d27e"><div class="ttname"><a href="classoEthernet.html#a2214b6802e2592cfa2eb2e8c6184d27e">oEthernet::oEthernet</a></div><div class="ttdeci">oEthernet(int _ID)</div><div class="ttdef"><b>Definition:</b> <a href="oethernet_8cpp_source.html#l00008">oethernet.cpp:8</a></div></div>
+<div class="ttc" id="classoEthernet_html_a6d93bb9488e3961de7c2ee24a791b456"><div class="ttname"><a href="classoEthernet.html#a6d93bb9488e3961de7c2ee24a791b456">oEthernet::step</a></div><div class="ttdeci">void step()</div><div class="ttdef"><b>Definition:</b> <a href="oethernet_8cpp_source.html#l00025">oethernet.cpp:25</a></div></div>
+<div class="ttc" id="classoEthernet_html"><div class="ttname"><a href="classoEthernet.html">oEthernet</a></div><div class="ttdef"><b>Definition:</b> <a href="oethernet_8h_source.html#l00015">oethernet.h:15</a></div></div>
+<div class="ttc" id="task_8h_html"><div class="ttname"><a href="task_8h.html">task.h</a></div></div>
+<div class="ttc" id="classTask_html"><div class="ttname"><a href="classTask.html">Task</a></div><div class="ttdef"><b>Definition:</b> <a href="task_8h_source.html#l00011">task.h:11</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>

@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.6"/>
-<title>Octoduino: Member List</title>
+<title>Octoduino: src/oethernet.cpp File Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -38,8 +38,8 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
   <div id="navrow1" class="tabs">
     <ul class="tablist">
       <li><a href="index.html"><span>Main&#160;Page</span></a></li>
-      <li class="current"><a href="annotated.html"><span>Classes</span></a></li>
-      <li><a href="files.html"><span>Files</span></a></li>
+      <li><a href="annotated.html"><span>Classes</span></a></li>
+      <li class="current"><a href="files.html"><span>Files</span></a></li>
       <li>
         <div id="MSearchBox" class="MSearchBoxInactive">
         <span class="left">
@@ -60,10 +60,8 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
   </div>
   <div id="navrow2" class="tabs2">
     <ul class="tablist">
-      <li><a href="annotated.html"><span>Class&#160;List</span></a></li>
-      <li><a href="classes.html"><span>Class&#160;Index</span></a></li>
-      <li><a href="hierarchy.html"><span>Class&#160;Hierarchy</span></a></li>
-      <li><a href="functions.html"><span>Class&#160;Members</span></a></li>
+      <li><a href="files.html"><span>File&#160;List</span></a></li>
+      <li><a href="globals.html"><span>File&#160;Members</span></a></li>
     </ul>
   </div>
 <!-- window showing the filter options -->
@@ -80,22 +78,49 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </iframe>
 </div>
 
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li>  </ul>
+</div>
 </div><!-- top -->
 <div class="header">
+  <div class="summary">
+<a href="#func-members">Functions</a>  </div>
   <div class="headertitle">
-<div class="title">Task Member List</div>  </div>
+<div class="title">oethernet.cpp File Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
+<div class="textblock"><code>#include &lt;Arduino.h&gt;</code><br/>
+<code>#include &lt;SPI.h&gt;</code><br/>
+<code>#include &lt;Ethernet.h&gt;</code><br/>
+<code>#include &quot;<a class="el" href="crash_8h_source.html">crash.h</a>&quot;</code><br/>
+<code>#include &quot;<a class="el" href="oethernet_8h_source.html">oethernet.h</a>&quot;</code><br/>
+</div>
+<p><a href="oethernet_8cpp_source.html">Go to the source code of this file.</a></p>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
+Functions</h2></td></tr>
+<tr class="memitem:a1b797d96661a0747845e0bb55446ed2b"><td class="memItemLeft" align="right" valign="top">EthernetServer&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="oethernet_8cpp.html#a1b797d96661a0747845e0bb55446ed2b">esvr</a> (80)</td></tr>
+<tr class="separator:a1b797d96661a0747845e0bb55446ed2b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<h2 class="groupheader">Function Documentation</h2>
+<a class="anchor" id="a1b797d96661a0747845e0bb55446ed2b"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">EthernetServer esvr </td>
+          <td>(</td>
+          <td class="paramtype">80&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
 
-<p>This is the complete list of members for <a class="el" href="classTask.html">Task</a>, including all inherited members.</p>
-<table class="directory">
-  <tr class="even"><td class="entry"><a class="el" href="classTask.html#aa586b0eaec058119b199dae35f8a1710">getID</a>()</td><td class="entry"><a class="el" href="classTask.html">Task</a></td><td class="entry"></td></tr>
-  <tr><td class="entry"><a class="el" href="classTask.html#acf6bd9a209eb3fa44749bfd068af99f5">init</a>()</td><td class="entry"><a class="el" href="classTask.html">Task</a></td><td class="entry"><span class="mlabel">virtual</span></td></tr>
-  <tr class="even"><td class="entry"><a class="el" href="classTask.html#adb707fd79b1cfb4bf9fafbde1dc61f4c">step</a>()</td><td class="entry"><a class="el" href="classTask.html">Task</a></td><td class="entry"><span class="mlabel">virtual</span></td></tr>
-  <tr><td class="entry"><a class="el" href="classTask.html#a0ca53354bdc006762a0fda68c64f7608">Task</a>()</td><td class="entry"><a class="el" href="classTask.html">Task</a></td><td class="entry"></td></tr>
-  <tr class="even"><td class="entry"><a class="el" href="classTask.html#a64b52ab0e1ab96495e307e97796f1dd0">Task</a>(int _ID)</td><td class="entry"><a class="el" href="classTask.html">Task</a></td><td class="entry"></td></tr>
-  <tr><td class="entry"><a class="el" href="classTask.html#affe5b96d27698e0572ee12d6b88c9271">taskID</a></td><td class="entry"><a class="el" href="classTask.html">Task</a></td><td class="entry"><span class="mlabel">protected</span></td></tr>
-</table></div><!-- contents -->
+</div>
+</div>
+</div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
 Generated on Tue Aug 25 2015 17:23:22 for Octoduino by &#160;<a href="http://www.doxygen.org/index.html">
