@@ -21,13 +21,13 @@ void setup()
   // Initialize output class
   Output::init();
   #ifdef BUILDPIPE_BNUM
-    Output::write("Octoduino v0.2.0. Build: " + BUILDPIPE_BNUM);
+    Serial.println("Octoduino v0.2.0. Build: " + BUILDPIPE_BNUM);
   #else
-    Output::write("Octoduino v0.2.0. Build: local");
+    Serial.println("Octoduino v0.2.0. Build: local");
   #endif
-  Output::write("Copyright 2015 - NETponents");
-  Output::write("Distributed under the GNU GPL v2.0 license");
-  Output::write("Commercial use with this build of Octoduino is prohibited");
+  Serial.println("Copyright 2015 - NETponents");
+  Serial.println("Distributed under the GNU GPL v2.0 license");
+  Serial.println("Commercial use with this build of Octoduino is prohibited");
   // Start the bootloader
   Core::init();
 }
