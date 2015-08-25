@@ -38,7 +38,7 @@
 <h2>
 <a id="what-is-it" class="anchor" href="#what-is-it" aria-hidden="true"><span class="octicon octicon-link"></span></a>What is it?</h2>
 
-<p>Octoduino was created to allow novice programmers create programs for the Arduino using any language they want. It also makes use of external SWAP space, so if you decide to do something extremely complex, you aren't limited by the Arduinos small RAM space.</p>
+<p>Octoduino was created to allow novice programmers to create programs for the Arduino using any language they want. It also makes use of external SWAP space, so if you decide to do something extremely complex, you aren't limited by the Arduinos small RAM space.</p>
 
 <h2>
 <a id="documentation" class="anchor" href="#documentation" aria-hidden="true"><span class="octicon octicon-link"></span></a>Documentation</h2>
@@ -64,9 +64,14 @@
 <h2>
 <a id="building" class="anchor" href="#building" aria-hidden="true"><span class="octicon octicon-link"></span></a>Building</h2>
 
-<p><strong><em>As of version 0.1.4, the Arduino IDE cannot be used to build Octoduino</em></strong>. Instead, you have two options. You may either download and flash the pre-compiled <em>.hex</em> files, or you can build the project using PlatformIO. If you are on a Windows computer, we reccommend using the <em>.hex</em> file option (see the docs).</p>
+<p><strong><em>As of version 0.1.4, we do not reccommend building using the Arduino IDE (Wiring-based). See the Wiki for more information</em></strong>. Instead, we have provided multiple build options.</p>
 
-<p>If you are on a Linux or Mac OS X computer and have PlatformIO installed, edit <code>~/build</code> to match your destination board and upload port, then run it.</p>
+<h3>
+<a id="all-platforms" class="anchor" href="#all-platforms" aria-hidden="true"><span class="octicon octicon-link"></span></a>All platforms</h3>
+
+<p>You will need to download <a href="http://github.com/platformio/platformio">PlatformIO</a> for your platform. If you don't already have it, you will need Python to install PlatformIO.</p>
+
+<p>To see instructions for how to build Octoduino on your platform, see the Wiki page: <a href="https://github.com/NETponents/octoduino/wiki/Building">https://github.com/NETponents/octoduino/wiki/Building</a>.</p>
 
 <p>If you need help, see the documentation or talk to us on our Gitter channel.</p>
 
