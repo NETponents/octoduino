@@ -89,81 +89,128 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </div><!--header-->
 <div class="contents">
 <a href="oethernet_8cpp.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#include &lt;Arduino.h&gt;</span></div>
-<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="preprocessor">#include &lt;SPI.h&gt;</span></div>
-<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="preprocessor">#include &lt;Ethernet.h&gt;</span></div>
-<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="crash_8h.html">crash.h</a>&quot;</span></div>
-<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="oethernet_8h.html">oethernet.h</a>&quot;</span></div>
-<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;</div>
-<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;EthernetServer <a class="code" href="oethernet_8cpp.html#a1b797d96661a0747845e0bb55446ed2b">esvr</a>(80);</div>
-<div class="line"><a name="l00008"></a><span class="lineno"><a class="line" href="classoEthernet.html#a2214b6802e2592cfa2eb2e8c6184d27e">    8</a></span>&#160;<a class="code" href="classoEthernet.html#a2214b6802e2592cfa2eb2e8c6184d27e">oEthernet::oEthernet</a>(<span class="keywordtype">int</span> _ID) : <a class="code" href="classTask.html">Task</a>(_ID)</div>
-<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;{</div>
-<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;    <span class="comment">// Don&#39;t do anything since this is the universal initializer</span></div>
-<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;}</div>
-<div class="line"><a name="l00015"></a><span class="lineno"><a class="line" href="classoEthernet.html#a65f577f9d0da5b68db71763f7c5cf67b">   15</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="classoEthernet.html#a65f577f9d0da5b68db71763f7c5cf67b">oEthernet::init</a>()</div>
-<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;{</div>
-<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;    <span class="comment">// Initialize ethernet object</span></div>
-<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;    byte mac[] = {0xDE, 0xAD, 0xBE, 0xEF, 0xFE, 0xED};</div>
-<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;    IPAddress ip(192, 168, 1, 200);</div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;    Ethernet.begin(mac, ip);</div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;    this-&gt;esvr.begin();</div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;    Serial.print(<span class="stringliteral">&quot;HTTP server open: &quot;</span>);</div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;    Serial.println(Ethernet.localIP());</div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;}</div>
-<div class="line"><a name="l00025"></a><span class="lineno"><a class="line" href="classoEthernet.html#a6d93bb9488e3961de7c2ee24a791b456">   25</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="classoEthernet.html#a6d93bb9488e3961de7c2ee24a791b456">oEthernet::step</a>()</div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;{</div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;  EthernetClient client = this-&gt;esvr.available();</div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;  <span class="keywordflow">if</span> (client)</div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;  {</div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;    <span class="comment">// an http request ends with a blank line</span></div>
-<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;    <span class="keywordtype">boolean</span> currentLineIsBlank = <span class="keyword">true</span>;</div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;    <span class="keywordflow">while</span> (client.connected())</div>
-<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;    {</div>
-<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;      <span class="keywordflow">if</span> (client.available())</div>
-<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;      {</div>
-<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;        <span class="keywordtype">char</span> c = client.read();</div>
-<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;        Serial.write(c);</div>
-<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;        <span class="comment">// if you&#39;ve gotten to the end of the line (received a newline</span></div>
-<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;        <span class="comment">// character) and the line is blank, the http request has ended,</span></div>
-<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;        <span class="comment">// so you can send a reply</span></div>
-<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;        <span class="keywordflow">if</span> (c == <span class="charliteral">&#39;\n&#39;</span> &amp;&amp; currentLineIsBlank) {</div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;          <span class="comment">// send a standard http response header</span></div>
-<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;          client.println(<span class="stringliteral">&quot;HTTP/1.1 200 OK&quot;</span>);</div>
-<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;          client.println(<span class="stringliteral">&quot;Content-Type: text/html&quot;</span>);</div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;          client.println(<span class="stringliteral">&quot;Connection: close&quot;</span>);  <span class="comment">// the connection will be closed after completion of the response</span></div>
-<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;          client.println(<span class="stringliteral">&quot;Refresh: 5&quot;</span>);  <span class="comment">// refresh the page automatically every 5 sec</span></div>
-<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;          client.println();</div>
-<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;          client.println(<span class="stringliteral">&quot;&lt;!DOCTYPE HTML&gt;&quot;</span>);</div>
-<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;          client.println(<span class="stringliteral">&quot;&lt;html&gt;&quot;</span>);</div>
-<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;          client.println(<span class="stringliteral">&quot;&lt;h1&gt;Not supported yet...&lt;/h1&gt;&quot;</span>);</div>
-<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;          client.println(<span class="stringliteral">&quot;&lt;/html&gt;&quot;</span>);</div>
-<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;          <span class="keywordflow">break</span>;</div>
-<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;        }</div>
-<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;        <span class="keywordflow">if</span> (c == <span class="charliteral">&#39;\n&#39;</span>) {</div>
-<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;          <span class="comment">// you&#39;re starting a new line</span></div>
-<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;          currentLineIsBlank = <span class="keyword">true</span>;</div>
-<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;        } <span class="keywordflow">else</span> <span class="keywordflow">if</span> (c != <span class="charliteral">&#39;\r&#39;</span>) {</div>
-<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;          <span class="comment">// you&#39;ve gotten a character on the current line</span></div>
-<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;          currentLineIsBlank = <span class="keyword">false</span>;</div>
-<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;        }</div>
-<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;      }</div>
-<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;    }</div>
-<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;    <span class="comment">// give the web browser time to receive the data</span></div>
-<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;    delay(1);</div>
-<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;    <span class="comment">// close the connection:</span></div>
-<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;    client.stop();</div>
-<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;  }</div>
-<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;}</div>
-<div class="ttc" id="classoEthernet_html_a65f577f9d0da5b68db71763f7c5cf67b"><div class="ttname"><a href="classoEthernet.html#a65f577f9d0da5b68db71763f7c5cf67b">oEthernet::init</a></div><div class="ttdeci">void init()</div><div class="ttdef"><b>Definition:</b> <a href="oethernet_8cpp_source.html#l00015">oethernet.cpp:15</a></div></div>
-<div class="ttc" id="classoEthernet_html_a2214b6802e2592cfa2eb2e8c6184d27e"><div class="ttname"><a href="classoEthernet.html#a2214b6802e2592cfa2eb2e8c6184d27e">oEthernet::oEthernet</a></div><div class="ttdeci">oEthernet(int _ID)</div><div class="ttdef"><b>Definition:</b> <a href="oethernet_8cpp_source.html#l00008">oethernet.cpp:8</a></div></div>
+<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="preprocessor">#include &lt;SD.h&gt;</span></div>
+<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="preprocessor">#include &lt;SPI.h&gt;</span></div>
+<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="preprocessor">#include &lt;Ethernet.h&gt;</span></div>
+<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="crash_8h.html">crash.h</a>&quot;</span></div>
+<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="oethernet_8h.html">oethernet.h</a>&quot;</span></div>
+<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;</div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;EthernetServer <a class="code" href="oethernet_8cpp.html#a1b797d96661a0747845e0bb55446ed2b">esvr</a>(80);</div>
+<div class="line"><a name="l00009"></a><span class="lineno"><a class="line" href="classoEthernet.html#a2214b6802e2592cfa2eb2e8c6184d27e">    9</a></span>&#160;<a class="code" href="classoEthernet.html#a2214b6802e2592cfa2eb2e8c6184d27e">oEthernet::oEthernet</a>(<span class="keywordtype">int</span> _ID) : <a class="code" href="classTask.html">Task</a>(_ID)</div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;{</div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;    <span class="comment">// Don&#39;t do anything since this is the universal initializer</span></div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;}</div>
+<div class="line"><a name="l00016"></a><span class="lineno"><a class="line" href="classoEthernet.html#a65f577f9d0da5b68db71763f7c5cf67b">   16</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="classoEthernet.html#a65f577f9d0da5b68db71763f7c5cf67b">oEthernet::init</a>()</div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;{</div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;    <span class="comment">// Initialize ethernet object</span></div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;    byte mac[] = {0xDE, 0xAD, 0xBE, 0xEF, 0xFE, 0xED};</div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;    IPAddress ip(192, 168, 1, 200);</div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;    Ethernet.begin(mac, ip);</div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;    this-&gt;<a class="code" href="oethernet_8cpp.html#a1b797d96661a0747845e0bb55446ed2b">esvr</a>.begin();</div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;    Serial.print(<span class="stringliteral">&quot;HTTP server open: &quot;</span>);</div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;    Serial.println(Ethernet.localIP());</div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;}</div>
+<div class="line"><a name="l00026"></a><span class="lineno"><a class="line" href="classoEthernet.html#a6d93bb9488e3961de7c2ee24a791b456">   26</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="classoEthernet.html#a6d93bb9488e3961de7c2ee24a791b456">oEthernet::step</a>()</div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;{</div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;  EthernetClient client = this-&gt;<a class="code" href="oethernet_8cpp.html#a1b797d96661a0747845e0bb55446ed2b">esvr</a>.available();</div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;  <span class="keywordflow">if</span> (client)</div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;  {</div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;    <span class="comment">// an http request ends with a blank line</span></div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;    <span class="keywordtype">boolean</span> currentLineIsBlank = <span class="keyword">true</span>;</div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;    <span class="keywordflow">while</span> (client.connected())</div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;    {</div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;      <span class="keywordflow">if</span> (client.available())</div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;      {</div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;        <span class="keywordtype">char</span> c = client.read();</div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;        <span class="comment">//Serial.write(c);</span></div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;        <span class="comment">// if you&#39;ve gotten to the end of the line (received a newline</span></div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;        <span class="comment">// character) and the line is blank, the http request has ended,</span></div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;        <span class="comment">// so you can send a reply</span></div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;        <span class="keywordflow">if</span> (c == <span class="charliteral">&#39;\n&#39;</span> &amp;&amp; currentLineIsBlank) {</div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;          <span class="comment">// send a standard http response header</span></div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;          client.println(<span class="stringliteral">&quot;HTTP/1.1 200 OK&quot;</span>);</div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;          client.println(<span class="stringliteral">&quot;Content-Type: text/html&quot;</span>);</div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;          client.println(<span class="stringliteral">&quot;Connection: close&quot;</span>);  <span class="comment">// the connection will be closed after completion of the response</span></div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;          client.println(<span class="stringliteral">&quot;Refresh: 5&quot;</span>);  <span class="comment">// refresh the page automatically every 5 sec</span></div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;          client.println();</div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;          File wpage = SD.open(<span class="stringliteral">&quot;/web/index1.htm&quot;</span>);</div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;          <span class="keywordflow">while</span>(wpage.available())</div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;          {</div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;            <span class="keywordflow">if</span>(<span class="keywordtype">char</span>(wpage.peek()) == <span class="charliteral">&#39;%&#39;</span>)</div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;            {</div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;              wpage.read();</div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;              <span class="comment">// Board type</span></div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;              <span class="keywordflow">if</span>(<span class="keywordtype">char</span>(wpage.peek()) == <span class="charliteral">&#39;1&#39;</span>)</div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;              {</div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;                client.print(<span class="stringliteral">&quot;N/I&quot;</span>);</div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;              }</div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;              <span class="comment">// Build number</span></div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;              <span class="keywordflow">else</span> <span class="keywordflow">if</span>(<span class="keywordtype">char</span>(wpage.peek()) == <span class="charliteral">&#39;2&#39;</span>)</div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;              {</div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;<span class="preprocessor">                #ifdef BUILDPIPE_BNUM</span></div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;<span class="preprocessor"></span>                  client.print(BUILDPIPE_BNUM);</div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;<span class="preprocessor">                #else</span></div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;<span class="preprocessor"></span>                  client.print(<span class="stringliteral">&quot;local&quot;</span>);</div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;<span class="preprocessor">                #endif</span></div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;<span class="preprocessor"></span>              }</div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;              <span class="comment">// Build version</span></div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;              <span class="keywordflow">else</span> <span class="keywordflow">if</span>(<span class="keywordtype">char</span>(wpage.peek()) == <span class="charliteral">&#39;3&#39;</span>)</div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;              {</div>
+<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;                client.print(<span class="stringliteral">&quot;v0.2.0a&quot;</span>);</div>
+<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;              }</div>
+<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;              <span class="comment">// State</span></div>
+<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;              <span class="keywordflow">else</span> <span class="keywordflow">if</span>(<span class="keywordtype">char</span>(wpage.peek()) == <span class="charliteral">&#39;4&#39;</span>)</div>
+<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;              {</div>
+<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;                client.print(<span class="stringliteral">&quot;N/I&quot;</span>);</div>
+<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;              }</div>
+<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;              <span class="comment">// Current file</span></div>
+<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;              <span class="keywordflow">else</span> <span class="keywordflow">if</span>(<span class="keywordtype">char</span>(wpage.peek()) == <span class="charliteral">&#39;5&#39;</span>)</div>
+<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;              {</div>
+<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;                client.print(<span class="stringliteral">&quot;N/I&quot;</span>);</div>
+<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;              }</div>
+<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;              <span class="comment">// Last command run</span></div>
+<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;              <span class="keywordflow">else</span> <span class="keywordflow">if</span>(<span class="keywordtype">char</span>(wpage.peek()) == <span class="charliteral">&#39;6&#39;</span>)</div>
+<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;              {</div>
+<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;                client.print(<span class="stringliteral">&quot;N/I&quot;</span>);</div>
+<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;              }</div>
+<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;              <span class="keywordflow">else</span></div>
+<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;              {</div>
+<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;                client(<span class="stringliteral">&quot;Embed code not found&quot;</span>);</div>
+<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;              }</div>
+<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;            }</div>
+<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;            <span class="keywordflow">else</span></div>
+<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;            {</div>
+<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;              client.print(wpage.read());</div>
+<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;            }</div>
+<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;          }</div>
+<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;          <span class="keywordflow">break</span>;</div>
+<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;        }</div>
+<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;        <span class="keywordflow">if</span> (c == <span class="charliteral">&#39;\n&#39;</span>) {</div>
+<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;          <span class="comment">// you&#39;re starting a new line</span></div>
+<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;          currentLineIsBlank = <span class="keyword">true</span>;</div>
+<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;        } <span class="keywordflow">else</span> <span class="keywordflow">if</span> (c != <span class="charliteral">&#39;\r&#39;</span>) {</div>
+<div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;          <span class="comment">// you&#39;ve gotten a character on the current line</span></div>
+<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;          currentLineIsBlank = <span class="keyword">false</span>;</div>
+<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;        }</div>
+<div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;      }</div>
+<div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;    }</div>
+<div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;    <span class="comment">// give the web browser time to receive the data</span></div>
+<div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160;    delay(1);</div>
+<div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160;    <span class="comment">// close the connection:</span></div>
+<div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160;    client.stop();</div>
+<div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160;  }</div>
+<div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160;}</div>
+<div class="ttc" id="classoEthernet_html_a65f577f9d0da5b68db71763f7c5cf67b"><div class="ttname"><a href="classoEthernet.html#a65f577f9d0da5b68db71763f7c5cf67b">oEthernet::init</a></div><div class="ttdeci">void init()</div><div class="ttdef"><b>Definition:</b> <a href="oethernet_8cpp_source.html#l00016">oethernet.cpp:16</a></div></div>
+<div class="ttc" id="classoEthernet_html_a2214b6802e2592cfa2eb2e8c6184d27e"><div class="ttname"><a href="classoEthernet.html#a2214b6802e2592cfa2eb2e8c6184d27e">oEthernet::oEthernet</a></div><div class="ttdeci">oEthernet(int _ID)</div><div class="ttdef"><b>Definition:</b> <a href="oethernet_8cpp_source.html#l00009">oethernet.cpp:9</a></div></div>
 <div class="ttc" id="oethernet_8cpp_html_a1b797d96661a0747845e0bb55446ed2b"><div class="ttname"><a href="oethernet_8cpp.html#a1b797d96661a0747845e0bb55446ed2b">esvr</a></div><div class="ttdeci">EthernetServer esvr(80)</div></div>
 <div class="ttc" id="oethernet_8h_html"><div class="ttname"><a href="oethernet_8h.html">oethernet.h</a></div></div>
 <div class="ttc" id="crash_8h_html"><div class="ttname"><a href="crash_8h.html">crash.h</a></div></div>
-<div class="ttc" id="classoEthernet_html_a6d93bb9488e3961de7c2ee24a791b456"><div class="ttname"><a href="classoEthernet.html#a6d93bb9488e3961de7c2ee24a791b456">oEthernet::step</a></div><div class="ttdeci">void step()</div><div class="ttdef"><b>Definition:</b> <a href="oethernet_8cpp_source.html#l00025">oethernet.cpp:25</a></div></div>
+<div class="ttc" id="classoEthernet_html_a6d93bb9488e3961de7c2ee24a791b456"><div class="ttname"><a href="classoEthernet.html#a6d93bb9488e3961de7c2ee24a791b456">oEthernet::step</a></div><div class="ttdeci">void step()</div><div class="ttdef"><b>Definition:</b> <a href="oethernet_8cpp_source.html#l00026">oethernet.cpp:26</a></div></div>
 <div class="ttc" id="classTask_html"><div class="ttname"><a href="classTask.html">Task</a></div><div class="ttdef"><b>Definition:</b> <a href="task_8h_source.html#l00011">task.h:11</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Tue Aug 25 2015 17:23:22 for Octoduino by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Wed Aug 26 2015 16:01:56 for Octoduino by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.6
 </small></address>

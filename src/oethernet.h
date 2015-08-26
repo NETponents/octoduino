@@ -18,7 +18,7 @@
         oEthernet(int _ID);
         void init();
         void step();
-      private:
-        EthernetServer esvr = new EthernetServer(80);
+      //private:
+        //EthernetServer esvr = new EthernetServer(80);
   };
 #endif

@@ -1,4 +1,5 @@
 #include <Arduino.h>
+#include <SD.h>
 #include <SPI.h>
 #include <Ethernet.h>
 #include "crash.h"
@@ -34,7 +35,7 @@ void oEthernet::step()
       if (client.available())
       {
         char c = client.read();
-        Serial.write(c);
+        //Serial.write(c);
         // if you've gotten to the end of the line (received a newline
         // character) and the line is blank, the http request has ended,
         // so you can send a reply
@@ -45,10 +46,56 @@ void oEthernet::step()
           client.println("Connection: close");  // the connection will be closed after completion of the response
           client.println("Refresh: 5");  // refresh the page automatically every 5 sec
           client.println();
-          client.println("<!DOCTYPE HTML>");
-          client.println("<html>");
-          client.println("<h1>Not supported yet...</h1>");
-          client.println("</html>");
+          File wpage = SD.open("/web/index1.htm");
+          while(wpage.available())
+          {
+            if(char(wpage.peek()) == '%')
+            {
+              wpage.read();
+              // Board type
+              if(char(wpage.peek()) == '1')
+              {
+                client.print("N/I");
+              }
+              // Build number
+              else if(char(wpage.peek()) == '2')
+              {
+                #ifdef BUILDPIPE_BNUM
+                  client.print(BUILDPIPE_BNUM);
+                #else
+                  client.print("local");
+                #endif
+              }
+              // Build version
+              else if(char(wpage.peek()) == '3')
+              {
+                client.print("v0.2.0a");
+              }
+              // State
+              else if(char(wpage.peek()) == '4')
+              {
+                client.print("N/I");
+              }
+              // Current file
+              else if(char(wpage.peek()) == '5')
+              {
+                client.print("N/I");
+              }
+              // Last command run
+              else if(char(wpage.peek()) == '6')
+              {
+                client.print("N/I");
+              }
+              else
+              {
+                client("Embed code not found");
+              }
+            }
+            else
+            {
+              client.print(wpage.read());
+            }
+          }
           break;
         }
         if (c == '\n') {
