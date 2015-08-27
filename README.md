@@ -29,26 +29,8 @@ Next, you'll need to grab a copy of our code from GitHub:
 
      git clone http://github.com/NETponents/octoduino.git
  
-## Building
-
-***As of version 0.1.4, we do not reccommend building using the Arduino IDE (Wiring-based). See the Wiki for more information***. Instead, we have provided multiple build options.
-
-### All platforms
-You will need to download [PlatformIO](http://github.com/platformio/platformio) for your platform. If you don't already have it, you will need Python to install PlatformIO.
-
-To see instructions for how to build Octoduino on your platform, see the Wiki page: https://github.com/NETponents/octoduino/wiki/Building.
-
-If you need help, see the documentation or talk to us on our Gitter channel.
-
-## Setting up
-
-Follow these instructions once you flash over the Octoduino bootloader in the step above.
-
-Now take your SD/microSD card and format it to FAT32. Then copy everything ***IN*** the *~/boot* folder to the card. Now you may add your own code files in the root of the SD card (see the documentation on how to name your files). Due to a limitation of the SDFAT library, your file names must conform to the 8.3 standard. This means that the name of the file may only be 8 characters long, and the extension may only be 3 characters long.
-
-Lastly, create a file at the root of the card called *lang.oct* and inside of it, put `pb`. This tells Octoduino to use the ParseBasic interpreter (the only one available right now).
-
-Now you get to run your program. Insert your SD card into your shield, then attach it to your Arduino. Make sure you have a serial console open and it is set to your Arduinos COM/tty port. Apply power and you should see your program execute. If you hit a bug, be sure to file an issue on GitHub with your system details.
+## How do I install it?
+See our [Wiki article](https://github.com/NETponents/octoduino/wiki/Building) with the latest information.
 
 ## Do you support non-Arduino products?
 Energia is a popular tool used to deploy Arduino code on a vast array of devices. Energia devices are not supported at this time. The reason being that no usable SDFAT library exists for non-Arduino devices. In addition, the Octoduino bootloader is too big to fit on any MSP430 devices, so we decided to not support any Energia devices for now, however we may look at it in the future.
