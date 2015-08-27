@@ -1,25 +1,42 @@
-<!DOCTYPE html>
-<html lang="en-us">
-  <head>
-    <meta charset="UTF-8">
-    <title>Octoduino by NETponents</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" type="text/css" href="stylesheets/normalize.css" media="screen">
-    <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
-    <link rel="stylesheet" type="text/css" href="stylesheets/stylesheet.css" media="screen">
-    <link rel="stylesheet" type="text/css" href="stylesheets/github-light.css" media="screen">
-  </head>
-  <body>
-    <section class="page-header">
-      <h1 class="project-name">Octoduino</h1>
-      <h2 class="project-tagline">Arduino sketch that allows programming in multiple scripting languages from an SD card.</h2>
-      <a href="https://github.com/NETponents/octoduino" class="btn">View on GitHub</a>
-      <a href="https://github.com/NETponents/octoduino/zipball/master" class="btn">Download .zip</a>
-      <a href="https://github.com/NETponents/octoduino/tarball/master" class="btn">Download .tar.gz</a>
-    </section>
+<!doctype html>
+<!-- The Time Machine GitHub pages theme was designed and developed by Jon Rohan, on Feb 7, 2012. -->
+<!-- Follow him for fun. http://twitter.com/jonrohan. Tail his code on https://github.com/jonrohan -->
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 
-    <section class="main-content">
-      <h1>
+  <link rel="stylesheet" href="stylesheets/stylesheet.css" media="screen">
+  <link rel="stylesheet" href="stylesheets/github-dark.css">
+  <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+  <script type="text/javascript" src="javascripts/script.js"></script>
+
+  <title>Octoduino</title>
+  <meta name="description" content="Arduino sketch that allows programming in multiple scripting languages from an SD card.">
+
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+
+</head>
+
+<body>
+
+  <div class="wrapper">
+    <header>
+      <h1 class="title">Octoduino</h1>
+    </header>
+    <div id="container">
+      <p class="tagline">Arduino sketch that allows programming in multiple scripting languages from an SD card.</p>
+      <div id="main" role="main">
+        <div class="download-bar">
+        <div class="inner">
+          <a href="https://github.com/NETponents/octoduino/tarball/master" class="download-button tar"><span>Download</span></a>
+          <a href="https://github.com/NETponents/octoduino/zipball/master" class="download-button zip"><span>Download</span></a>
+          <a href="https://github.com/NETponents/octoduino" class="code">View Octoduino on GitHub</a>
+        </div>
+        <span class="blc"></span><span class="trc"></span>
+        </div>
+        <article class="markdown-body">
+          <h1>
 <a id="octoduino" class="anchor" href="#octoduino" aria-hidden="true"><span class="octicon octicon-link"></span></a>Octoduino</h1>
 
 <p><a href="https://gitter.im/NETponents/octoduino?utm_source=badge&amp;utm_medium=badge&amp;utm_campaign=pr-badge&amp;utm_content=badge"><img src="https://badges.gitter.im/Join%20Chat.svg" alt="Join the chat at https://gitter.im/NETponents/octoduino"></a>
@@ -62,29 +79,9 @@
 </code></pre>
 
 <h2>
-<a id="building" class="anchor" href="#building" aria-hidden="true"><span class="octicon octicon-link"></span></a>Building</h2>
+<a id="how-do-i-install-it" class="anchor" href="#how-do-i-install-it" aria-hidden="true"><span class="octicon octicon-link"></span></a>How do I install it?</h2>
 
-<p><strong><em>As of version 0.1.4, we do not reccommend building using the Arduino IDE (Wiring-based). See the Wiki for more information</em></strong>. Instead, we have provided multiple build options.</p>
-
-<h3>
-<a id="all-platforms" class="anchor" href="#all-platforms" aria-hidden="true"><span class="octicon octicon-link"></span></a>All platforms</h3>
-
-<p>You will need to download <a href="http://github.com/platformio/platformio">PlatformIO</a> for your platform. If you don't already have it, you will need Python to install PlatformIO.</p>
-
-<p>To see instructions for how to build Octoduino on your platform, see the Wiki page: <a href="https://github.com/NETponents/octoduino/wiki/Building">https://github.com/NETponents/octoduino/wiki/Building</a>.</p>
-
-<p>If you need help, see the documentation or talk to us on our Gitter channel.</p>
-
-<h2>
-<a id="setting-up" class="anchor" href="#setting-up" aria-hidden="true"><span class="octicon octicon-link"></span></a>Setting up</h2>
-
-<p>Follow these instructions once you flash over the Octoduino bootloader in the step above.</p>
-
-<p>Now take your SD/microSD card and format it to FAT32. Then copy everything <strong><em>IN</em></strong> the <em>~/boot</em> folder to the card. Now you may add your own code files in the root of the SD card (see the documentation on how to name your files). Due to a limitation of the SDFAT library, your file names must conform to the 8.3 standard. This means that the name of the file may only be 8 characters long, and the extension may only be 3 characters long.</p>
-
-<p>Lastly, create a file at the root of the card called <em>lang.oct</em> and inside of it, put <code>pb</code>. This tells Octoduino to use the ParseBasic interpreter (the only one available right now).</p>
-
-<p>Now you get to run your program. Insert your SD card into your shield, then attach it to your Arduino. Make sure you have a serial console open and it is set to your Arduinos COM/tty port. Apply power and you should see your program execute. If you hit a bug, be sure to file an issue on GitHub with your system details.</p>
+<p>See our <a href="https://github.com/NETponents/octoduino/wiki/Building">Wiki article</a> with the latest information.</p>
 
 <h2>
 <a id="do-you-support-non-arduino-products" class="anchor" href="#do-you-support-non-arduino-products" aria-hidden="true"><span class="octicon octicon-link"></span></a>Do you support non-Arduino products?</h2>
@@ -95,15 +92,26 @@
 <a id="contributing" class="anchor" href="#contributing" aria-hidden="true"><span class="octicon octicon-link"></span></a>Contributing</h2>
 
 <p>I welcome contributions of all kinds. Octoduino is developed by an unpaid high school student and the community. If you know C++, please consider making a code contribution. Please review the guidelines in <strong>~/CONTRIBUTING.md</strong> before starting. Otherwise, I accept donations through Gratipay (badge is at top of README.md).</p>
+        </article>
+      </div>
+    </div>
+    <footer>
+      <div class="owner">
+      <p><a href="https://github.com/NETponents" class="avatar"><img src="https://avatars3.githubusercontent.com/u/12499059?v=3&amp;s=60" width="48" height="48"></a> <a href="https://github.com/NETponents">NETponents</a> maintains <a href="https://github.com/NETponents/octoduino">Octoduino</a></p>
 
-      <footer class="site-footer">
-        <span class="site-footer-owner"><a href="https://github.com/NETponents/octoduino">Octoduino</a> is maintained by <a href="https://github.com/NETponents">NETponents</a>.</span>
 
-        <span class="site-footer-credits">This page was generated by <a href="https://pages.github.com">GitHub Pages</a> using the <a href="https://github.com/jasonlong/cayman-theme">Cayman theme</a> by <a href="https://twitter.com/jasonlong">Jason Long</a>.</span>
-      </footer>
-
-    </section>
+      </div>
+      <div class="creds">
+        <small>This page generated using <a href="https://pages.github.com/">GitHub Pages</a><br>theme by <a href="https://twitter.com/jonrohan/">Jon Rohan</a></small>
+      </div>
+    </footer>
+  </div>
+  <div class="current-section">
+    <a href="#top">Scroll to top</a>
+    <a href="https://github.com/NETponents/octoduino/tarball/master" class="tar">tar</a><a href="https://github.com/NETponents/octoduino/zipball/master" class="zip">zip</a><a href="" class="code">source code</a>
+    <p class="name"></p>
+  </div>
 
   
-  </body>
+</body>
 </html>
