@@ -37,6 +37,14 @@ namespace Octoduino_FrontEnd
                 if (comboBox1.SelectedText == "")
                 {
                     arduinoBoard.PortName = "COM1";
+                    if(checkBox1.Checked)
+                    {
+                        firmataVB1.COMPortName = "COM1";
+                    }
+                }
+                if(checkBox1.Checked)
+                {
+                    firmataVB1.Baud = Convert.ToInt32(textBox1.Text);
                 }
                 else
                 {

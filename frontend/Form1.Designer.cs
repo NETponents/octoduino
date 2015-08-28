@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.tabControl1 = new System.Windows.Forms.TabControl();
@@ -49,6 +50,7 @@
             this.label3 = new System.Windows.Forms.Label();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.button1 = new System.Windows.Forms.Button();
+            this.firmataVB1 = new Firmata.FirmataVB(this.components);
             this.menuStrip1.SuspendLayout();
             this.tabControl1.SuspendLayout();
             this.tabPage2.SuspendLayout();
@@ -280,6 +282,15 @@
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
+            // firmataVB1
+            // 
+            this.firmataVB1.Baud = 115200;
+            this.firmataVB1.BoardType = Firmata.FirmataVB.Board.DUEMILANOVE;
+            this.firmataVB1.COMPortName = "COM2";
+            this.firmataVB1.WithAnalogReceiveEvents = true;
+            this.firmataVB1.WithDigitalReceiveEvents = true;
+            this.firmataVB1.WithVersionReceieveEvents = true;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -333,6 +344,7 @@
         private System.Windows.Forms.WebBrowser webBrowser1;
         private System.Windows.Forms.TabPage tabPage5;
         private System.Windows.Forms.ListBox listBox1;
+        private Firmata.FirmataVB firmataVB1;
     }
 }
 
