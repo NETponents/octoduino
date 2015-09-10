@@ -135,6 +135,10 @@
     {
       return "v0.2.0a";
     }
+    else if(name == "$CONST_NULL")
+    {
+      return "NULL";
+    }
     #ifdef SWAP_CONST_BOOL
       else if(name == "$CONST_true")
       {
