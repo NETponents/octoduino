@@ -139,6 +139,10 @@
     {
       return "NULL";
     }
+    else if(name == "$CONST_EMPTY")
+    {
+      return "";
+    }
     #ifdef SWAP_CONST_BOOL
       else if(name == "$CONST_true")
       {
