@@ -1,1 +1,18 @@
-~
+PRINT "BF Interpreter";
+NEWPRINT;
+PRINT "v0.0.1";
+NEWPRINT;
+NEW $file "E";
+FILEREAD "/usr/run.bf" $file;
+NEW $chr "E";
+GETC $file "0" $chr;
+IFE $chr "<" "/";
+IFE $chr ">" "/";
+IFE $chr "[" "/";
+IFE $chr "]" "/";
+IFE $chr "+" "/";
+IFE $chr "-" "/";
+IFE $chr "." "/";
+IFE $chr "," "/";
+NEWPRINT;
+PRINT "EOF: Closing file";
