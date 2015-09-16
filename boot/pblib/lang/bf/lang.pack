@@ -3,3 +3,4 @@ fullname: BF
 version: 0.0.1
 deps:
   - core
+  - SWAP_CONST_NUM
