@@ -261,7 +261,7 @@
 		/**
 		 * Increments a given variable by 1.
 		 */
-		void Parse::Opcode::Math(String _var)
+		void Parse::Opcode::Math::Increment(String _var)
 		{
 			int operand = 0;
 			String _svar = "";
