@@ -104,6 +104,7 @@
       else if(opcode == "IFE") Parse::Opcode::Logic::IFE(Tokenizer::TKgetToken(line, 1), Tokenizer::TKgetToken(line, 2), Tokenizer::TKgetToken(line, 3));
       else if(opcode == "IFNE") Parse::Opcode::Logic::IFNE(Tokenizer::TKgetToken(line, 1), Tokenizer::TKgetToken(line, 2), Tokenizer::TKgetToken(line, 3));
       else if(opcode == "CREATESWAP") Parse::Opcode::System::SWAP::CREATESWAP();
+      else if(opcode == "INCREMENT") Parse::Opcode::Math::Increment(Tokenizer::TKgetToken(line, 1));
       else if(opcode == "IO") Parse::Opcode::IO::Ports::IO(Tokenizer::TKgetToken(line, 1), Tokenizer::TKgetToken(line, 2));
       else if(opcode == "NEW") Parse::Opcode::System::SWAP::NEW(Tokenizer::TKgetToken(line, 1), Tokenizer::TKgetToken(line, 2));
       else if(opcode == "DELETE") Parse::Opcode::System::SWAP::DELETE(Tokenizer::TKgetToken(line, 1));
@@ -257,7 +258,18 @@
           Crash::forceHalt("Ex000");
         #endif
       }
-
+		/**
+		 * Increments a given variable by 1.
+		 */
+		void Parse::Opcode::Math::Increment(String _var)
+		{
+			int operand = 0;
+			String _svar = "";
+			_svar = Swap::read(_var);
+			operand = int(_svar.c_str());
+			operand++;
+			Swap::update(_var, String(operand));
+		}
         /**
          * DEPRECIATED: creates the swap directory.
          */
