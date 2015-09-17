@@ -32,7 +32,7 @@
 	  class Math
 	  {
 	  	public:
-	  	  static void Math(String _var);
+	  	  static void Increment(String _var);
 	  };
 	  class IO
       {
