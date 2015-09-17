@@ -1,4 +1,4 @@
-# BF
+# BF Library
 ### Overview
 Contains libraries to interpret standard BF code.
 
