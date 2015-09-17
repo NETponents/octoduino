@@ -29,6 +29,11 @@
     class Opcode
     {
 	public:
+	  class Math
+	  {
+	  	public:
+	  	  static void Parse::Opcode::Math(String _var);
+	  };
 	  class IO
       {
 	  public:
