@@ -5,7 +5,7 @@ NEWPRINT;
 NEW $file "E";
 FILEREAD "/usr/run.bf" $file;
 NEW $chr "E";
-GETC $file "0" $chr;
+NEW $ctr "0";
 EXTLOAD "/pblib/lang/bf/loop.pba";
 NEWPRINT;
 PRINT "EOF: Closing file";
