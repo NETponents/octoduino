@@ -32,7 +32,7 @@
 	  class Math
 	  {
 	  	public:
-	  	  static void Parse::Opcode::Math(String _var);
+	  	  static void Math(String _var);
 	  };
 	  class IO
       {
